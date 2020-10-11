@@ -7,6 +7,7 @@ import { Node, NodeType } from './components';
 
 const SCALE = 3;
 const buildSeparator = '-';
+const urlSeparator = '?';
 
 export function TalentSimulator() {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
@@ -16,13 +17,11 @@ export function TalentSimulator() {
   const [imporBuildString, setImportBuildString] = useState('');
 
   useEffect(() => {
-    const pathParts = window.location.href.split('/');
-    const buildIndex = pathParts.indexOf('immortal-reborn-simulators') + 1;
-    const buildString = pathParts[buildIndex];
+    const pathParts = window.location.href.split(urlSeparator);
+    const buildString = pathParts[1];
     if (buildString) {
       importBuild(buildString);
-      pathParts.splice(buildIndex);
-      window.history.pushState('some state', 'some title', pathParts.join('/'));
+      window.history.pushState('some state', 'some title', pathParts[0]);
     }
   });
 
@@ -183,7 +182,7 @@ export function TalentSimulator() {
               fill={false}
               primary
               label={'导出超链接'}
-              onClick={() => navigator.clipboard.writeText(`${window.location.href}/${getBuild()}`)}
+              onClick={() => navigator.clipboard.writeText(`${window.location.href}${urlSeparator}${getBuild()}`)}
             />
           </Grid>
           <TextInput
