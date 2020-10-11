@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View this project at [Immortal Reborn Simulators](https://mintyknight.github.io/immortal-reborn-simulators/).
 
 ## Available Scripts
 
