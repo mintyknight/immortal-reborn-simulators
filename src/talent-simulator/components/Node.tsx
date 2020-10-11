@@ -21,11 +21,13 @@ export const Node = ({
   onClick,
   tooltip,
   showTooltip,
+  searchString,
 }: NodeProps) => {
   const circleRadius = 2.5;
-  const sideLength = circleRadius * 2;
+  const sideLength = circleRadius * 4;
 
   let isOpen = false;
+  let isFound = false;
 
   if (!isSelected) {
     isOpen =
@@ -34,14 +36,13 @@ export const Node = ({
       nextNodesIndexes.find(nodeIndex => nodes[nodeIndex].isSelected) !== undefined;
   }
 
-  const isClickable = isSelected || isOpen;
+  // TODO: Search should be done with special search key word string
+  // so the compound node could be found correctly
+  if (searchString && tooltip?.includes(searchString)) {
+    isFound = true;
+  }
 
-  // if (isOpen) {
-  //   o
-  // }
-  // console.log('#Yuyu ', id, prevNodesIndexes, nextNodesIndexes);
-  // console.log('#Yuyu ', id, nodes[id]);
-  // console.log('#Yuyu nodes', nodes);
+  const isClickable = isSelected || isOpen;
 
   return (
     <>
@@ -59,8 +60,8 @@ export const Node = ({
         );
       })}
       <svg
-        x={x - circleRadius}
-        y={y - circleRadius}
+        x={x - circleRadius * 2}
+        y={y - circleRadius * 2}
         width={sideLength}
         height={sideLength}
         viewBox={`0 0 ${sideLength} ${sideLength}`}
@@ -68,12 +69,14 @@ export const Node = ({
         style={isClickable ? { cursor: 'pointer' } : undefined}>
         <SvgTooltip tooltip={tooltip || ''} forceShow={showTooltip}>
           <circle
-            cx={circleRadius}
-            cy={circleRadius}
+            cx={circleRadius * 2}
+            cy={circleRadius * 2}
             r={circleRadius}
             fill={isSelected ? 'blue' : isOpen ? 'green' : 'gray'}></circle>
         </SvgTooltip>
+        {isFound && <circle cx={circleRadius * 2} cy={circleRadius * 2} r={4} stroke={'red'} fillOpacity={0}></circle>}
       </svg>
+      <svg></svg>
     </>
   );
 };

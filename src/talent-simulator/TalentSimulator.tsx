@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heading, Button, Text, Grid, Box } from 'grommet';
+import { Heading, Button, Text, Grid, Box, TextInput } from 'grommet';
 
 import { MAX_VALUE, NODES } from './Constants';
 
@@ -11,6 +11,7 @@ export function TalentSimulator() {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
   const [totalPoints, setTotalPoints] = useState(0);
   const [summary, setSummary] = useState({} as { [key: string]: number | undefined });
+  const [searchString, setsearchString] = React.useState('');
 
   const getSize = (maxValue: any) => {
     const width = maxValue.x * 20 + 20;
@@ -69,7 +70,6 @@ export function TalentSimulator() {
     const _node = nodes[index];
     const _nodes = [...nodes];
     _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
-    // console.log('#Yuyu ', _nodes);
     setTotalPoints(totalPoints + (_node.isSelected ? -_node.point : _node.point));
     setNodes(_nodes);
     const _summary = { ...summary };
@@ -79,7 +79,6 @@ export function TalentSimulator() {
       _summary[_node.name] = _node.value;
     }
     setSummary(_summary);
-    console.log('#Yuyu ', _summary);
   };
 
   const clearAll = () => {
@@ -117,13 +116,18 @@ export function TalentSimulator() {
             />
             <Button gridArea="button2" fill={false} primary label={'重置'} onClick={() => clearAll()} />
           </Grid>
-          <Heading size="small">{totalPoints}</Heading>
+          <TextInput
+            placeholder="搜索星图"
+            value={searchString}
+            onChange={event => setsearchString(event.target.value)}
+          />
+          <Heading size="none">{`需要：${totalPoints}星图点`}</Heading>
           {Object.keys(summary).map(key => {
             const value = summary[key];
             if (value === undefined) {
-              return <Text>{key}</Text>;
+              return <Text key={key}>{key}</Text>;
             } else if (value > 0) {
-              return <Text>{`${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`}</Text>;
+              return <Text key={key}>{`${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`}</Text>;
             }
             return null;
           })}
@@ -138,6 +142,7 @@ export function TalentSimulator() {
                 onClick={() => onClick(node.id)}
                 nodes={nodes}
                 showTooltip={showAllTooltip}
+                searchString={searchString}
                 key={node.id}></Node>
             ))}
           </svg>
