@@ -5,7 +5,7 @@ import { MAX_VALUE, NODES } from './Constants';
 
 import { Node, NodeType } from './components';
 
-const SCALE = 3;
+// const SCALE = 4;
 const buildSeparator = '-';
 const urlSeparator = '?';
 
@@ -146,16 +146,17 @@ export function TalentSimulator() {
         <Box gridArea="stats" pad={'10px'} background="light-5">
           <Grid
             fill="horizontal"
-            rows={['xxsmall', 'xxsmall', 'xxsmall']}
-            columns={['45%', '45%']}
+            rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
+            columns={['22%', '22%', '22%', '22%']}
             gap="small"
             areas={[
-              { name: 'showAll', start: [0, 0], end: [0, 0] },
-              { name: 'resetAll', start: [1, 0], end: [1, 0] },
-              { name: 'importString', start: [0, 1], end: [0, 1] },
-              { name: 'importButton', start: [1, 1], end: [1, 1] },
-              { name: 'currentBuild', start: [0, 2], end: [0, 2] },
-              { name: 'exportButton', start: [1, 2], end: [1, 2] },
+              { name: 'showAll', start: [2, 0], end: [2, 0] },
+              { name: 'resetAll', start: [3, 0], end: [3, 0] },
+              { name: 'importString', start: [0, 1], end: [2, 1] },
+              { name: 'importButton', start: [3, 1], end: [3, 1] },
+              { name: 'currentBuild', start: [0, 2], end: [2, 2] },
+              { name: 'exportButton', start: [3, 2], end: [3, 2] },
+              { name: 'searchBar', start: [0, 3], end: [3, 3] },
             ]}>
             <Button
               gridArea="showAll"
@@ -181,15 +182,21 @@ export function TalentSimulator() {
               gridArea="exportButton"
               fill={false}
               primary
-              label={'导出超链接'}
-              onClick={() => navigator.clipboard.writeText(`${window.location.href}${urlSeparator}${getBuild()}`)}
+              label={'导出链接'}
+              onClick={() => {
+                const link = `${window.location.href}${urlSeparator}${getBuild()}`;
+                navigator.clipboard.writeText(link).then(() => alert(`链接已复制到剪贴板，请粘贴使用\n${link}`));
+              }}
             />
+            <Box gridArea="searchBar" background="light-5">
+              <TextInput
+                placeholder="搜索星图"
+                value={searchString}
+                onChange={event => setsearchString(event.target.value)}
+              />
+            </Box>
           </Grid>
-          <TextInput
-            placeholder="搜索星图"
-            value={searchString}
-            onChange={event => setsearchString(event.target.value)}
-          />
+
           <Heading size="none">{`需要：${totalPoints}星图点`}</Heading>
           {Object.keys(summary).map(key => {
             const value = summary[key];
@@ -202,8 +209,8 @@ export function TalentSimulator() {
           })}
         </Box>
         <Box gridArea="starMap" background="light-2">
-          <svg width={size.width * SCALE} height={size.height * SCALE} viewBox={size.viewBox}>
-            <rect x={-10} y={-10} width="100%" height="100%" fill="Cyan"></rect>
+          <svg width={'100%'} viewBox={size.viewBox}>
+            <rect x={-10} y={-5} width="100%" height="100%" fill="Cyan"></rect>
 
             {nodes.map(node => (
               <Node
