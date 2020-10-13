@@ -3,7 +3,7 @@ export type NodeType = {
   x: number;
   y: number;
   isSelected: boolean;
-  point: 3 | 4 | 5;
+  point: 1 | 2 | 3 | 4 | 5;
   name: string;
   value?: number;
   description?: string;
