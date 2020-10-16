@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "025cb37ae9e4787eb4d32f2a78650603",
+    "revision": "adf0b09d95b315566ec9985afe6a5f29",
     "url": "/immortal-reborn-simulators/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/immortal-reborn-simulators/static/js/2.d0239587.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7b0cb9fba0313273014f",
-    "url": "/immortal-reborn-simulators/static/js/main.e6068bee.chunk.js"
+    "revision": "52d1cad002aa65f15fdf",
+    "url": "/immortal-reborn-simulators/static/js/main.d44cced6.chunk.js"
   },
   {
     "revision": "5c110a98170b00261e78",
