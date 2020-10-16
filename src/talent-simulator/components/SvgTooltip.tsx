@@ -57,11 +57,7 @@ export const SvgTooltip = ({ children, tooltip, forceShow }: SvgTooltipProps) =>
           {/* 2. somehow top level AppContainer is rendered after some grommet component; */}
           {/* therefore, adding a local AppContainer to workaround this potential issue */}
           {targetReady && (showTooltip || forceShow) && target.current && (
-            <Drop
-              align={{ bottom: 'top' }}
-              target={target.current}
-              // trapFocus set to false allows tabbing through
-              trapFocus={false}>
+            <Drop align={{ top: 'bottom' }} target={target.current}>
               {tooltip}
             </Drop>
           )}

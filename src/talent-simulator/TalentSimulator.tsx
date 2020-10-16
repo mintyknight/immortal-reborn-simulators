@@ -8,6 +8,7 @@ import { Node, NodeType } from './components';
 // const SCALE = 4;
 const buildSeparator = '-';
 const urlSeparator = '?';
+const startingTowerLevel = 160;
 
 export function TalentSimulator() {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
@@ -15,6 +16,7 @@ export function TalentSimulator() {
   const [summary, setSummary] = useState({} as { [key: string]: number | undefined });
   const [searchString, setsearchString] = useState('');
   const [imporBuildString, setImportBuildString] = useState('');
+  const [towerLevel, setTowerLevel] = useState(startingTowerLevel);
 
   useEffect(() => {
     const pathParts = window.location.href.split(urlSeparator);
@@ -158,7 +160,8 @@ export function TalentSimulator() {
               { name: 'importButton', start: [3, 1], end: [3, 1] },
               { name: 'currentBuild', start: [0, 2], end: [2, 2] },
               { name: 'exportButton', start: [3, 2], end: [3, 2] },
-              { name: 'searchBar', start: [0, 3], end: [3, 3] },
+              { name: 'searchBar', start: [0, 3], end: [2, 3] },
+              { name: 'towerLevel', start: [3, 3], end: [3, 3] },
             ]}>
             <Button
               gridArea="showAll"
@@ -169,7 +172,7 @@ export function TalentSimulator() {
             <Button gridArea="resetAll" fill={false} primary label={'重置'} onClick={() => clearAll()} />
             <Box gridArea="importString" background="light-5">
               <TextInput
-                placeholder="导入BD的星图点"
+                placeholder="导入BD的星点"
                 value={imporBuildString}
                 onChange={event => {
                   setImportBuildString(event.target.value);
@@ -178,7 +181,7 @@ export function TalentSimulator() {
             </Box>
             <Button gridArea="importButton" fill={false} primary label={'导入'} onClick={() => importBuild()} />
             <Box gridArea="currentBuild" background="light-5">
-              <TextInput disabled placeholder="现在的星图点" value={getBuild()} />
+              <TextInput disabled placeholder="现在的星点" value={getBuild()} />
             </Box>
             <Button
               gridArea="exportButton"
@@ -197,9 +200,21 @@ export function TalentSimulator() {
                 onChange={event => setsearchString(event.target.value)}
               />
             </Box>
+            <Box gridArea="towerLevel" background="light-5">
+              <TextInput
+                placeholder="通天层数"
+                type="number"
+                value={towerLevel}
+                onChange={event => setTowerLevel(parseInt(event.target.value))}
+              />
+            </Box>
           </Grid>
 
-          <Heading size="none">{`需要：${totalPoints}星图点`}</Heading>
+          <Heading size="none">
+            {towerLevel
+              ? `剩余：${towerLevel + 5 - totalPoints}星点`
+              : `需要：${totalPoints}星点，${Math.max(totalPoints - 5, 0)}层通天塔`}
+          </Heading>
           {Object.keys(summary).map(key => {
             const value = summary[key];
             if (value === undefined) {
@@ -221,6 +236,7 @@ export function TalentSimulator() {
                 nodes={nodes}
                 showTooltip={showAllTooltip}
                 searchString={searchString}
+                remindPoints={towerLevel ? towerLevel + 5 - totalPoints : 999}
                 key={node.id}></Node>
             ))}
           </svg>

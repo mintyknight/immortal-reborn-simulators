@@ -14,6 +14,7 @@ export const Node = ({
   x,
   y,
   id,
+  point,
   isSelected,
   nodes,
   prevNodesIndexes,
@@ -22,6 +23,7 @@ export const Node = ({
   tooltip,
   showTooltip,
   searchString,
+  remindPoints,
 }: NodeProps) => {
   const circleRadius = 2.5;
   const sideLength = circleRadius * 4;
@@ -29,11 +31,14 @@ export const Node = ({
   let isOpen = false;
   let isFound = false;
 
+  const hasMorePoints = remindPoints >= point;
+
   if (!isSelected) {
     isOpen =
-      id === 0 ||
-      prevNodesIndexes.find(nodeIndex => nodes[nodeIndex].isSelected) !== undefined ||
-      nextNodesIndexes.find(nodeIndex => nodes[nodeIndex].isSelected) !== undefined;
+      hasMorePoints &&
+      (id === 0 ||
+        prevNodesIndexes.find(nodeIndex => nodes[nodeIndex].isSelected) !== undefined ||
+        nextNodesIndexes.find(nodeIndex => nodes[nodeIndex].isSelected) !== undefined);
   }
 
   // TODO: Search should be done with special search key word string
@@ -55,7 +60,7 @@ export const Node = ({
             z={100}
             x2={nextNode.x}
             y2={nextNode.y}
-            stroke={isSelected && nextNode.isSelected ? 'blue' : 'black'}
+            stroke={isSelected && nextNode.isSelected ? 'blue' : 'LightGrey'}
             key={`${id}-${nextNode.id}`}></line>
         );
       })}
@@ -72,7 +77,7 @@ export const Node = ({
             cx={circleRadius * 2}
             cy={circleRadius * 2}
             r={circleRadius}
-            fill={isSelected ? 'blue' : isOpen ? 'green' : 'gray'}></circle>
+            fill={isSelected ? 'blue' : isOpen ? 'green' : 'LightGrey'}></circle>
         </SvgTooltip>
         {isFound && <circle cx={circleRadius * 2} cy={circleRadius * 2} r={4} stroke={'red'} fillOpacity={0}></circle>}
       </svg>
