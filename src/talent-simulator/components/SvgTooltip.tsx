@@ -19,7 +19,11 @@ export const SvgTooltip = ({ children, tooltip, forceShow }: SvgTooltipProps) =>
   const [showTooltip, setShowTooltip] = useState(false);
   const [targetReady, setTargetReady] = useState(false);
 
-  let listeners = {};
+  let listeners = {
+    onMouseOver: () => {},
+    onFocus: () => {},
+    onMouseLeave: () => {},
+  };
   if (!forceShow) {
     const mouseOver = () => setShowTooltip(true);
     const mouseLeave = () => setShowTooltip(false);
@@ -57,7 +61,7 @@ export const SvgTooltip = ({ children, tooltip, forceShow }: SvgTooltipProps) =>
           {/* 2. somehow top level AppContainer is rendered after some grommet component; */}
           {/* therefore, adding a local AppContainer to workaround this potential issue */}
           {targetReady && (showTooltip || forceShow) && target.current && (
-            <Drop align={{ top: 'bottom' }} target={target.current}>
+            <Drop align={{ top: 'bottom' }} target={target.current} onMouseEnter={listeners.onMouseLeave}>
               {tooltip}
             </Drop>
           )}
