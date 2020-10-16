@@ -38,18 +38,20 @@ export function TalentSimulator() {
   const getTooltip = ({
     type,
     name,
+    point,
     value = 0,
     description = '',
   }: {
     type: string;
     name: string;
+    point: number;
     value?: number;
     description?: string;
   }) => {
     if (type === 'stats') {
-      return `${name}+${value >= 1 ? value : `${Math.round(value * 100)}%`}`;
+      return `${name}+${value >= 1 ? value : `${Math.round(value * 100)}%`}: ${point}点`;
     } else if (type === 'skill') {
-      return `${name}\n${description}`;
+      return `${name}: ${point}点`;
     } else {
       return `${name}`;
     }
