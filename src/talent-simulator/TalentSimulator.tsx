@@ -226,15 +226,17 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
           ? `剩余：${towerLevel + 5 - totalPoints}星点`
           : `需要：${totalPoints}星点，${Math.max(totalPoints - 5, 0)}层通天塔`}
       </Heading>
-      {Object.keys(summary).map(key => {
-        const value = summary[key];
-        if (value === undefined) {
-          return <Text key={key}>{key}</Text>;
-        } else if (value > 0) {
-          return <Text key={key}>{`${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`}</Text>;
-        }
-        return null;
-      })}
+      <Box overflow={'auto'} background="light-5">
+        {Object.keys(summary).map(key => {
+          const value = summary[key];
+          const string = value === undefined ? key : `${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`;
+          return (
+            // <Box key={key}>
+            <Text key={key}>{string}</Text>
+            // </Box>
+          );
+        })}
+      </Box>
     </Box>
   );
 
@@ -246,10 +248,10 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
         </Heading>
         {isSmallPage && <Button icon={<Configure />} onClick={() => setShowSidebar(!showSidebar)} ref={targetRef} />}
       </AppBar>
-      <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
+      <Box overflow={{ horizontal: 'hidden' }}>
         <Grid
           fill={true}
-          rows={['100%']}
+          rows={['200%']}
           columns={isSmallPage ? ['100%'] : ['50%', '50%']}
           gap="small"
           areas={

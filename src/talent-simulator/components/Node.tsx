@@ -72,6 +72,7 @@ export const Node = ({
         viewBox={`0 0 ${sideLength} ${sideLength}`}
         onClick={isClickable ? onClick : () => {}}
         style={isClickable ? { cursor: 'pointer' } : undefined}>
+        {isFound && <circle cx={circleRadius * 2} cy={circleRadius * 2} r={4} stroke={'red'} fillOpacity={0}></circle>}
         <SvgTooltip tooltip={tooltip || ''} forceShow={showTooltip}>
           <circle
             cx={circleRadius * 2}
@@ -79,7 +80,6 @@ export const Node = ({
             r={circleRadius}
             fill={isSelected ? 'blue' : isOpen ? 'green' : 'LightGrey'}></circle>
         </SvgTooltip>
-        {isFound && <circle cx={circleRadius * 2} cy={circleRadius * 2} r={4} stroke={'red'} fillOpacity={0}></circle>}
       </svg>
       <svg></svg>
     </>
