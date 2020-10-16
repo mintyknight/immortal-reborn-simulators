@@ -1,22 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import { Heading, Button, Text, Grid, Box, TextInput } from 'grommet';
+import React, { useEffect, useState, useRef, MutableRefObject } from 'react';
+import { Heading, Button, Text, Grid, Box, TextInput, Drop } from 'grommet';
+import { Configure } from 'grommet-icons';
 
 import { MAX_VALUE, NODES } from './Constants';
 
 import { Node, NodeType } from './components';
+
+const AppBar = (props: any) => (
+  <Box
+    height="xxsmall"
+    tag="header"
+    direction="row"
+    align="center"
+    justify="between"
+    background="brand"
+    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+    elevation="medium"
+    style={{ zIndex: '1' }}
+    {...props}
+  />
+);
 
 // const SCALE = 4;
 const buildSeparator = '-';
 const urlSeparator = '?';
 const startingTowerLevel = 160;
 
-export function TalentSimulator() {
+export function TalentSimulator({ pageSize }: { pageSize: string }) {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
   const [totalPoints, setTotalPoints] = useState(0);
   const [summary, setSummary] = useState({} as { [key: string]: number | undefined });
   const [searchString, setsearchString] = useState('');
   const [imporBuildString, setImportBuildString] = useState('');
   const [towerLevel, setTowerLevel] = useState(startingTowerLevel);
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const targetRef = useRef() as MutableRefObject<HTMLButtonElement>;
+
+  const isSmallPage = pageSize === 'small';
 
   useEffect(() => {
     const pathParts = window.location.href.split(urlSeparator);
@@ -136,112 +157,134 @@ export function TalentSimulator() {
     return buildString;
   };
 
-  return (
-    <>
+  const statusPanel = (
+    <Box gridArea="stats" pad={'10px'} background="light-5">
       <Grid
-        fill={true}
-        rows={['100%']}
-        columns={['50%', '50%']}
+        fill="horizontal"
+        rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
+        columns={['22%', '22%', '22%', '22%']}
         gap="small"
         areas={[
-          { name: 'stats', start: [0, 0], end: [0, 0] },
-          { name: 'starMap', start: [1, 0], end: [1, 0] },
+          { name: 'showAll', start: [2, 0], end: [2, 0] },
+          { name: 'resetAll', start: [3, 0], end: [3, 0] },
+          { name: 'importString', start: [0, 1], end: [2, 1] },
+          { name: 'importButton', start: [3, 1], end: [3, 1] },
+          { name: 'currentBuild', start: [0, 2], end: [2, 2] },
+          { name: 'exportButton', start: [3, 2], end: [3, 2] },
+          { name: 'searchBar', start: [0, 3], end: [2, 3] },
+          { name: 'towerLevel', start: [3, 3], end: [3, 3] },
         ]}>
-        <Box gridArea="stats" pad={'10px'} background="light-5">
-          <Grid
-            fill="horizontal"
-            rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
-            columns={['22%', '22%', '22%', '22%']}
-            gap="small"
-            areas={[
-              { name: 'showAll', start: [2, 0], end: [2, 0] },
-              { name: 'resetAll', start: [3, 0], end: [3, 0] },
-              { name: 'importString', start: [0, 1], end: [2, 1] },
-              { name: 'importButton', start: [3, 1], end: [3, 1] },
-              { name: 'currentBuild', start: [0, 2], end: [2, 2] },
-              { name: 'exportButton', start: [3, 2], end: [3, 2] },
-              { name: 'searchBar', start: [0, 3], end: [2, 3] },
-              { name: 'towerLevel', start: [3, 3], end: [3, 3] },
-            ]}>
-            <Button
-              gridArea="showAll"
-              primary
-              label={showAllTooltip ? '全部隐藏' : '全部显示'}
-              onClick={() => setShowAllTooltip(!showAllTooltip)}
-            />
-            <Button gridArea="resetAll" fill={false} primary label={'重置'} onClick={() => clearAll()} />
-            <Box gridArea="importString" background="light-5">
-              <TextInput
-                placeholder="导入BD的星点"
-                value={imporBuildString}
-                onChange={event => {
-                  setImportBuildString(event.target.value);
-                }}
-              />
-            </Box>
-            <Button gridArea="importButton" fill={false} primary label={'导入'} onClick={() => importBuild()} />
-            <Box gridArea="currentBuild" background="light-5">
-              <TextInput disabled placeholder="现在的星点" value={getBuild()} />
-            </Box>
-            <Button
-              gridArea="exportButton"
-              fill={false}
-              primary
-              label={'导出链接'}
-              onClick={() => {
-                const link = `${window.location.href}${urlSeparator}${getBuild()}`;
-                navigator.clipboard.writeText(link).then(() => alert(`链接已复制到剪贴板，请粘贴使用\n${link}`));
-              }}
-            />
-            <Box gridArea="searchBar" background="light-5">
-              <TextInput
-                placeholder="搜索星图"
-                value={searchString}
-                onChange={event => setsearchString(event.target.value)}
-              />
-            </Box>
-            <Box gridArea="towerLevel" background="light-5">
-              <TextInput
-                placeholder="通天层数"
-                type="number"
-                value={towerLevel}
-                onChange={event => setTowerLevel(parseInt(event.target.value))}
-              />
-            </Box>
-          </Grid>
-
-          <Heading size="none">
-            {towerLevel
-              ? `剩余：${towerLevel + 5 - totalPoints}星点`
-              : `需要：${totalPoints}星点，${Math.max(totalPoints - 5, 0)}层通天塔`}
-          </Heading>
-          {Object.keys(summary).map(key => {
-            const value = summary[key];
-            if (value === undefined) {
-              return <Text key={key}>{key}</Text>;
-            } else if (value > 0) {
-              return <Text key={key}>{`${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`}</Text>;
-            }
-            return null;
-          })}
+        <Button
+          gridArea="showAll"
+          primary
+          label={showAllTooltip ? '全部隐藏' : '全部显示'}
+          onClick={() => setShowAllTooltip(!showAllTooltip)}
+        />
+        <Button gridArea="resetAll" fill={false} primary label={'重置'} onClick={() => clearAll()} />
+        <Box gridArea="importString" background="light-5">
+          <TextInput
+            placeholder="导入BD的星点"
+            value={imporBuildString}
+            onChange={event => {
+              setImportBuildString(event.target.value);
+            }}
+          />
         </Box>
-        <Box gridArea="starMap" background="light-2">
-          <svg width={'100%'} viewBox={size.viewBox}>
-            <rect x={-10} y={-5} width="100%" height="100%" fill="Cyan"></rect>
-
-            {nodes.map(node => (
-              <Node
-                {...node}
-                onClick={() => onClick(node.id)}
-                nodes={nodes}
-                showTooltip={showAllTooltip}
-                searchString={searchString}
-                remindPoints={towerLevel ? towerLevel + 5 - totalPoints : 999}
-                key={node.id}></Node>
-            ))}
-          </svg>
+        <Button gridArea="importButton" fill={false} primary label={'导入'} onClick={() => importBuild()} />
+        <Box gridArea="currentBuild" background="light-5">
+          <TextInput disabled placeholder="现在的星点" value={getBuild()} />
+        </Box>
+        <Button
+          gridArea="exportButton"
+          fill={false}
+          primary
+          label={'导出链接'}
+          onClick={() => {
+            const link = `${window.location.href}${urlSeparator}${getBuild()}`;
+            navigator.clipboard.writeText(link).then(() => alert(`链接已复制到剪贴板，请粘贴使用\n${link}`));
+          }}
+        />
+        <Box gridArea="searchBar" background="light-5">
+          <TextInput
+            placeholder="搜索星图"
+            value={searchString}
+            onChange={event => setsearchString(event.target.value)}
+          />
+        </Box>
+        <Box gridArea="towerLevel" background="light-5">
+          <TextInput
+            placeholder="通天层数"
+            type="number"
+            value={towerLevel}
+            onChange={event => setTowerLevel(parseInt(event.target.value))}
+          />
         </Box>
       </Grid>
+
+      <Heading size="none">
+        {towerLevel
+          ? `剩余：${towerLevel + 5 - totalPoints}星点`
+          : `需要：${totalPoints}星点，${Math.max(totalPoints - 5, 0)}层通天塔`}
+      </Heading>
+      {Object.keys(summary).map(key => {
+        const value = summary[key];
+        if (value === undefined) {
+          return <Text key={key}>{key}</Text>;
+        } else if (value > 0) {
+          return <Text key={key}>{`${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`}</Text>;
+        }
+        return null;
+      })}
+    </Box>
+  );
+
+  return (
+    <>
+      <AppBar>
+        <Heading level="3" margin="none">
+          不朽星图模拟器
+        </Heading>
+        {isSmallPage && <Button icon={<Configure />} onClick={() => setShowSidebar(!showSidebar)} ref={targetRef} />}
+      </AppBar>
+      <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
+        <Grid
+          fill={true}
+          rows={['100%']}
+          columns={isSmallPage ? ['100%'] : ['50%', '50%']}
+          gap="small"
+          areas={
+            isSmallPage
+              ? [{ name: 'starMap', start: [0, 0], end: [0, 0] }]
+              : [
+                  { name: 'stats', start: [0, 0], end: [0, 0] },
+                  { name: 'starMap', start: [1, 0], end: [1, 0] },
+                ]
+          }>
+          {isSmallPage && showSidebar && targetRef.current && (
+            <Drop align={{ top: 'bottom', right: 'right' }} target={targetRef.current}>
+              {statusPanel}
+            </Drop>
+          )}
+          {!isSmallPage && statusPanel}
+
+          <Box gridArea="starMap" background="light-2">
+            <svg width={'100%'} viewBox={size.viewBox}>
+              <rect x={-10} y={-5} width="100%" height="100%" fill="Cyan"></rect>
+
+              {nodes.map(node => (
+                <Node
+                  {...node}
+                  onClick={() => onClick(node.id)}
+                  nodes={nodes}
+                  showTooltip={showAllTooltip}
+                  searchString={searchString}
+                  remindPoints={towerLevel ? towerLevel + 5 - totalPoints : 999}
+                  key={node.id}></Node>
+              ))}
+            </svg>
+          </Box>
+        </Grid>
+      </Box>
     </>
   );
 }
