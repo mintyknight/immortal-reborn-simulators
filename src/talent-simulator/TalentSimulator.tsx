@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef, MutableRefObject } from 'react';
 import { Heading, Button, Text, Grid, Box, TextInput, Drop } from 'grommet';
 import { Configure } from 'grommet-icons';
 
-import { MAX_VALUE, NODES } from './Constants';
+import { MAX_VALUE, NODES } from './components/Constants';
 
-import { Node, NodeType } from './components';
+import { Node, NodeType, PerkType } from './components';
 
 const AppBar = (props: any) => (
   <Box
@@ -26,10 +26,12 @@ const buildSeparator = '-';
 const urlSeparator = '?';
 const startingTowerLevel = 160;
 
+type SummaryType = { [key: string]: { [key: string]: number | undefined } };
+
 export function TalentSimulator({ pageSize }: { pageSize: string }) {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [summary, setSummary] = useState({} as { [key: string]: number | undefined });
+  const [summary, setSummary] = useState({} as SummaryType);
   const [searchString, setsearchString] = useState('');
   const [imporBuildString, setImportBuildString] = useState('');
   const [towerLevel, setTowerLevel] = useState(startingTowerLevel);
@@ -58,28 +60,6 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
 
   const initialNodes: NodeType[] = [];
 
-  const getTooltip = ({
-    type,
-    name,
-    point,
-    value = 0,
-    description = '',
-  }: {
-    type: string;
-    name: string;
-    point: number;
-    value?: number;
-    description?: string;
-  }) => {
-    if (type === 'stats') {
-      return `${name}+${value >= 1 ? value : `${Math.round(value * 100)}%`}: ${point}点`;
-    } else if (type === 'skill') {
-      return `${name}: ${point}点`;
-    } else {
-      return `${name}`;
-    }
-  };
-
   NODES.forEach(NODE => {
     const node: NodeType = {
       id: NODE.id,
@@ -87,10 +67,8 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
       x: NODE.x * 20,
       y: size.height - NODE.y * 10 - 20,
       point: NODE.point,
-      name: NODE.name,
-      value: NODE.value,
-      description: NODE.description,
-      tooltip: getTooltip(NODE),
+      perks: NODE.perks,
+      AdditionalSearchKeywords: NODE.AdditionalSearchKeywords,
       nextNodesIndexes: [],
       prevNodesIndexes: NODE.prevNodesIndexes,
     };
@@ -103,18 +81,34 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
 
   const [nodes, setNodes] = useState(initialNodes);
 
+  const addToSummary = ({ isSelected, perks }: NodeType, summary: any) => {
+    const _summary = { ...summary };
+    perks.forEach(({ name, fullNameList, type, value = 0 }: PerkType) => {
+      if (!_summary[type]) {
+        _summary[type] = {};
+      }
+
+      // perks with fullNameList are 属性
+      if (!!fullNameList) {
+        fullNameList.forEach(fullname => {
+          _summary[type][fullname] = (_summary[type][fullname] || 0) + (isSelected ? -value : value);
+        });
+      } else if (type.includes('属性')) {
+        _summary[type][name] = (_summary[type][name] || 0) + (isSelected ? -value : value);
+      } else {
+        _summary[type][name] = !isSelected;
+      }
+    });
+    return _summary;
+  };
+
   const onClick = (index: number) => {
     const _node = nodes[index];
     const _nodes = [...nodes];
     _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
     setTotalPoints(totalPoints + (_node.isSelected ? -_node.point : _node.point));
     setNodes(_nodes);
-    const _summary = { ...summary };
-    if (_summary[_node.name] && _node.value) {
-      _summary[_node.name] = (_summary[_node.name] || 0) + (_node.isSelected ? -_node.value : _node.value);
-    } else {
-      _summary[_node.name] = _node.value;
-    }
+    const _summary = addToSummary(_node, summary);
     setSummary(_summary);
   };
 
@@ -127,18 +121,14 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
   const importBuild = (buildString?: string) => {
     const _nodes = [...initialNodes];
     let _totalPoints = 0;
-    const _summary: { [key: string]: number | undefined } = {};
+    let _summary: SummaryType = {};
     (buildString || imporBuildString).split(buildSeparator).forEach(indexString => {
       const index = parseInt(indexString);
       if (!isNaN(index) && index < _nodes.length) {
         const _node = _nodes[index];
         _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
         _totalPoints = _totalPoints + (_node.isSelected ? -_node.point : _node.point);
-        if (_summary[_node.name] && _node.value) {
-          _summary[_node.name] = (_summary[_node.name] || 0) + (_node.isSelected ? -_node.value : _node.value);
-        } else {
-          _summary[_node.name] = _node.value;
-        }
+        _summary = addToSummary(_node, _summary);
       }
     });
     setTotalPoints(_totalPoints);
@@ -158,7 +148,7 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
   };
 
   const statusPanel = (
-    <Box gridArea="stats" pad={'10px'} background="light-5">
+    <Box gridArea="stats" pad={'10px'}>
       <Grid
         fill="horizontal"
         rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
@@ -171,7 +161,8 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
           { name: 'importButton', start: [3, 1], end: [3, 1] },
           { name: 'currentBuild', start: [0, 2], end: [2, 2] },
           { name: 'exportButton', start: [3, 2], end: [3, 2] },
-          { name: 'searchBar', start: [0, 3], end: [2, 3] },
+          { name: 'searchBar', start: [0, 3], end: [1, 3] },
+          { name: 'towerText', start: [2, 3], end: [2, 3] },
           { name: 'towerLevel', start: [3, 3], end: [3, 3] },
         ]}>
         <Button
@@ -181,7 +172,7 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
           onClick={() => setShowAllTooltip(!showAllTooltip)}
         />
         <Button gridArea="resetAll" fill={false} primary label={'重置'} onClick={() => clearAll()} />
-        <Box gridArea="importString" background="light-5">
+        <Box gridArea="importString">
           <TextInput
             placeholder="导入BD的星点"
             value={imporBuildString}
@@ -191,27 +182,30 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
           />
         </Box>
         <Button gridArea="importButton" fill={false} primary label={'导入'} onClick={() => importBuild()} />
-        <Box gridArea="currentBuild" background="light-5">
+        <Box gridArea="currentBuild">
           <TextInput disabled placeholder="现在的星点" value={getBuild()} />
         </Box>
         <Button
           gridArea="exportButton"
           fill={false}
           primary
-          label={'导出链接'}
+          label={'分享'}
           onClick={() => {
             const link = `${window.location.href}${urlSeparator}${getBuild()}`;
             navigator.clipboard.writeText(link).then(() => alert(`链接已复制到剪贴板，请粘贴使用\n${link}`));
           }}
         />
-        <Box gridArea="searchBar" background="light-5">
+        <Box gridArea="searchBar">
           <TextInput
             placeholder="搜索星图"
             value={searchString}
             onChange={event => setsearchString(event.target.value)}
           />
         </Box>
-        <Box gridArea="towerLevel" background="light-5">
+        <Box gridArea="towerText" alignContent="end" justify="center">
+          <Text size="large">通天塔：</Text>
+        </Box>
+        <Box gridArea="towerLevel">
           <TextInput
             placeholder="通天层数"
             type="number"
@@ -226,17 +220,49 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
           ? `剩余：${towerLevel + 5 - totalPoints}星点`
           : `需要：${totalPoints}星点，${Math.max(totalPoints - 5, 0)}层通天塔`}
       </Heading>
-      <Box overflow={'auto'} background="light-5">
-        {Object.keys(summary).map(key => {
-          const value = summary[key];
-          const string = value === undefined ? key : `${key}+${value > 1 ? value : `${Math.round(value * 100)}%`}`;
+      <Grid
+        fill="vertical"
+        rows={['medium', 'small']}
+        columns={['32%', '32%', '32%']}
+        gap="small"
+        areas={[
+          { name: '进攻属性', start: [0, 0], end: [0, 0] },
+          { name: '防御属性', start: [1, 0], end: [1, 0] },
+          { name: '技能', start: [2, 0], end: [2, 0] },
+          { name: '属性', start: [0, 1], end: [0, 1] },
+          { name: '技能等级属性', start: [1, 1], end: [1, 1] },
+          { name: '特殊', start: [2, 1], end: [2, 1] },
+        ]}>
+        {['进攻属性', '防御属性', '属性', '技能等级属性', '技能', '特殊'].map((type, index) => {
           return (
-            // <Box key={key}>
-            <Text key={key}>{string}</Text>
-            // </Box>
+            <Box gridArea={type} background="light-5" key={type}>
+              <Heading size="small" level={3} margin="xsmall">
+                {type}
+              </Heading>
+              {summary[type] && (
+                <Box overflow="auto">
+                  {Object.keys(summary[type]).map(name => {
+                    const value = summary[type][name];
+                    let string = '';
+                    if (typeof value === 'boolean') {
+                      string = value ? name : '';
+                    } else {
+                      string = value ? `${name}+${value > 1 ? value : `${Math.round(value * 100)}%`}` : '';
+                    }
+
+                    return (
+                      string !== '' && (
+                        // <Box key={key}>
+                        <Text key={name}>{string}</Text>
+                      )
+                    );
+                  })}
+                </Box>
+              )}
+            </Box>
           );
         })}
-      </Box>
+      </Grid>
     </Box>
   );
 
@@ -244,7 +270,7 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
     <>
       <AppBar>
         <Heading level="3" margin="none">
-          不朽星图模拟器
+          不朽星图模拟器 - 官服3区 薄荷骑士
         </Heading>
         {isSmallPage && <Button icon={<Configure />} onClick={() => setShowSidebar(!showSidebar)} ref={targetRef} />}
       </AppBar>

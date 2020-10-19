@@ -1,26 +1,49 @@
 import React from 'react';
+import { Text } from 'grommet';
 
 import { SvgTooltip } from './SvgTooltip';
 
 import { NodeType } from './types';
 
-export interface NodeProps extends Omit<NodeType, 'id'> {
+export interface NodeProps extends NodeType {
   onClick: () => void;
+  nodes: any;
   showTooltip?: boolean;
-  [otherProp: string]: any;
+  searchString?: string;
+  remindPoints: number;
 }
+
+const getTooltip = (
+  { type, point, perks }: { type: string; point: number; perks: NodeType['perks'] },
+  showTooltip?: boolean
+) => {
+  return (
+    <>
+      {perks.map(({ name, type, value }, index) => {
+        return (
+          <Text key={name}>
+            {`${name}${value ? `+${value >= 1 ? value : `${Math.round(value * 100)}%`}` : ''}${
+              index === 0 && !showTooltip ? `  (${point}点)` : ''
+            }`}
+          </Text>
+        );
+      })}
+    </>
+  );
+};
 
 export const Node = ({
   x,
   y,
   id,
   point,
+  perks,
+  AdditionalSearchKeywords,
   isSelected,
   nodes,
   prevNodesIndexes,
   nextNodesIndexes,
   onClick,
-  tooltip,
   showTooltip,
   searchString,
   remindPoints,
@@ -43,9 +66,16 @@ export const Node = ({
 
   // TODO: Search should be done with special search key word string
   // so the compound node could be found correctly
-  if (searchString && tooltip?.includes(searchString)) {
-    isFound = true;
-  }
+
+  isFound =
+    !!searchString &&
+    (AdditionalSearchKeywords?.includes(searchString) ||
+      perks.some(
+        ({ name, fullNameList, description }) =>
+          name.includes(searchString) ||
+          description?.includes(searchString) ||
+          fullNameList?.some(name => name.includes(searchString))
+      ));
 
   const isClickable = isSelected || isOpen;
 
@@ -73,7 +103,7 @@ export const Node = ({
         onClick={isClickable ? onClick : () => {}}
         style={isClickable ? { cursor: 'pointer' } : undefined}>
         {isFound && <circle cx={circleRadius * 2} cy={circleRadius * 2} r={4} stroke={'red'} fillOpacity={0}></circle>}
-        <SvgTooltip tooltip={tooltip || ''} forceShow={showTooltip}>
+        <SvgTooltip tooltip={getTooltip(nodes[id], showTooltip) || ''} forceShow={showTooltip}>
           <circle
             cx={circleRadius * 2}
             cy={circleRadius * 2}
