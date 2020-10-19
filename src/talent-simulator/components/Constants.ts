@@ -140,7 +140,7 @@ export const NODES: NODESType = [
     x: 1,
     y: 13,
     point: 4,
-    perks: [{ name: '燃烧间隔-50%', type: '特殊' }],
+    perks: [{ name: '燃烧间隔减50%', type: '特殊' }],
     AdditionalSearchKeywords: '进攻',
     prevNodesIndexes: [9],
   },
