@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef, MutableRefObject } from 'react';
-import { Heading, Button, Text, Grid, Box, TextInput, Drop } from 'grommet';
-import { Configure } from 'grommet-icons';
+import React, { useEffect, useState } from 'react';
+import { Heading, Button, Text, Grid, Box, TextInput, DropButton } from 'grommet';
+import { Configure, Bug } from 'grommet-icons';
 
 import { MAX_VALUE, NODES } from './components/Constants';
 
@@ -36,8 +36,7 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
   const [imporBuildString, setImportBuildString] = useState('');
   const [towerLevel, setTowerLevel] = useState(startingTowerLevel);
   const [showSidebar, setShowSidebar] = useState(false);
-
-  const targetRef = useRef() as MutableRefObject<HTMLButtonElement>;
+  const [reportBug, setReportBug] = useState(false);
 
   const isSmallPage = pageSize === 'small';
 
@@ -266,13 +265,39 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
     </Box>
   );
 
+  const repoProvider = window.location.href.includes('github') ? 'github' : 'gitee';
+
   return (
     <>
       <AppBar>
         <Heading level="3" margin="none">
           不朽星图模拟器 - 官服3区 薄荷骑士
         </Heading>
-        {isSmallPage && <Button icon={<Configure />} onClick={() => setShowSidebar(!showSidebar)} ref={targetRef} />}
+        <DropButton
+          icon={<Bug />}
+          open={reportBug}
+          onOpen={() => setReportBug(true)}
+          onClose={() => setReportBug(false)}
+          dropContent={
+            <Button
+              label={`我想去${repoProvider}报告页面错误，或提供修改意见/建议`}
+              onClick={() =>
+                window.open(`https://${repoProvider}.com/mintyknight/immortal-reborn-simulators/issues`, '_blank')
+              }
+            />
+          }
+          dropProps={{ align: { top: 'bottom', right: 'right' } }}
+        />
+        {isSmallPage && (
+          <DropButton
+            icon={<Configure />}
+            open={showSidebar}
+            onOpen={() => setShowSidebar(true)}
+            onClose={() => setShowSidebar(false)}
+            dropContent={statusPanel}
+            dropProps={{ align: { top: 'bottom', right: 'right' } }}
+          />
+        )}
       </AppBar>
       <Box overflow={{ horizontal: 'hidden' }}>
         <Grid
@@ -288,11 +313,6 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
                   { name: 'starMap', start: [1, 0], end: [1, 0] },
                 ]
           }>
-          {isSmallPage && showSidebar && targetRef.current && (
-            <Drop align={{ top: 'bottom', right: 'right' }} target={targetRef.current}>
-              {statusPanel}
-            </Drop>
-          )}
           {!isSmallPage && statusPanel}
 
           <Box gridArea="starMap" background="light-2">
