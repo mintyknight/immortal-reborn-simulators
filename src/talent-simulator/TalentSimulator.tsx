@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Button, Text, Grid, Box, TextInput, DropButton } from 'grommet';
+import { withTranslation } from 'react-i18next';
 import { Configure, Bug } from 'grommet-icons';
 
 import { MAX_VALUE, NODES } from './components/Constants';
 
 import { Node, NodeType, PerkType } from './components';
+
+const credits = ['creator', 'englishTranslator'];
 
 const AppBar = (props: any) => (
   <Box
@@ -28,7 +31,7 @@ const startingTowerLevel = 160;
 
 type SummaryType = { [key: string]: { [key: string]: number | undefined } };
 
-export function TalentSimulator({ pageSize }: { pageSize: string }) {
+export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageSize: string; t: any; i18n: any }) => {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
   const [totalPoints, setTotalPoints] = useState(0);
   const [summary, setSummary] = useState({} as SummaryType);
@@ -37,8 +40,10 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
   const [towerLevel, setTowerLevel] = useState(startingTowerLevel);
   const [showSidebar, setShowSidebar] = useState(false);
   const [reportBug, setReportBug] = useState(false);
+  const [showCredit, setShowCredit] = useState(false);
 
   const isSmallPage = pageSize === 'small';
+  const isChinese = i18n.language === 'cn';
 
   useEffect(() => {
     const pathParts = window.location.href.split(urlSeparator);
@@ -65,9 +70,9 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
       isSelected: false,
       x: NODE.x * 20,
       y: size.height - NODE.y * 10 - 20,
-      point: NODE.point,
+      points: NODE.points,
       perks: NODE.perks,
-      AdditionalSearchKeywords: NODE.AdditionalSearchKeywords,
+      additionalSearchKeywords: NODE.additionalSearchKeywords,
       nextNodesIndexes: [],
       prevNodesIndexes: NODE.prevNodesIndexes,
     };
@@ -87,12 +92,12 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
         _summary[type] = {};
       }
 
-      // perks with fullNameList are 属性
+      // perks with fullNameList are Base Stats
       if (!!fullNameList) {
         fullNameList.forEach(fullname => {
           _summary[type][fullname] = (_summary[type][fullname] || 0) + (isSelected ? -value : value);
         });
-      } else if (type.includes('属性')) {
+      } else if (type.toLocaleLowerCase().includes('stats')) {
         _summary[type][name] = (_summary[type][name] || 0) + (isSelected ? -value : value);
       } else {
         _summary[type][name] = !isSelected;
@@ -105,7 +110,7 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
     const _node = nodes[index];
     const _nodes = [...nodes];
     _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
-    setTotalPoints(totalPoints + (_node.isSelected ? -_node.point : _node.point));
+    setTotalPoints(totalPoints + (_node.isSelected ? -_node.points : _node.points));
     setNodes(_nodes);
     const _summary = addToSummary(_node, summary);
     setSummary(_summary);
@@ -126,7 +131,7 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
       if (!isNaN(index) && index < _nodes.length) {
         const _node = _nodes[index];
         _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
-        _totalPoints = _totalPoints + (_node.isSelected ? -_node.point : _node.point);
+        _totalPoints = _totalPoints + (_node.isSelected ? -_node.points : _node.points);
         _summary = addToSummary(_node, _summary);
       }
     });
@@ -167,46 +172,46 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
         <Button
           gridArea="showAll"
           primary
-          label={showAllTooltip ? '全部隐藏' : '全部显示'}
+          label={showAllTooltip ? t('hideAll') : t('showAll')}
           onClick={() => setShowAllTooltip(!showAllTooltip)}
         />
-        <Button gridArea="resetAll" fill={false} primary label={'重置'} onClick={() => clearAll()} />
+        <Button gridArea="resetAll" fill={false} primary label={t('resetBuild')} onClick={() => clearAll()} />
         <Box gridArea="importString">
           <TextInput
-            placeholder="导入BD的星点"
+            placeholder={t('loadBuild')}
             value={imporBuildString}
             onChange={event => {
               setImportBuildString(event.target.value);
             }}
           />
         </Box>
-        <Button gridArea="importButton" fill={false} primary label={'导入'} onClick={() => importBuild()} />
+        <Button gridArea="importButton" fill={false} primary label={t('load')} onClick={() => importBuild()} />
         <Box gridArea="currentBuild">
-          <TextInput disabled placeholder="现在的星点" value={getBuild()} />
+          <TextInput disabled placeholder={t('currentBuild')} value={getBuild()} />
         </Box>
         <Button
           gridArea="exportButton"
           fill={false}
           primary
-          label={'分享'}
+          label={t('share')}
           onClick={() => {
             const link = `${window.location.href}${urlSeparator}${getBuild()}`;
-            navigator.clipboard.writeText(link).then(() => alert(`链接已复制到剪贴板，请粘贴使用\n${link}`));
+            navigator.clipboard.writeText(link).then(() => alert(t('buildCopied', { link })));
           }}
         />
         <Box gridArea="searchBar">
           <TextInput
-            placeholder="搜索星图"
+            placeholder={t('search4Perk')}
             value={searchString}
             onChange={event => setsearchString(event.target.value)}
           />
         </Box>
         <Box gridArea="towerText" alignContent="end" justify="center">
-          <Text size="large">通天塔：</Text>
+          <Text size="large">{t('tower')}</Text>
         </Box>
         <Box gridArea="towerLevel">
           <TextInput
-            placeholder="通天层数"
+            placeholder={t('towerLvl')}
             type="number"
             value={towerLevel}
             onChange={event => setTowerLevel(parseInt(event.target.value))}
@@ -216,8 +221,8 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
 
       <Heading size="none">
         {towerLevel
-          ? `剩余：${towerLevel + 5 - totalPoints}星点`
-          : `需要：${totalPoints}星点，${Math.max(totalPoints - 5, 0)}层通天塔`}
+          ? t('remainPoints', { points: towerLevel + 5 - totalPoints })
+          : t('reqiredPoints', { totalPoints, towerLevels: Math.max(totalPoints - 5, 0) })}
       </Heading>
       <Grid
         fill="vertical"
@@ -225,18 +230,18 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
         columns={['32%', '32%', '32%']}
         gap="small"
         areas={[
-          { name: '进攻属性', start: [0, 0], end: [0, 0] },
-          { name: '防御属性', start: [1, 0], end: [1, 0] },
-          { name: '技能', start: [2, 0], end: [2, 0] },
-          { name: '属性', start: [0, 1], end: [0, 1] },
-          { name: '技能等级属性', start: [1, 1], end: [1, 1] },
-          { name: '特殊', start: [2, 1], end: [2, 1] },
+          { name: 'offensiveStats', start: [0, 0], end: [0, 0] },
+          { name: 'defensiveStats', start: [1, 0], end: [1, 0] },
+          { name: 'skills', start: [2, 0], end: [2, 0] },
+          { name: 'baseStats', start: [0, 1], end: [0, 1] },
+          { name: 'skillLvlStats', start: [1, 1], end: [1, 1] },
+          { name: 'special', start: [2, 1], end: [2, 1] },
         ]}>
-        {['进攻属性', '防御属性', '属性', '技能等级属性', '技能', '特殊'].map((type, index) => {
+        {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'skills', 'special'].map((type, index) => {
           return (
             <Box gridArea={type} background="light-5" key={type}>
               <Heading size="small" level={3} margin="xsmall">
-                {type}
+                {t(type)}
               </Heading>
               {summary[type] && (
                 <Box overflow="auto">
@@ -244,9 +249,13 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
                     const value = summary[type][name];
                     let string = '';
                     if (typeof value === 'boolean') {
-                      string = value ? name : '';
+                      string = value ? t(name) : '';
                     } else {
-                      string = value ? `${name}+${value > 1 ? value : `${Math.round(value * 100)}%`}` : '';
+                      if (isChinese) {
+                        string = value ? `${t(name)} +${value > 1 ? value : `${Math.round(value * 100)}%`}` : '';
+                      } else {
+                        string = value ? `+${value > 1 ? value : `${Math.round(value * 100)}%`} ${t(name)}` : '';
+                      }
                     }
 
                     return (
@@ -271,33 +280,57 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
     <>
       <AppBar>
         <Heading level="3" margin="none">
-          不朽星图模拟器 - 官服3区 薄荷骑士
+          {t('title')}
         </Heading>
-        <DropButton
-          icon={<Bug />}
-          open={reportBug}
-          onOpen={() => setReportBug(true)}
-          onClose={() => setReportBug(false)}
-          dropContent={
-            <Button
-              label={`我想去${repoProvider}报告页面错误，或提供修改意见/建议`}
-              onClick={() =>
-                window.open(`https://${repoProvider}.com/mintyknight/immortal-reborn-simulators/issues`, '_blank')
-              }
-            />
-          }
-          dropProps={{ align: { top: 'bottom', right: 'right' } }}
-        />
-        {isSmallPage && (
+        <Box direction="row">
+          <Button
+            label={t('language')}
+            plain={true}
+            margin="10px"
+            onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')}
+          />
           <DropButton
-            icon={<Configure />}
-            open={showSidebar}
-            onOpen={() => setShowSidebar(true)}
-            onClose={() => setShowSidebar(false)}
-            dropContent={statusPanel}
+            icon={<Bug />}
+            open={reportBug}
+            onOpen={() => setReportBug(true)}
+            onClose={() => setReportBug(false)}
+            dropContent={
+              <Button
+                label={t('bugReport', { repoProvider })}
+                onClick={() =>
+                  window.open(`https://${repoProvider}.com/mintyknight/immortal-reborn-simulators/issues`, '_blank')
+                }
+              />
+            }
             dropProps={{ align: { top: 'bottom', right: 'right' } }}
           />
-        )}
+          <DropButton
+            label={t('credit')}
+            plain={true}
+            margin="10px"
+            open={showCredit}
+            onOpen={() => setShowCredit(true)}
+            onClose={() => setShowCredit(false)}
+            dropContent={
+              <>
+                {credits.map(credit => (
+                  <Text key={credit}>{t(credit)}</Text>
+                ))}
+              </>
+            }
+            dropProps={{ align: { top: 'bottom', right: 'right' } }}
+          />
+          {isSmallPage && (
+            <DropButton
+              icon={<Configure />}
+              open={showSidebar}
+              onOpen={() => setShowSidebar(true)}
+              onClose={() => setShowSidebar(false)}
+              dropContent={statusPanel}
+              dropProps={{ align: { top: 'bottom', right: 'right' } }}
+            />
+          )}
+        </Box>
       </AppBar>
       <Box overflow={{ horizontal: 'hidden' }}>
         <Grid
@@ -327,7 +360,9 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
                   showTooltip={showAllTooltip}
                   searchString={searchString}
                   remindPoints={towerLevel ? towerLevel + 5 - totalPoints : 999}
-                  key={node.id}></Node>
+                  key={node.id}
+                  isChinese={isChinese}
+                />
               ))}
             </svg>
           </Box>
@@ -335,4 +370,4 @@ export function TalentSimulator({ pageSize }: { pageSize: string }) {
       </Box>
     </>
   );
-}
+});

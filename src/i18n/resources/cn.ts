@@ -1,0 +1,125 @@
+export default {
+  translations: {
+    // 系统
+    language: '中',
+    title: '不朽星图模拟器 - 官服3区 薄荷骑士',
+    credit: '作者',
+    creator: '作者：MintyKnight',
+    englishTranslator: '英语翻译：Ciello',
+    bugReport: '我想去{{repoProvider}}报告页面错误，或提供修改意见/建议',
+    showAll: '全部显示',
+    hideAll: '全部隐藏',
+    resetBuild: '重置',
+    loadBuild: '导入BD的星点',
+    load: '导入',
+    currentBuild: '现在的星点',
+    search4Perk: '搜索星图',
+    share: '分享',
+    tower: '通天塔：',
+    towerLvl: '通天层数',
+    remainPoints: '剩余：{{points}}星点',
+    reqiredPoints: '需要：{{totalPoints}}星点，{{towerLevels}}层通天塔',
+    buildCopied: '链接已复制到剪贴板，请粘贴使用\n{{link}}',
+    points: '{{points}}点',
+    // 属性类别
+    offensiveStats: '进攻属性',
+    defensiveStats: '防御属性',
+    skills: '技能',
+    baseStats: '属性',
+    skillLvlStats: '技能等级',
+    special: '特殊',
+    // 属性
+    power: '威',
+    wisdom: '秘',
+    luck: '运',
+    endurance: '耐',
+    agility: '敏',
+    allStats: '全属性',
+    strength: '腕力',
+    // 主动技能等级
+    beginnerSkillLevel: '一转',
+    intermediateSkillLevel: '二转',
+    advancedSkillLevel: '三转',
+    masterSkillLevel: '四转',
+    // 进攻属性
+    attack: '攻击',
+    normalAttack: '普攻',
+    critChance: '暴击率',
+    critEffect: '暴击效果',
+    darkDamage: '暗伤',
+    fireDamage: '火伤',
+    iceDamage: '冰伤',
+    lightDamage: '光伤',
+    physicalDamage: '物伤',
+    allDamage: '全伤',
+    attackSpeed: '攻速',
+    summonBoost: '召唤增幅',
+    minionAttackSpeed: '随从攻速',
+    cooldownRecovery: '冷却恢复',
+    // 防御属性
+    darkResistance: '暗抗',
+    fireResistance: '火抗',
+    iceResistance: '冰抗',
+    lightResistance: '光抗',
+    physicalResistance: '物抗',
+    allResistance: '全抗',
+    lifesteal: '生命吸取',
+    healthPoint: '生命',
+    blockChance: '格挡率',
+    blockEffect: '格挡效果',
+    armor: '护甲',
+    dodge: '绝闪',
+    // 技能
+    bloomOfLife: '生命绽放',
+    spiritRay: '灵魂射线',
+    shieldOfChaos: '混元盾',
+    waterElement: '水元素',
+    deadlyCrush: '超重击',
+    celestialStorm: '天体陨落',
+    emboldened: '胜利鼓舞',
+    purification: '净世之光',
+    chainHook: '链钩',
+    earthElement: '土元素',
+    eyeOfReincarnation: '轮回眼',
+    symbiosis: '共生',
+    booster: '技能振幅',
+    breathOfWind: '风息',
+    // 技能说明
+    bloomOfLifeDescription:
+      '使角色持续5秒每秒恢复生命，持续时间内受到的伤害降低40%。\n每秒恢复：角色攻击57.4%点生命值。\n\nS阶：持续时间结束后，友方全体瞬间恢复角色攻击45.1%的生命。',
+    spiritRayDescription:
+      '随机对多个目标进行攻击，造成暗属性伤害，距离越远攻击目标越多。\n暗属性伤害：主手基础伤害205.0%+315点\n\nS阶：灵魂射线使目标5秒内每秒造成主手攻击8.2%+46点暗属性异常伤害',
+    shieldOfChaosDescription:
+      '角色立即获得护盾，还将获得1层圣盾，圣盾可抵挡1次攻击。\n护盾：相当于生命上限的8.6%。\n\nS阶：额外获得角色生命上限4%的护盾',
+    waterElementDescription:
+      '身前召唤，水元素普攻对单体造成冰属性伤害。\n冰属性伤害：自身基础伤害307.5%+473点。\n\nS阶：重伤时清除己方负面状态',
+    deadlyCrushDescription:
+      '对3目标进行攻击，造成物理伤害；超重击冷却时间受主武器影响。\n物理伤害：主手基础伤害133.3%+205点。\n\nS阶：冷却时间每2秒叠加22%的伤害。',
+    celestialStormDescription:
+      '触发陨石效果：每波随机2个目标降下流星，1秒内总计4波，每颗流星造成或属性伤害。\n火属性伤害：主手基础伤害153.8%+236点。\n\nS阶：流星额外增加2波',
+    emboldenedDescription: '战斗中任意敌方目标重伤后，恢复角色生命。\n恢复：5.5%的生命。',
+    purificationDescription:
+      '对敌方全体进行攻击，造成光属性伤害。\n光属性伤害：主手基础伤害307.5%+473点。\n\nS阶：清除敌方所有增益效果',
+    chainHookDescription:
+      '对2目标进行攻击，偷袭造成物理伤害，拉近距离3，是目标附带1层流血。\n物理伤害：主手基础伤害184.5%+284点。\n\nS阶：钩链攻击范围+1',
+    earthElementDescription:
+      '身后召唤，土元素普攻对单体造成物理伤害，击退距离2.\n物理伤害：土元素基础伤害422.3%+649点。\n\nS阶：土元素受击时使目标眩晕1秒',
+    eyeOfReincarnationDescription: '间隔一段时间，复制前一个角色使用的技能。\n间隔时间：34秒。\n\nS阶：冷却时间-5秒',
+    symbiosisDescription:
+      '友方随从伤害提高，且有任意随从存活时，则友方全体受到的伤害降低。\n随从伤害提高：11.0%\n伤害降低：4.4%。',
+    boosterDescription: '角色每次使用攻击技能后，使角色伤害提高1.5%，可叠加。\n叠加次数：11次。',
+    breathOfWindDescription:
+      '角色武器普攻有20%的概率触发风息效果：对目标造成真实伤害，手角色普攻伤害加成影响。\n真实伤害：主手攻击34.1%+96点。',
+    // 特殊
+    burnSpeed: '燃烧间隔减50%',
+    poisonDamage: '中毒效果翻倍',
+    bleedDamage: '流血效果翻倍',
+    // 搜索关键词
+    skillLevel: '技能等级',
+    offense: '进攻',
+    defense: '防御',
+    offenseDefense: '进攻 防御',
+    activeSkill: '主动技能',
+    passiveSkill: '被动技能',
+  },
+};
