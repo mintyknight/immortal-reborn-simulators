@@ -54,6 +54,12 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
     }
   });
 
+  useEffect(() => {
+    if (pageSize === 'small') {
+      setShowAllTooltip(true);
+    }
+  }, [pageSize]);
+
   const getSize = (maxValue: any) => {
     const width = maxValue.x * 20 + 20;
     const height = maxValue.y * 10 + 10;
