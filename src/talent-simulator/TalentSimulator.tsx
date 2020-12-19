@@ -27,7 +27,7 @@ const AppBar = (props: any) => (
 // const SCALE = 4;
 const buildSeparator = '-';
 const urlSeparator = '?';
-const startingTowerLevel = 160;
+const startingTowerLevel = 0;
 
 type SummaryType = { [key: string]: { [key: string]: number | undefined } };
 
