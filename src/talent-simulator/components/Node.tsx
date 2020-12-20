@@ -26,8 +26,8 @@ const getTooltip = (
     <>
       {perks.map(({ name, type, value, description }, index) => {
         return (
-          <>
-            <Text key={name}>
+          <React.Fragment key={name}>
+            <Text>
               {isChinese
                 ? `${t(name)}${value ? ` +${value >= 1 ? value : `${Math.round(value * 100)}%`}` : ''}${
                     index === 0 && !showTooltip ? ` (${t('points', { points })})` : ''
@@ -40,10 +40,10 @@ const getTooltip = (
               description &&
               t(description)
                 .split('\n')
-                .map((desc: string, index: number) =>
-                  desc ? <Text key={`${name}-desc-${index}`}>{desc}</Text> : <br />
-                )}
-          </>
+                .map((desc: string) => (
+                  <React.Fragment key={`${name}-${desc}`}>{desc ? <Text>{desc}</Text> : <br />}</React.Fragment>
+                ))}
+          </React.Fragment>
         );
       })}
     </>
