@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { initReactI18next } from "react-i18next";
+import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import cn from './resources/cn';
 import en from './resources/en';
@@ -8,12 +8,11 @@ i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    // we init with resources
     resources: {
+      cn,
       en,
-      cn
     },
-    fallbackLng: 'en',
+    fallbackLng: 'cn',
     debug: true,
 
     // have a common namespace used around the full app
@@ -24,12 +23,12 @@ i18n
 
     interpolation: {
       escapeValue: false, // not needed for react!!
-      formatSeparator: ','
+      formatSeparator: ',',
     },
 
     react: {
-      wait: true
-    }
+      wait: true,
+    },
   });
 
 export default i18n;
