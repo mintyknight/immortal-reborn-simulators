@@ -2,7 +2,7 @@ export default {
   translations: {
     // 系统
     language: '中',
-    title: '不朽星图模拟器 - 官服3区 薄荷骑士',
+    title: '不朽星图模拟器',
     credit: '作者',
     creator: '作者：MintyKnight',
     englishTranslator: '英语翻译：Ciello',

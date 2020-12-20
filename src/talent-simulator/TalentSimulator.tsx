@@ -289,12 +289,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           {t('title')}
         </Heading>
         <Box direction="row">
-          <Button
-            label={t('language')}
-            plain={true}
-            margin="10px"
-            onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')}
-          />
+          <Button label={t('language')} plain={true} onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')} />
           <DropButton
             icon={<Bug />}
             open={reportBug}
@@ -310,10 +305,19 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
             }
             dropProps={{ align: { top: 'bottom', right: 'right' } }}
           />
+          {isSmallPage && (
+            <DropButton
+              icon={<Configure />}
+              open={showSidebar}
+              onOpen={() => setShowSidebar(true)}
+              onClose={() => setShowSidebar(false)}
+              dropContent={statusPanel}
+              dropProps={{ align: { top: 'bottom', right: 'right' } }}
+            />
+          )}
           <DropButton
             label={t('credit')}
             plain={true}
-            margin="10px"
             open={showCredit}
             onOpen={() => setShowCredit(true)}
             onClose={() => setShowCredit(false)}
@@ -326,16 +330,6 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
             }
             dropProps={{ align: { top: 'bottom', right: 'right' } }}
           />
-          {isSmallPage && (
-            <DropButton
-              icon={<Configure />}
-              open={showSidebar}
-              onOpen={() => setShowSidebar(true)}
-              onClose={() => setShowSidebar(false)}
-              dropContent={statusPanel}
-              dropProps={{ align: { top: 'bottom', right: 'right' } }}
-            />
-          )}
         </Box>
       </AppBar>
       <Box overflow={{ horizontal: 'hidden' }}>

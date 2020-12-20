@@ -2,10 +2,10 @@ export default {
   translations: {
     // system
     language: 'EN',
-    title: 'Immortal:Reborn Perk Simulator (By MintyKnight)',
+    title: 'Immortal:Reborn Perk Simulator',
     credit: 'Credit',
     creator: 'Created by MintyKnight',
-    englishTranslator: 'Translated into English by Ciello',
+    englishTranslator: 'English Translation by Ciello',
     bugReport: 'I wish to report bugs or provide suggestions on {{repoProvider}}',
     showAll: 'Show All',
     hideAll: 'Hide All',
