@@ -146,7 +146,7 @@ export default {
     leadershipDescription:
     '友方每一个存活的随从，使友方随从伤害提高2.5%。',
     // 特殊
-    cooldownRecovery: '冷却恢复',
+    cdr: '冷却恢复',
     shieldatstart: '开场获得护盾',
     hpregen: '每3秒恢复生命',
     str: '腕力',
