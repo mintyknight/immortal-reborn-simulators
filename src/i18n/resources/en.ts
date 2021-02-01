@@ -100,51 +100,51 @@ export default {
     leadership:'Leadership',
     // Keystone Description
     lostsoulDescription: 
-    '生命吸取和护盾吸取分别增加0.1%，但友方无法在通过任何治疗方式恢复生命。',
+    '+0.1% allies Lifesteal & Shieldsteal. Allies cannot recieve [Heal].',
     martialartistDescription:
-    '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低15%。',
+    'If Main Hand Weapon target ≤3, You have +1 Normal Attack target. Your Normal Attacks have -15% Normal Up.',
     braveryDescription:
-    '当友方单位生命≥25%时，该单位所受到的所有伤害优先扣除生命再扣除护盾。',
+    'When allies have ≥25% HP, DMG taken reduce HP instead of [Shield].',
     luckycharmDescription:
-    '治疗效果可以产生暴击，且治疗暴击时效果固定为150%。',
+    '[Heal] can Crit. [Heal] Crit is always 150%.',
     doubleluckDescription:
-    '友方格挡后，5秒内降低目标12%的攻击。',
+    'When allies Block, Attacker has -12% ATK for 5 secs.',
     windriderDescription:
-    '友方有15%的概率躲避负面状态。',
+    'Allies have +15% chance to avoid [Debuffs].',
     nomanslandDescription:
-    '闪避率的上限+2%。每一个存活的敌人，使友方绝对闪避+1.5%。',
+    '+2% Max Dodge. Allies have +1.5% Dodge per enemy alive.',
     breathofwindDescription:
-    '角色武器普攻有50%的概率触发风息：对目标造成基础伤害95%的物理异常伤害，受角色普攻伤害加成影响，冷却时间6秒。',
+    'Your Normal Attacks have 50% chance to deal 95% Physical [abnormal DMG]. DMG affected by Normal Up. This effect has 6 secs. CD.',
     courageDescription:
-    '友方单位生命≤50%时，友方伤害提高10%，控制延长+10%。',
+    'When allies have ≤50% HP, they have +10% DMG & Control Duration',
     kitingDescription:
-    '近距离时降低15%的伤害，远距离时提高15%的伤害。',
+    '+15% DMG when far from enemies. -15% DMG when close to enemies.',
     assassinationDescription:
-    '远距离时降低15%的伤害，近距离时提高15%的伤害。',
+    '+15% DMG when close to enemies. -15% DMG when far from enemies.',
     accuracyDescription:
-    '友方的攻击不会被闪避，但友方的暴击率固定为0%。',
+    'Enemies cannot Dodge. Allies Crit Chance is set to 0%.',
     boosterDescription:
-    '角色每次使用攻击技能后，使受到的伤害降低0.6%，可叠加20次。',
+    'Each DMG Skill you use grant you 0.6% DMG Reduction, up to 20 stacks.',
     mirrorimageDescription:
-    '生命提高5%，伤害反射+50%',
+    '+5% Max HP, +50% Reflect',
     ironwillDescription:
-    '全属性抗性+3.5%，全属性抗性上限+1%',
+    '+3.5% All RES, +1% Max All RES',
     fortressDescription:
-    '战斗中，角色生命上限转化为开场护盾并固定变为1点，角色因治疗而溢出的生命，以12%的比例转化为护盾。',
+    'Your Max HP is converted to [Shield] at start, with 1 Max HP left. 12% [Heal] converted to [Shield].',
     giantDescription:
-    '战斗中不再能闪避攻击。将面板上的绝对闪避转化为角色的护甲提高。',
+    'You cannot Dodge. Your AR is affeced by Dodge%.',
     grandsummonerDescription:
-    '角色承受伤害的12%，由所有随从共同承担',
+    'When you have minions, they take 12% DMG for you.',
     skywardstrikeDescription:
-    '武器攻击距离固定为最大值。但伤害降低15%。',
+    'Weapon has 12 Attack Range. Allies have -15% DMG.',
     wailDescription:
-    '任意随从死亡时，存活的随从发射火球，对敌方单位造成随从基础伤害120%的火属性伤害，冷却时间5秒。',
+    'When any minion dies, Each alive minion deal 120% Fire DMG to a target. This effect has 5 secs. CD.',
     alchemistDescription:
-    '敌方的伤害降低15%，但敌方的每次攻击都会附带1层[燃烧][中毒][流血]。',
+    'Enemies attacks deal -15% DMG, but inflict [Lvl.1 Poison, Bleed, Burn]',
     unpenetrableDescription:
-    '全属性抗性+5%。全属性抗性上限+2%',
+    '+5% All RES, +2% Max All RES',
     leadershipDescription:
-    '友方每一个存活的随从，使友方随从伤害提高2.5%。',
+    'Minions have +2.5% DMG per minion alive.',
     // Others
     cdr: 'CDR',
     shieldatstart: '[Shield] at start',
