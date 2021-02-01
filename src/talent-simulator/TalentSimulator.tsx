@@ -7,7 +7,7 @@ import { MAX_VALUE, NODES } from './components/Constants';
 
 import { Node, NodeType, PerkType } from './components';
 
-const credits = ['creator', 'englishTranslator'];
+const credits = ['creator', 'dataProvider'];
 
 const AppBar = (props: any) => (
   <Box
@@ -27,7 +27,7 @@ const AppBar = (props: any) => (
 // const SCALE = 4;
 const buildSeparator = '-';
 const urlSeparator = '?';
-const startingTowerLevel = 0;
+const defaultPoints = 3;
 
 type SummaryType = { [key: string]: { [key: string]: number | undefined } };
 
@@ -37,7 +37,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const [summary, setSummary] = useState({} as SummaryType);
   const [searchString, setsearchString] = useState('');
   const [imporBuildString, setImportBuildString] = useState('');
-  const [towerLevel, setTowerLevel] = useState(startingTowerLevel);
+  const [level, setLevel] = useState<number>();
   const [showSidebar, setShowSidebar] = useState(false);
   const [reportBug, setReportBug] = useState(false);
   const [showCredit, setShowCredit] = useState(false);
@@ -62,7 +62,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
 
   const getSize = (maxValue: any) => {
     const width = maxValue.x * 20 + 20;
-    const height = maxValue.y * 10 + 10;
+    const height = maxValue.y * 20 + 20;
     return { width, height, viewBox: `-10 -5 ${width} ${height}` };
   };
 
@@ -73,25 +73,21 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   NODES.forEach(NODE => {
     const node: NodeType = {
       id: NODE.id,
-      isSelected: false,
+      selectedPoints: NODE.type === 'startPoint' ? 1 : 0,
       x: NODE.x * 20,
-      y: size.height - NODE.y * 10 - 20,
+      y: size.height - NODE.y * 20 - 20,
       points: NODE.points,
+      type: NODE.type,
       perks: NODE.perks,
       additionalSearchKeywords: NODE.additionalSearchKeywords,
-      nextNodesIndexes: [],
-      prevNodesIndexes: NODE.prevNodesIndexes,
+      linkedNodesIndexes: NODE.linkedNodesIndexes,
     };
-    node.prevNodesIndexes.forEach(nodeIndex => {
-      const prevNode: NodeType = initialNodes[nodeIndex];
-      prevNode.nextNodesIndexes.push(node.id);
-    });
     initialNodes.push(node);
   });
 
   const [nodes, setNodes] = useState(initialNodes);
 
-  const addToSummary = ({ isSelected, perks }: NodeType, summary: any) => {
+  const updateSummary = ({ selectedPoints, perks }: NodeType, summary: any, isAdd: boolean) => {
     const _summary = { ...summary };
     perks.forEach(({ name, fullNameList, type, value = 0 }: PerkType) => {
       if (!_summary[type]) {
@@ -101,24 +97,24 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
       // perks with fullNameList are Base Stats
       if (!!fullNameList) {
         fullNameList.forEach(fullname => {
-          _summary[type][fullname] = (_summary[type][fullname] || 0) + (isSelected ? -value : value);
+          _summary[type][fullname] = (_summary[type][fullname] || 0) + (isAdd ? value : -value);
         });
       } else if (type.toLocaleLowerCase().includes('stats')) {
-        _summary[type][name] = (_summary[type][name] || 0) + (isSelected ? -value : value);
+        _summary[type][name] = (_summary[type][name] || 0) + (isAdd ? value : -value);
       } else {
-        _summary[type][name] = !isSelected;
+        _summary[type][name] = isAdd;
       }
     });
     return _summary;
   };
 
-  const onClick = (index: number) => {
+  const onUpdate = (index: number, isAdd: boolean) => {
     const _node = nodes[index];
     const _nodes = [...nodes];
-    _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
-    setTotalPoints(totalPoints + (_node.isSelected ? -_node.points : _node.points));
+    _nodes.splice(index, 1, { ..._node, selectedPoints: _node.selectedPoints + (isAdd ? 1 : -1) });
+    setTotalPoints(totalPoints + (isAdd ? 1 : -1));
     setNodes(_nodes);
-    const _summary = addToSummary(_node, summary);
+    const _summary = updateSummary(_node, summary, isAdd);
     setSummary(_summary);
   };
 
@@ -136,9 +132,9 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
       const index = parseInt(indexString);
       if (!isNaN(index) && index < _nodes.length) {
         const _node = _nodes[index];
-        _nodes.splice(index, 1, { ..._node, isSelected: !_node.isSelected });
-        _totalPoints = _totalPoints + (_node.isSelected ? -_node.points : _node.points);
-        _summary = addToSummary(_node, _summary);
+        _nodes.splice(index, 1, { ..._node, selectedPoints: _node.selectedPoints + 1 });
+        _totalPoints = _totalPoints + _node.selectedPoints;
+        _summary = updateSummary(_node, _summary, true);
       }
     });
     setTotalPoints(_totalPoints);
@@ -150,8 +146,8 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const getBuild = () => {
     let buildString = '';
     nodes.forEach(node => {
-      if (node.isSelected) {
-        buildString += node.id === 0 ? node.id : `${buildSeparator}${node.id}`;
+      if (node.selectedPoints && node.type !== 'startPoint') {
+        buildString += buildString ? `${buildSeparator}${node.id}` : node.id;
       }
     });
     return buildString;
@@ -172,8 +168,8 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           { name: 'currentBuild', start: [0, 2], end: [2, 2] },
           { name: 'exportButton', start: [3, 2], end: [3, 2] },
           { name: 'searchBar', start: [0, 3], end: [1, 3] },
-          { name: 'towerText', start: [2, 3], end: [2, 3] },
-          { name: 'towerLevel', start: [3, 3], end: [3, 3] },
+          { name: 'levelText', start: [2, 3], end: [2, 3] },
+          { name: 'level', start: [3, 3], end: [3, 3] },
         ]}>
         <Button
           gridArea="showAll"
@@ -212,23 +208,23 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
             onChange={event => setsearchString(event.target.value)}
           />
         </Box>
-        <Box gridArea="towerText" alignContent="end" justify="center">
-          <Text size="large">{t('tower')}</Text>
+        <Box gridArea="levelText" alignContent="end" justify="center">
+          <Text size="large">{t('level')}</Text>
         </Box>
-        <Box gridArea="towerLevel">
+        <Box gridArea="level">
           <TextInput
-            placeholder={t('towerLvl')}
+            placeholder={t('currentLevel')}
             type="number"
-            value={towerLevel}
-            onChange={event => setTowerLevel(parseInt(event.target.value))}
+            value={level}
+            onChange={event => setLevel(parseInt(event.target.value))}
           />
         </Box>
       </Grid>
 
-      <Heading size="none">
-        {towerLevel
-          ? t('remainPoints', { points: towerLevel + 5 - totalPoints })
-          : t('reqiredPoints', { totalPoints, towerLevels: Math.max(totalPoints - 5, 0) })}
+      <Heading size="small">
+        {level
+          ? t('remainPoints', { points: level + defaultPoints - totalPoints })
+          : t('reqiredPoints', { totalPoints, Levels: Math.max(totalPoints - defaultPoints, 0) })}
       </Heading>
       <Grid
         fill="vertical"
@@ -246,7 +242,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
         {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'skills', 'special'].map((type, index) => {
           return (
             <Box gridArea={type} background="light-5" key={type}>
-              <Heading size="small" level={3} margin="xsmall">
+              <Heading size="small" margin="xsmall">
                 {t(type)}
               </Heading>
               {summary[type] && (
@@ -355,11 +351,12 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
               {nodes.map(node => (
                 <Node
                   {...node}
-                  onClick={() => onClick(node.id)}
+                  onAdd={() => onUpdate(node.id, true)}
+                  onRemove={() => onUpdate(node.id, false)}
                   nodes={nodes}
                   showTooltip={showAllTooltip}
                   searchString={searchString}
-                  remindPoints={towerLevel ? towerLevel + 5 - totalPoints : 999}
+                  remindPoints={level ? level + 5 - totalPoints : 999}
                   key={node.id}
                   isChinese={isChinese}
                 />
