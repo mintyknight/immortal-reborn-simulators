@@ -22,104 +22,139 @@ export default {
     buildCopied: 'Link has been copied to clipboard, please start using it by pasting.\n{{link}}',
     points: '{{points}} Points',
     // Stats categories
-    offensiveStats: 'Offensive Stats',
-    defensiveStats: 'Defensive Stats',
-    skills: 'Skills',
+    offensive: 'Offensive Stats',
+    defensive: 'Defensive Stats',
+    passive: 'Keystones',
     baseStats: 'Base Stats',
-    skillLvlStats: 'Skill Levels',
-    special: 'Special',
+    skilllvl: 'Skill Levels',
+    special: 'Others',
     // Base Stats
-    power: 'Pow',
-    wisdom: 'Wis',
-    luck: 'Lck',
-    endurance: 'End',
-    agility: 'Agi',
     allStats: 'All Stats',
-    strength: 'STR',
-    // Active Skill Levels
-    beginnerSkillLevel: 'Beginner', // Active Skill Level
-    intermediateSkillLevel: 'Intermediate', //  Active Skill Level
-    advancedSkillLevel: 'Advanced', //  Active Skill Level
-    masterSkillLevel: 'Master', //  Active Skill Level
-    // Offensive Stats
-    attack: 'ATK',
-    normalAttack: 'Normal Up',
+    luck: 'Lck',
+    agility: 'Agi',
+    power: 'Pow',
+    endurance: 'End',
+    wisdom: 'Wis',
+   // Active Skill Levels
+    beginner:  'Beginner', // Active Skill Level
+    intermediate: 'Intermediate', //  Active Skill Level
+    advanced: 'Advanced', //  Active Skill Level
+    master: 'Master', //  Active Skill Level
+   // Offensive Stats
+    atk: 'ATK',
+    atkboost: 'ATK%',
+    summon: 'Summon',
+    summonBoost: 'Summon Boost',
     critChance: 'Crit Chance',
     critEffect: 'Crit',
-    darkDamage: 'Dark DMG',
+    dmgboost: 'DMG Boost%',
+    normalup: 'Normal Up',
+    attackSpeed: 'ATK SPD',
+    allDamage: 'All Damage',
+    physicalDamage: 'PDMG',
     fireDamage: 'Fire DMG',
     iceDamage: 'Ice DMG',
     lightDamage: 'Light DMG',
-    physicalDamage: 'PDMG',
-    allDamage: 'All DMG',
-    attackSpeed: 'ATK SPD',
-    summonBoost: 'Summon Boost',
-    minionAttackSpeed: 'Minion ATK SPD',
-    cooldownRecovery: 'Cooldown Recovery',
+    darkDamage: 'Dark DMG',
     // Defensive Stats
-    darkResistance: 'Dark RES',
+    maxhp: 'HP',
+    maxhpboost: 'HP%',
+    armor: 'AR',
+    armorboost: 'AR%',
+    dmgreduction: 'DMG Reduction%',
+    blockChance: 'Block Chance',
+    blockEffect: 'Block',
+    allResistance: 'All RES',
+    physicalResistance: 'PRES',
     fireResistance: 'Fire RES',
     iceResistance: 'Ice RES',
     lightResistance: 'Light RES',
-    physicalResistance: 'PRES',
-    allResistance: 'All RES',
+    darkResistance: 'Dark RES',
     lifesteal: 'Lifesteal',
-    healthPoint: 'HP',
-    blockChance: 'Block Chance',
-    blockEffect: 'Block',
-    armor: 'AR',
+    shieldsteal: 'Shieldsteal',
+    reflect: 'Reflect',
     dodge: 'Dodge',
-    // Skills
-    bloomOfLife: 'Bloom of Life',
-    spiritRay: 'Spirit Ray',
-    shieldOfChaos: 'Shield of Chaos',
-    waterElement: 'Water Element',
-    deadlyCrush: 'Deadly Crush',
-    celestialStorm: 'Celestial Storm',
-    emboldened: 'Emboldened',
-    purification: 'Purification',
-    chainHook: 'Chain Hook',
-    earthElement: 'Earth Element',
-    eyeOfReincarnation: 'Eye of Reincarnation',
-    symbiosis: 'Symbiosis',
-    booster: 'Booster',
-    breathOfWind: 'Breath of Wind',
-    // Skill Description
-    bloomOfLifeDescription:
-      'Heal your HP per sec for 5 secs, and reduce damage taken by 40% during the healing.\nHealing per sec = 57.4% of your ATK\n\nGrade S: After the duration, heal HP for all allies based on 45.1% of your ATK.',
-    spiritRayDescription:
-      'Attack targets randomly, dealing Dark DMG. The further the Range, the more the targets.\nDark DMG: 205% Main Hand Base Damage + 315\n\nGrade S: Deal Dark Abnormal DMG based on 8.2% Main Hand ATK + 46 for 5 secs.',
-    shieldOfChaosDescription:
-      'Grant you [Shield], and 1 stack of [Holy Shield] which can resist an attack once.\nShield = 8.6% of you Max HP\n\nGrade S: Grant you extra Shield based on 4% of your Max HP.',
-    waterElementDescription:
-      'Summon Water Element on the left, who deals Ice DMG to a target.\nIce DMG: 307.5% of Water Element’s Base Damage + 473\n\nGrade S: Remove all allies’ debuffs on death.',
-    deadlyCrushDescription:
-      'Deal PDMG to 3 targets. Cooldown corresponds to Main Hand Cooldown.\nPDMG = 133.3% Main Hand Base Damage + 205\n\nGrade S: 1.22x damage/2s. Effect resets after unleashing this skill.',
-    celestialStormDescription:
-      'Trigger [Aerolite], who attacks 2 random targets 4 times in 1 sec, dealing Fire DMG each time.\nFire DMG = 153.8% Main Hand Base Damage + 236\n\nGrade S: +2 attacks.',
-    emboldenedDescription: 'Heal your HP by 5.5% when any target dies.',
-    purificationDescription:
-      'Deal Light DMG to all targets.\nLight DMG = 307.5% Main Hand Base Damage + 473\n\nGrade S: Remove all targets’ buffs.',
-    chainHookDescription:
-      'Sneak Attack to 2 targets, dealing PDMG; and reduce Range by 3, inflicting [Lvl.1 Bleed].\nPDMG: 184.5% Main Hand Base Damage + 284\n\nGrade S: +1 target',
-    earthElementDescription:
-      'Summon Earth Element on the right, who deals PDMG to a target, and knocks them back by 2 Range.\nPDMG = 422.3% of Earth Element’s Base Damage + 649\n\nGrade S: When Earth Element is attacked, stun attacker for 1 sec.',
-    eyeOfReincarnationDescription: 'Launch your previous skill used per 34 secs.\n\nGrade S: -5s Cooldown.',
-    symbiosisDescription:
-      'Increase Minion’s damage by 11%.\nWhen any Minion lives, reduce all allies’ damage taken by 4.4%',
-    boosterDescription: 'Your skill attack grants a 1.5% increased damage. (stacks)\nMax stacks: 11.',
-    breathOfWindDescription:
-      'Your Normal Attack has a 20% chance to trigger [Breath of Wind], dealing Pure DMG to target. Damage is affected by Normal Up.\nPure DMG = 34.1% Main Hand ATK + 96',
-    // Special
-    burnSpeed: '2x Burn SPD', // Reduce Burn's Cooldown by 50%
-    poisonDamage: '2x Poison DMG', // Double the effect of Poison
-    bleedDamage: '2x Bleed DMG', // Double the effect of Bleed
-    // search terms
-    skillLevel: 'Skill Level',
+    // Keystones
+    lostsoul: 'Lost Soul',
+    martialartist:'Martial Artist',
+    bravery:'Bravery',
+    luckycharm:'Lucky Charm',
+    doubleluck:'Double Luck',
+    windrider:'Wind Rider',
+    nomansland:'No Mans Land',
+    breathofwind:'Breath of Wind',
+    courage:'Courage',
+    kiting:'Kiting',
+    assassination:'Assassination',
+    accuracy:'Accuracy',
+    booster:'Booster',
+    mirrorimage:'Mirror Image',
+    ironwill:'Iron Will',
+    fortress:'Fortress',
+    giant:'Giant',
+    grandsummoner:'Grand Summoner',
+    skywardstrike:'Skyward Strike',
+    wail:'Wail',
+    alchemist:'Alchemist',
+    unpenetrable:'Unpenetrable',
+    leadership:'Leadership',
+    // Keystone Description
+    lostsoulDescription: 
+    '生命吸取和护盾吸取分别增加0.1%，但友方无法在通过任何治疗方式恢复生命。',
+    martialartistDescription:
+    '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低15%。',
+    braveryDescription:
+    '当友方单位生命≥25%时，该单位所受到的所有伤害优先扣除生命再扣除护盾。',
+    luckycharmDescription:
+    '治疗效果可以产生暴击，且治疗暴击时效果固定为150%。',
+    doubleluckDescription:
+    '友方格挡后，5秒内降低目标12%的攻击。',
+    windriderDescription:
+    '友方有15%的概率躲避负面状态。',
+    nomanslandDescription:
+    '闪避率的上限+2%。每一个存活的敌人，使友方绝对闪避+1.5%。',
+    breathofwindDescription:
+    '角色武器普攻有50%的概率触发风息：对目标造成基础伤害95%的物理异常伤害，受角色普攻伤害加成影响，冷却时间6秒。',
+    courageDescription:
+    '友方单位生命≤50%时，友方伤害提高10%，控制延长+10%。',
+    kitingDescription:
+    '近距离时降低15%的伤害，远距离时提高15%的伤害。',
+    assassinationDescription:
+    '远距离时降低15%的伤害，近距离时提高15%的伤害。',
+    accuracyDescription:
+    '友方的攻击不会被闪避，但友方的暴击率固定为0%。',
+    boosterDescription:
+    '角色每次使用攻击技能后，使受到的伤害降低0.6%，可叠加20次。',
+    mirrorimageDescription:
+    '生命提高5%，伤害反射+50%',
+    ironwillDescription:
+    '全属性抗性+3.5%，全属性抗性上限+1%',
+    fortressDescription:
+    '战斗中，角色生命上限转化为开场护盾并固定变为1点，角色因治疗而溢出的生命，以12%的比例转化为护盾。',
+    giantDescription:
+    '战斗中不再能闪避攻击。将面板上的绝对闪避转化为角色的护甲提高。',
+    grandsummonerDescription:
+    '角色承受伤害的12%，由所有随从共同承担',
+    skywardstrikeDescription:
+    '武器攻击距离固定为最大值。但伤害降低15%。',
+    wailDescription:
+    '任意随从死亡时，存活的随从发射火球，对敌方单位造成随从基础伤害120%的火属性伤害，冷却时间5秒。',
+    alchemistDescription:
+    '敌方的伤害降低15%，但敌方的每次攻击都会附带1层[燃烧][中毒][流血]。',
+    unpenetrableDescription:
+    '全属性抗性+5%。全属性抗性上限+2%',
+    leadershipDescription:
+    '友方每一个存活的随从，使友方随从伤害提高2.5%。',
+    // Others
+    cdr: 'CDR',
+    shieldatstart: '[Shield] at start',
+    hpregen: 'HP/3secs.',
+    str: 'STR',
+    // Search Terms
+    skillLevel: 'Skill level',
     offense: 'Offense',
     defense: 'Defense',
     offenseDefense: 'Offense Defense',
-    activeSkill: 'Active Skill',
-    passiveSkill: 'Passive Skill',
+    passive: 'Passive',
   },
 };
