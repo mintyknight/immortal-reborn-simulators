@@ -234,7 +234,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -618,7 +618,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -648,7 +648,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -955,7 +955,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -972,7 +972,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -989,7 +989,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1006,7 +1006,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1065,7 +1065,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1082,7 +1082,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1099,7 +1099,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1129,7 +1129,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1146,7 +1146,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1486,7 +1486,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1519,7 +1519,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1536,7 +1536,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1566,7 +1566,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1905,7 +1905,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1922,7 +1922,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1939,7 +1939,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -1995,7 +1995,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2321,7 +2321,7 @@ export const NODES: NODESType = [
     perks: [
       {
         name: 'allDamage',
-        fullNameList: ['physicalDamage', 'fireDamage', 'iceDamage', 'lightDamage', 'darkDamage'],
+        fullNameList: ['pdmg', 'firedmg', 'icedmg', 'lightdmg', 'darkdmg'],
         type: 'offensiveStats',
         value: 0.065,
       },
@@ -2381,7 +2381,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2398,7 +2398,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2442,7 +2442,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
       { name: 'atk', type: 'offense', value: 5~9 },
@@ -2473,7 +2473,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2506,7 +2506,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2536,7 +2536,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2921,7 +2921,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -2938,7 +2938,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3253,7 +3253,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3270,7 +3270,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3287,7 +3287,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3304,7 +3304,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3390,7 +3390,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3419,7 +3419,7 @@ export const NODES: NODESType = [
     perks: [
       {
         name: 'allDamage',
-        fullNameList: ['physicalDamage', 'fireDamage', 'iceDamage', 'lightDamage', 'darkDamage'],
+        fullNameList: ['pdmg', 'firedmg', 'icedmg', 'lightdmg', 'darkdmg'],
         type: 'offensiveStats',
         value: 0.065,
       },
@@ -3704,7 +3704,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3734,7 +3734,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3776,7 +3776,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3809,7 +3809,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -3839,7 +3839,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
@@ -4029,7 +4029,7 @@ export const NODES: NODESType = [
       {
         name: 'allResistance',
         type: 'defensiveStats',
-        fullNameList: ['physicalResistance', 'fireResistance', 'iceResistance', 'lightResistance', 'darkResistance'],
+        fullNameList: ['pres', 'fireres', 'iceres', 'lightres', 'darkres'],
         value: 0.035,
       },
            ],
@@ -4149,7 +4149,7 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
            ],
