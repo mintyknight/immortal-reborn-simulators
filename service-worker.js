@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/immortal-reborn-simulators/precache-manifest.1e12455388b96038312f7aedbfa49bf1.js"
+  "/immortal-reborn-simulators/precache-manifest.7be8e4773d81b0c1db9d013832d17bc5.js"
 );
 
 self.addEventListener('message', (event) => {
