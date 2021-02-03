@@ -17,61 +17,51 @@ export const NODES: NODESType = [
     y: 0,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [5, 6],
   },
- {
+  {
     id: 1,
     x: 18,
     y: 0,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [7, 8],
   },
- {
+  {
     id: 2,
     x: 24,
     y: 0,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [9, 10],
   },
- {
+  {
     id: 3,
     x: 30,
     y: 0,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [11],
   },
- {
+  {
     id: 4,
     x: 36,
     y: 0,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [12,13],
+    linkedNodesIndexes: [12, 13],
   },
- {
+  {
     id: 5,
     x: 11,
     y: 1,
@@ -80,23 +70,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [0, 20],
   },
- {
+  {
     id: 6,
     x: 13,
     y: 1,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'critchance', type: 'offense', value: 0.035 },
-           ],
+    perks: [{ name: 'critchance', type: 'offensiveStats', value: 0.035 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [0, 21],
   },
- {
+  {
     id: 7,
     x: 17,
     y: 1,
@@ -105,11 +93,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [1, 25],
   },
- {
+  {
     id: 8,
     x: 19,
     y: 1,
@@ -117,12 +105,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [1, 26],
   },
- {
+  {
     id: 9,
     x: 23,
     y: 1,
@@ -130,12 +118,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [2, 28],
   },
- {
+  {
     id: 10,
     x: 25,
     y: 1,
@@ -143,25 +131,25 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [2, 30],
   },
- {
+  {
     id: 11,
     x: 30,
     y: 1,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [3, 34],
   },
- {
+  {
     id: 12,
     x: 35,
     y: 1,
@@ -170,11 +158,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [4, 36],
   },
- {
+  {
     id: 13,
     x: 37,
     y: 1,
@@ -183,11 +171,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [4, 38],
   },
- {
+  {
     id: 14,
     x: 0,
     y: 2,
@@ -195,36 +183,32 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [15, 79],
   },
- {
+  {
     id: 15,
     x: 2,
     y: 2,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'lifesteal', type: 'defense', value: 0.0005 },
-           ],
+    perks: [{ name: 'lifesteal', type: 'defensiveStats', value: 0.0005 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [14, 46],
   },
- {
+  {
     id: 16,
     x: 5,
     y: 2,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'atkspd', type: 'offense', value: 0.06 },
-           ],
+    perks: [{ name: 'atkspd', type: 'offensiveStats', value: 0.06 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [17],
   },
- {
+  {
     id: 17,
     x: 6,
     y: 2,
@@ -237,23 +221,21 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [16, 49, 82],
   },
- {
+  {
     id: 18,
     x: 9,
     y: 2,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'blockchance', type: 'defense', value: 0.035 },
-           ],
+    perks: [{ name: 'blockchance', type: 'defensiveStats', value: 0.035 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [19],
   },
- {
+  {
     id: 19,
     x: 10,
     y: 2,
@@ -261,24 +243,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [18, 50],
   },
- {
+  {
     id: 20,
     x: 12,
     y: 2,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [5, 52],
   },
- {
+  {
     id: 21,
     x: 13,
     y: 2,
@@ -287,11 +267,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [6, 22, 53],
   },
- {
+  {
     id: 22,
     x: 14,
     y: 2,
@@ -299,24 +279,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [21, 23],
   },
- {
+  {
     id: 23,
     x: 15,
     y: 2,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'atkspd', type: 'offense', value: 0.06 },
-           ],
+    perks: [{ name: 'atkspd', type: 'offensiveStats', value: 0.06 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [22, 24, 55],
   },
- {
+  {
     id: 24,
     x: 16,
     y: 2,
@@ -324,12 +302,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [23, 25],
   },
- {
+  {
     id: 25,
     x: 17,
     y: 2,
@@ -337,12 +315,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [24, 26, 57],
+    linkedNodesIndexes: [7, 24, 26, 57],
   },
- {
+  {
     id: 26,
     x: 19,
     y: 2,
@@ -351,24 +329,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [25, 27, 59],
+    linkedNodesIndexes: [8, 25, 27, 59],
   },
- {
+  {
     id: 27,
     x: 21,
     y: 2,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'pres', type: 'defense', value: 0.05 },
-      { name: 'maxpres', type: 'defense', value: 0.01 },
-           ],
+      { name: 'pres', type: 'defensiveStats', value: 0.05 },
+      { name: 'maxpres', type: 'defensiveStats', value: 0.01 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [26, 28],
   },
- {
+  {
     id: 28,
     x: 22,
     y: 2,
@@ -377,11 +355,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [9, 27, 29, 61],
   },
- {
+  {
     id: 29,
     x: 24,
     y: 2,
@@ -389,49 +367,45 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [28, 30, 62],
   },
- {
+  {
     id: 30,
     x: 25,
     y: 2,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [10, 29, 31],
   },
- {
+  {
     id: 31,
     x: 26,
     y: 2,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'beginner', type: 'skilllvl', value: 4 },
-           ],
+    perks: [{ name: 'beginner', type: 'skillLvlStats', value: 4 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [30, 32],
   },
- {
+  {
     id: 32,
     x: 28,
     y: 2,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [31, 65],
   },
- {
+  {
     id: 33,
     x: 29,
     y: 2,
@@ -439,36 +413,32 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [34, 66],
   },
- {
+  {
     id: 34,
     x: 30,
     y: 2,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [11, 33, 67],
   },
- {
+  {
     id: 35,
     x: 32,
     y: 2,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'maxhpboost', type: 'defense', value: 0.04 },
-           ],
+    perks: [{ name: 'maxhpboost', type: 'defensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [36, 67],
   },
- {
+  {
     id: 36,
     x: 34,
     y: 2,
@@ -477,35 +447,31 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [12, 35, 37],
   },
- {
+  {
     id: 37,
     x: 36,
     y: 2,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'darkdmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'darkdmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [36, 70],
   },
- {
+  {
     id: 38,
     x: 37,
     y: 2,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [12, 39, 71],
   },
- {
+  {
     id: 39,
     x: 38,
     y: 2,
@@ -514,11 +480,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [38, 72],
   },
- {
+  {
     id: 40,
     x: 42,
     y: 2,
@@ -527,11 +493,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [41, 75],
   },
- {
+  {
     id: 41,
     x: 43,
     y: 2,
@@ -540,37 +506,37 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [40, 42],
   },
- {
+  {
     id: 42,
     x: 44,
     y: 2,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'blockeffect', type: 'defense', value: 0.06 },
-      { name: 'criteffect', type: 'offense', value: 0.06 },
-           ],
+      { name: 'blockeffect', type: 'defensiveStats', value: 0.06 },
+      { name: 'criteffect', type: 'offensiveStats', value: 0.06 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [41],
   },
- {
+  {
     id: 43,
     x: 45,
     y: 2,
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [44, 76],
   },
- {
+  {
     id: 44,
     x: 47,
     y: 2,
@@ -579,23 +545,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [43, 45],
   },
- {
+  {
     id: 45,
     x: 49,
     y: 2,
     points: 2,
     type: 'basic',
-    perks: [
-      { name: 'summonboost', type: 'offense', value: 0.04 },
-           ],
+    perks: [{ name: 'summonboost', type: 'offensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [44],
   },
- {
+  {
     id: 46,
     x: 2,
     y: 3,
@@ -604,11 +568,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [15, 47, 80, 114],
   },
- {
+  {
     id: 47,
     x: 3,
     y: 3,
@@ -621,11 +585,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [46, 48],
   },
- {
+  {
     id: 48,
     x: 4,
     y: 3,
@@ -634,11 +598,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [47, 81],
   },
- {
+  {
     id: 49,
     x: 7,
     y: 3,
@@ -651,11 +615,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [17, 82, 84],
   },
- {
+  {
     id: 50,
     x: 10,
     y: 3,
@@ -664,11 +628,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [19, 51, 86],
   },
- {
+  {
     id: 51,
     x: 11,
     y: 3,
@@ -677,11 +641,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [50, 52],
   },
- {
+  {
     id: 52,
     x: 12,
     y: 3,
@@ -689,12 +653,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [20, 51, 53, 87],
   },
- {
+  {
     id: 53,
     x: 13,
     y: 3,
@@ -702,36 +666,32 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [21, 52, 54],
   },
- {
+  {
     id: 54,
     x: 14,
     y: 3,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'cdr', type: 'special', value: 0.03 },
-           ],
+    perks: [{ name: 'cdr', type: 'special', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [53],
   },
- {
+  {
     id: 55,
     x: 15,
     y: 3,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'criteffect', type: 'offense', value: 0.12 },
-           ],
+    perks: [{ name: 'criteffect', type: 'offensiveStats', value: 0.12 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [23, 56],
   },
- {
+  {
     id: 56,
     x: 16,
     y: 3,
@@ -740,11 +700,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [55, 57, 90],
   },
- {
+  {
     id: 57,
     x: 17,
     y: 3,
@@ -753,35 +713,31 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [25, 56, 91],
   },
- {
+  {
     id: 58,
     x: 18,
     y: 3,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'normalup', type: 'offense', value: 0.06 },
-           ],
+    perks: [{ name: 'normalup', type: 'offensiveStats', value: 0.06 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [59, 125],
   },
- {
+  {
     id: 59,
     x: 19,
     y: 3,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [26, 58, 60],
   },
- {
+  {
     id: 60,
     x: 20,
     y: 3,
@@ -790,11 +746,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [59, 92],
   },
- {
+  {
     id: 61,
     x: 22,
     y: 3,
@@ -802,36 +758,32 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [28, 94],
   },
- {
+  {
     id: 62,
     x: 24,
     y: 3,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [29, 63, 96],
   },
- {
+  {
     id: 63,
     x: 26,
     y: 3,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [62, 64],
   },
- {
+  {
     id: 64,
     x: 27,
     y: 3,
@@ -840,35 +792,31 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [63, 65, 97],
+    linkedNodesIndexes: [63, 65, 98],
   },
- {
+  {
     id: 65,
     x: 28,
     y: 3,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [32, 64, 66],
   },
- {
+  {
     id: 66,
     x: 29,
     y: 3,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'reflect', type: 'defense', value: 0.25 },
-           ],
+    perks: [{ name: 'reflect', type: 'defensiveStats', value: 0.25 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [33, 67, 133],
   },
- {
+  {
     id: 67,
     x: 31,
     y: 3,
@@ -877,37 +825,37 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [34, 35, 66, 101],
   },
- {
+  {
     id: 68,
     x: 33,
     y: 3,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'iceres', type: 'defense', value: 0.08 },
-      { name: 'maxiceres', type: 'defense', value: 0.01 },
-           ],
+      { name: 'iceres', type: 'defensiveStats', value: 0.08 },
+      { name: 'maxiceres', type: 'defensiveStats', value: 0.01 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [69],
   },
- {
+  {
     id: 69,
     x: 34,
     y: 3,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'armor', type: 'defense', value: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [68, 103],
   },
- {
+  {
     id: 70,
     x: 36,
     y: 3,
@@ -916,36 +864,34 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [37, 71, 104],
   },
- {
+  {
     id: 71,
     x: 37,
     y: 3,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [38, 70],
   },
- {
+  {
     id: 72,
     x: 39,
     y: 3,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [29, 73, 108],
   },
- {
+  {
     id: 73,
     x: 40,
     y: 3,
@@ -958,11 +904,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [72, 74],
   },
- {
+  {
     id: 74,
     x: 41,
     y: 3,
@@ -975,11 +921,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [73, 75],
   },
- {
+  {
     id: 75,
     x: 42,
     y: 3,
@@ -992,11 +938,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [40, 74, 111, 112],
   },
- {
+  {
     id: 76,
     x: 45,
     y: 3,
@@ -1009,24 +955,24 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [43, 113],
   },
- {
+  {
     id: 77,
     x: 47,
     y: 3,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'darkres', type: 'defense', value: 0.08 },
-      { name: 'maxdarkres', type: 'defense', value: 0.01 },
-           ],
+      { name: 'darkres', type: 'defensiveStats', value: 0.08 },
+      { name: 'maxdarkres', type: 'defensiveStats', value: 0.01 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [78],
   },
- {
+  {
     id: 78,
     x: 48,
     y: 3,
@@ -1035,11 +981,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [77,146],
+    linkedNodesIndexes: [77, 146],
   },
- {
+  {
     id: 79,
     x: 0,
     y: 4,
@@ -1051,11 +997,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'lostsoulDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [14, 80, 147],
   },
- {
+  {
     id: 80,
     x: 1,
     y: 4,
@@ -1068,11 +1014,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [46, 79, 114],
   },
- {
+  {
     id: 81,
     x: 4,
     y: 4,
@@ -1085,11 +1031,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [48, 82, 115],
+    linkedNodesIndexes: [48, 82, 115, 116],
   },
- {
+  {
     id: 82,
     x: 6,
     y: 4,
@@ -1102,11 +1048,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [17, 81, 83, 117],
+    linkedNodesIndexes: [17, 81, 83, 116, 117],
   },
- {
+  {
     id: 83,
     x: 7,
     y: 4,
@@ -1115,11 +1061,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [82, 84, 118],
   },
- {
+  {
     id: 84,
     x: 8,
     y: 4,
@@ -1132,11 +1078,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [49, 83, 85],
   },
- {
+  {
     id: 85,
     x: 9,
     y: 4,
@@ -1149,11 +1095,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [84, 86],
   },
- {
+  {
     id: 86,
     x: 10,
     y: 4,
@@ -1162,47 +1108,41 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [50, 85, 87, 122],
   },
- {
+  {
     id: 87,
     x: 12,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [52, 86, 122],
+    linkedNodesIndexes: [52, 86, 88, 122],
   },
- {
+  {
     id: 88,
     x: 13,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [123],
+    linkedNodesIndexes: [87, 123],
   },
- {
+  {
     id: 89,
     x: 15,
     y: 4,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'dmgboost', type: 'special', value: 0.05 },
-           ],
+    perks: [{ name: 'dmgboost', type: 'special', value: 0.05 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [90],
   },
- {
+  {
     id: 90,
     x: 16,
     y: 4,
@@ -1210,96 +1150,82 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [56, 89, 124],
   },
- {
+  {
     id: 91,
     x: 17,
     y: 4,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'armorboost', type: 'defense', value: 0.04 },
-           ],
+    perks: [{ name: 'armorboost', type: 'defensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [57],
   },
- {
+  {
     id: 92,
     x: 20,
     y: 4,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'dodge', type: 'defense', value: 0.03 },
-           ],
+    perks: [{ name: 'dodge', type: 'defensiveStats', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [60, 93, 126],
   },
- {
+  {
     id: 93,
     x: 21,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [92, 94, 127],
   },
- {
+  {
     id: 94,
     x: 22,
     y: 4,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'atkboost', type: 'offense', value: 0.04 },
-           ],
+    perks: [{ name: 'atkboost', type: 'offensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [61, 93, 95],
   },
- {
+  {
     id: 95,
     x: 23,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [94, 128],
   },
- {
+  {
     id: 96,
     x: 24,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [62, 129],
   },
- {
+  {
     id: 97,
     x: 26,
     y: 4,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'str', type: 'special', value: 0.25 },
-           ],
+    perks: [{ name: 'str', type: 'special', value: 0.25 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [98],
   },
- {
+  {
     id: 98,
     x: 27,
     y: 4,
@@ -1308,23 +1234,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [64, 97, 99],
   },
- {
+  {
     id: 99,
     x: 28,
     y: 4,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'blockchance', type: 'defense', value: 0.035 },
-           ],
+    perks: [{ name: 'blockchance', type: 'defensiveStats', value: 0.035 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [98],
   },
- {
+  {
     id: 100,
     x: 30,
     y: 4,
@@ -1333,11 +1257,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [101, 134],
   },
- {
+  {
     id: 101,
     x: 31,
     y: 4,
@@ -1346,47 +1270,41 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [67, 100],
   },
- {
+  {
     id: 102,
     x: 32,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [103],
   },
- {
+  {
     id: 103,
     x: 34,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [69, 102, 104, 137],
   },
- {
+  {
     id: 104,
     x: 35,
     y: 4,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [70, 103, 105, 171],
   },
- {
+  {
     id: 105,
     x: 36,
     y: 4,
@@ -1394,37 +1312,35 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [104, 106],
   },
- {
+  {
     id: 106,
     x: 37,
     y: 4,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [105, 107, 138],
   },
- {
+  {
     id: 107,
     x: 38,
     y: 4,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'intermediate', type: 'skilllvl', value: 4 },
-           ],
+    perks: [{ name: 'intermediate', type: 'skillLvlStats', value: 4 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [106, 108],
   },
- {
+  {
     id: 108,
     x: 39,
     y: 4,
@@ -1433,24 +1349,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [72, 107, 139],
   },
- {
+  {
     id: 109,
     x: 40,
     y: 4,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'armorboost', type: 'defense', value: 0.02 },
-      { name: 'dodge', type: 'defense', value: 0.015 },
-           ],
+      { name: 'armorboost', type: 'defensiveStats', value: 0.02 },
+      { name: 'dodge', type: 'defensiveStats', value: 0.015 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [110, 140],
   },
- {
+  {
     id: 110,
     x: 41,
     y: 4,
@@ -1459,11 +1375,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [109, 111],
   },
- {
+  {
     id: 111,
     x: 42,
     y: 4,
@@ -1472,11 +1388,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [75, 110],
   },
- {
+  {
     id: 112,
     x: 43,
     y: 4,
@@ -1489,11 +1405,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [75, 143],
   },
- {
+  {
     id: 113,
     x: 46,
     y: 4,
@@ -1505,11 +1421,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'leadershipDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [76, 145],
   },
- {
+  {
     id: 114,
     x: 2,
     y: 5,
@@ -1522,11 +1438,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [46, 80, 115],
   },
- {
+  {
     id: 115,
     x: 4,
     y: 5,
@@ -1539,11 +1455,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [81, 114],
   },
- {
+  {
     id: 116,
     x: 5,
     y: 5,
@@ -1552,11 +1468,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [81, 82, 149, 186],
   },
- {
+  {
     id: 117,
     x: 6,
     y: 5,
@@ -1569,11 +1485,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [82, 150],
   },
- {
+  {
     id: 118,
     x: 7,
     y: 5,
@@ -1581,25 +1497,25 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [83, 151],
   },
- {
+  {
     id: 119,
     x: 8,
     y: 5,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'summonboost', type: 'offense', value: 0.02 },
-      { name: 'blockchance', type: 'defense', value: 0.02 },
-           ],
+      { name: 'summonboost', type: 'offensiveStats', value: 0.02 },
+      { name: 'blockchance', type: 'defensiveStats', value: 0.02 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [152],
   },
- {
+  {
     id: 120,
     x: 9,
     y: 5,
@@ -1609,61 +1525,53 @@ export const NODES: NODESType = [
       {
         name: 'luckycharm',
         type: 'passive',
-        description: 'luckcharmDescription',
+        description: 'luckycharmDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [153],
   },
- {
+  {
     id: 121,
     x: 10,
     y: 5,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'shieldsteal', type: 'defense', value: 0.0005 },
-           ],
+    perks: [{ name: 'shieldsteal', type: 'defensiveStats', value: 0.0005 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [154],
   },
- {
+  {
     id: 122,
     x: 11,
     y: 5,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [86, 87, 155],
   },
- {
+  {
     id: 123,
     x: 14,
     y: 5,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [88, 124],
   },
- {
+  {
     id: 124,
     x: 16,
     y: 5,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [90, 123, 125, 160],
   },
- {
+  {
     id: 125,
     x: 18,
     y: 5,
@@ -1671,24 +1579,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [58, 124, 126, 160],
   },
- {
+  {
     id: 126,
     x: 19,
     y: 5,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [92, 125, 161],
   },
- {
+  {
     id: 127,
     x: 21,
     y: 5,
@@ -1696,12 +1602,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [93, 162],
   },
- {
+  {
     id: 128,
     x: 23,
     y: 5,
@@ -1710,11 +1616,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [95, 129, 163],
   },
- {
+  {
     id: 129,
     x: 24,
     y: 5,
@@ -1722,36 +1628,32 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [96, 128, 130],
   },
- {
+  {
     id: 130,
     x: 25,
     y: 5,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [129, 131, 199],
   },
- {
+  {
     id: 131,
     x: 26,
     y: 5,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'intermediate', type: 'skilllvl', value: 4 },
-           ],
+    perks: [{ name: 'intermediate', type: 'skillLvlStats', value: 4 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [130, 132, 165],
   },
- {
+  {
     id: 132,
     x: 27,
     y: 5,
@@ -1760,11 +1662,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [131, 133, 166],
   },
- {
+  {
     id: 133,
     x: 29,
     y: 5,
@@ -1773,11 +1675,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [66, 132, 166, 167],
   },
- {
+  {
     id: 134,
     x: 30,
     y: 5,
@@ -1786,48 +1688,44 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [100, 135, 168],
   },
- {
+  {
     id: 135,
     x: 31,
     y: 5,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'dodge', type: 'defense', value: 0.03 },
-           ],
+    perks: [{ name: 'dodge', type: 'defensiveStats', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [134],
   },
- {
+  {
     id: 136,
     x: 33,
     y: 5,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'lightres', type: 'defense', value: 0.08 },
-      { name: 'maxlightres', type: 'defense', value: 0.01 },
-           ],
+      { name: 'lightres', type: 'defensiveStats', value: 0.08 },
+      { name: 'maxlightres', type: 'defensiveStats', value: 0.01 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [137],
   },
- {
+  {
     id: 137,
     x: 34,
     y: 5,
     points: 5,
     type: 'basic',
-    perks: [
-      { name: 'summonstat', type: 'offense', value: 0.008 },
-           ],
+    perks: [{ name: 'summon', type: 'offensiveStats', value: 0.008 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [103, 136],
   },
- {
+  {
     id: 138,
     x: 37,
     y: 5,
@@ -1839,50 +1737,50 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'skywardstrikeDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [106],
   },
- {
+  {
     id: 139,
     x: 39,
     y: 5,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [108, 174],
   },
- {
+  {
     id: 140,
     x: 40,
     y: 5,
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [109, 141],
   },
- {
+  {
     id: 141,
     x: 41,
     y: 5,
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'armor', type: 'defense', value: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [140, 176],
   },
- {
+  {
     id: 142,
     x: 42,
     y: 5,
@@ -1891,11 +1789,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [143, 177],
   },
- {
+  {
     id: 143,
     x: 43,
     y: 5,
@@ -1908,11 +1806,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [112, 142, 178],
   },
- {
+  {
     id: 144,
     x: 45,
     y: 5,
@@ -1925,11 +1823,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [145, 179],
   },
- {
+  {
     id: 145,
     x: 47,
     y: 5,
@@ -1942,11 +1840,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [113, 144, 146],
   },
- {
+  {
     id: 146,
     x: 48,
     y: 5,
@@ -1954,12 +1852,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [78, 145],
   },
- {
+  {
     id: 147,
     x: 0,
     y: 6,
@@ -1967,25 +1865,25 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [79, 148, 182],
   },
- {
+  {
     id: 148,
     x: 2,
     y: 6,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'atkboost', type: 'offense', value: 0.02 },
-      { name: 'cdr', type: 'special', value: 0.015},
-           ],
+      { name: 'atkboost', type: 'offensiveStats', value: 0.02 },
+      { name: 'cdr', type: 'special', value: 0.015 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [147, 182],
   },
- {
+  {
     id: 149,
     x: 4,
     y: 6,
@@ -1998,37 +1896,37 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [116, 184, 186],
   },
- {
+  {
     id: 150,
     x: 6,
     y: 6,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'normalup', type: 'offense', value: 0.03 },
-      { name: 'critchance', type: 'offense', value: 0.02 },
-           ],
+      { name: 'normalup', type: 'offensiveStats', value: 0.03 },
+      { name: 'critchance', type: 'offensiveStats', value: 0.02 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [117],
   },
- {
+  {
     id: 151,
     x: 7,
     y: 6,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'atkboost', type: 'offense', value: 0.02 },
-      { name: 'criteffect', type: 'offense', value: 0.06 },
-           ],
+      { name: 'atkboost', type: 'offensiveStats', value: 0.02 },
+      { name: 'criteffect', type: 'offensiveStats', value: 0.06 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [118, 187],
   },
- {
+  {
     id: 152,
     x: 8,
     y: 6,
@@ -2037,11 +1935,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [119, 188],
   },
- {
+  {
     id: 153,
     x: 9,
     y: 6,
@@ -2050,11 +1948,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [120, 188, 220],
   },
- {
+  {
     id: 154,
     x: 10,
     y: 6,
@@ -2063,36 +1961,34 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [121, 189],
   },
- {
+  {
     id: 155,
     x: 12,
     y: 6,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [122, 190],
   },
- {
+  {
     id: 156,
     x: 13,
     y: 6,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'cdr', type: 'special', value: 0.03},
-           ],
+    perks: [{ name: 'cdr', type: 'special', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [157],
   },
- {
+  {
     id: 157,
     x: 14,
     y: 6,
@@ -2100,37 +1996,35 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [156, 158, 191],
   },
- {
+  {
     id: 158,
     x: 15,
     y: 6,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [157, 192],
   },
- {
+  {
     id: 159,
     x: 16,
     y: 6,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'icedmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'icedmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [193],
   },
- {
+  {
     id: 160,
     x: 17,
     y: 6,
@@ -2139,47 +2033,41 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [124, 125, 194],
   },
- {
+  {
     id: 161,
     x: 20,
     y: 6,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [126, 195],
   },
- {
+  {
     id: 162,
     x: 21,
     y: 6,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'normalup', type: 'offense', value: 0.06 },
-           ],
+    perks: [{ name: 'normalup', type: 'offensiveStats', value: 0.06 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [127],
   },
- {
+  {
     id: 163,
     x: 23,
     y: 6,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'critchance', type: 'offense', value: 0.035 },
-           ],
+    perks: [{ name: 'critchance', type: 'offensiveStats', value: 0.035 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [128],
   },
- {
+  {
     id: 164,
     x: 24,
     y: 6,
@@ -2191,11 +2079,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'accuracyDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [198],
   },
- {
+  {
     id: 165,
     x: 26,
     y: 6,
@@ -2203,24 +2091,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [131, 166, 232],
   },
- {
+  {
     id: 166,
     x: 28,
     y: 6,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [132, 133, 165, 167, 201],
   },
- {
+  {
     id: 167,
     x: 29,
     y: 6,
@@ -2228,24 +2114,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [133, 166, 202],
   },
- {
+  {
     id: 168,
     x: 30,
     y: 6,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'cdr', type: 'special', value: 0.03},
-           ],
+    perks: [{ name: 'cdr', type: 'special', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [134],
   },
- {
+  {
     id: 169,
     x: 32,
     y: 6,
@@ -2257,23 +2141,21 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'fortressDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [170],
   },
- {
+  {
     id: 170,
     x: 33,
     y: 6,
     points: 5,
     type: 'basic',
-    perks: [
-      { name: 'shieldatstart', type: 'special', value: 430 },
-           ],
+    perks: [{ name: 'shieldatstart', type: 'special', value: 430 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [169, 171],
   },
- {
+  {
     id: 171,
     x: 35,
     y: 6,
@@ -2281,12 +2163,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [104, 170, 172],
   },
- {
+  {
     id: 172,
     x: 36,
     y: 6,
@@ -2295,11 +2177,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [171, 173, 208],
   },
- {
+  {
     id: 173,
     x: 37,
     y: 6,
@@ -2307,12 +2189,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [172, 174],
   },
- {
+  {
     id: 174,
     x: 39,
     y: 6,
@@ -2325,24 +2207,24 @@ export const NODES: NODESType = [
         type: 'offensiveStats',
         value: 0.065,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [139, 211],
   },
- {
+  {
     id: 175,
     x: 40,
     y: 6,
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [176, 212],
   },
- {
+  {
     id: 176,
     x: 41,
     y: 6,
@@ -2354,24 +2236,24 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'alchemistDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [141, 175, 177, 213],
   },
- {
+  {
     id: 177,
     x: 42,
     y: 6,
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [142, 176],
   },
- {
+  {
     id: 178,
     x: 43,
     y: 6,
@@ -2384,11 +2266,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [143, 179, 245],
   },
- {
+  {
     id: 179,
     x: 44,
     y: 6,
@@ -2401,11 +2283,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [144, 178],
   },
- {
+  {
     id: 180,
     x: 46,
     y: 6,
@@ -2414,25 +2296,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [181, 215],
   },
- {
+  {
     id: 181,
     x: 47,
     y: 6,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'atkspd', type: 'offense', value: 0.03 },
-      { name: 'normalup', type: 'offense', value: 0.03 },
-      { name: '', type: '', value: 0 },
-           ],
+      { name: 'atkspd', type: 'offensiveStats', value: 0.03 },
+      { name: 'normalup', type: 'offensiveStats', value: 0.03 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [180],
   },
- {
+  {
     id: 182,
     x: 1,
     y: 7,
@@ -2445,12 +2326,12 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [147, 148, 183, 217],
   },
- {
+  {
     id: 183,
     x: 2,
     y: 7,
@@ -2458,12 +2339,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [182, 184],
   },
- {
+  {
     id: 184,
     x: 3,
     y: 7,
@@ -2476,11 +2357,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [149, 183, 218],
   },
- {
+  {
     id: 185,
     x: 4,
     y: 7,
@@ -2492,11 +2373,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'braveryDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [249],
   },
- {
+  {
     id: 186,
     x: 5,
     y: 7,
@@ -2509,11 +2390,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [116, 149, 219, 250],
   },
- {
+  {
     id: 187,
     x: 7,
     y: 7,
@@ -2522,11 +2403,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [151, 188],
   },
- {
+  {
     id: 188,
     x: 8,
     y: 7,
@@ -2539,36 +2420,34 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [152, 153, 187, 220],
   },
- {
+  {
     id: 189,
     x: 11,
     y: 7,
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'armor', type: 'defense', value: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [154, 190, 221],
   },
- {
+  {
     id: 190,
     x: 12,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [155, 189, 191, 223],
   },
- {
+  {
     id: 191,
     x: 14,
     y: 7,
@@ -2577,11 +2456,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [157, 190, 223],
   },
- {
+  {
     id: 192,
     x: 15,
     y: 7,
@@ -2593,11 +2472,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'nomanslandDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [158, 193],
   },
- {
+  {
     id: 193,
     x: 16,
     y: 7,
@@ -2606,131 +2485,111 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [159, 192, 226],
   },
- {
+  {
     id: 194,
     x: 18,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [160, 195, 228],
   },
- {
+  {
     id: 195,
     x: 20,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [161, 194, 196, 228],
   },
- {
+  {
     id: 196,
     x: 21,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [195, 197, 229],
   },
- {
+  {
     id: 197,
     x: 22,
     y: 7,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'pdmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'pdmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [196, 198, 230],
   },
- {
+  {
     id: 198,
     x: 24,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [164, 197, 199, 231],
   },
- {
+  {
     id: 199,
     x: 25,
     y: 7,
     points: 5,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [130, 198, 266],
   },
- {
+  {
     id: 200,
     x: 27,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [165, 201, 232, 233],
   },
- {
+  {
     id: 201,
     x: 28,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pow', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'pow', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [166, 200],
   },
- {
+  {
     id: 202,
     x: 29,
     y: 7,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [167, 203, 234],
   },
- {
+  {
     id: 203,
     x: 30,
     y: 7,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'dmgboost', type: 'special', value: 0.05 },
-           ],
+    perks: [{ name: 'dmgboost', type: 'special', value: 0.05 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [203, 234, 235],
+    linkedNodesIndexes: [202, 234, 235],
   },
- {
+  {
     id: 204,
     x: 31,
     y: 7,
@@ -2739,11 +2598,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [205, 235],
   },
- {
+  {
     id: 205,
     x: 32,
     y: 7,
@@ -2752,24 +2611,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [204, 206, 237],
   },
- {
+  {
     id: 206,
     x: 34,
     y: 7,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [205, 237, 238],
   },
- {
+  {
     id: 207,
     x: 35,
     y: 7,
@@ -2777,12 +2636,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 }
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [208, 239],
   },
- {
+  {
     id: 208,
     x: 36,
     y: 7,
@@ -2790,12 +2649,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [172, 207, 209, 274],
   },
- {
+  {
     id: 209,
     x: 37,
     y: 7,
@@ -2804,24 +2663,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [208, 210, 240],
   },
- {
+  {
     id: 210,
     x: 38,
     y: 7,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [209, 211, 241],
   },
- {
+  {
     id: 211,
     x: 39,
     y: 7,
@@ -2830,24 +2689,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [171, 210, 212, 242],
   },
- {
+  {
     id: 212,
     x: 40,
     y: 7,
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [175, 211],
   },
- {
+  {
     id: 213,
     x: 41,
     y: 7,
@@ -2856,24 +2715,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [176, 214],
   },
- {
+  {
     id: 214,
     x: 42,
     y: 7,
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [213, 244],
   },
- {
+  {
     id: 215,
     x: 46,
     y: 7,
@@ -2881,12 +2740,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [180, 216, 246],
   },
- {
+  {
     id: 216,
     x: 47,
     y: 7,
@@ -2895,23 +2754,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [215, 247],
   },
- {
+  {
     id: 217,
     x: 1,
     y: 8,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'lightdmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'lightdmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [182],
   },
- {
+  {
     id: 218,
     x: 3,
     y: 8,
@@ -2924,11 +2781,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [184, 248, 283],
   },
- {
+  {
     id: 219,
     x: 6,
     y: 8,
@@ -2941,11 +2798,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [186, 251],
   },
- {
+  {
     id: 220,
     x: 9,
     y: 8,
@@ -2954,11 +2811,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [153, 188, 253],
   },
- {
+  {
     id: 221,
     x: 10,
     y: 8,
@@ -2966,12 +2823,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [189, 254],
   },
- {
+  {
     id: 222,
     x: 12,
     y: 8,
@@ -2979,24 +2836,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [223, 255],
   },
- {
+  {
     id: 223,
     x: 13,
     y: 8,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'lck', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [190, 191, 222, 224],
   },
- {
+  {
     id: 224,
     x: 14,
     y: 8,
@@ -3004,24 +2859,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [223, 225, 288],
   },
- {
+  {
     id: 225,
     x: 15,
     y: 8,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [224, 257],
   },
- {
+  {
     id: 226,
     x: 16,
     y: 8,
@@ -3029,24 +2882,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [193, 227, 258],
+    linkedNodesIndexes: [193, 227, 258, 259],
   },
- {
+  {
     id: 227,
     x: 18,
     y: 8,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'lifesteal', type: 'defense', value: 0.0005 },
-           ],
+    perks: [{ name: 'lifesteal', type: 'defensiveStats', value: 0.0005 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [226, 228],
+    linkedNodesIndexes: [226, 228, 259],
   },
- {
+  {
     id: 228,
     x: 19,
     y: 8,
@@ -3055,37 +2906,37 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [194, 195, 227, 160],
+    linkedNodesIndexes: [160, 194, 195, 227, 260],
   },
- {
+  {
     id: 229,
     x: 21,
     y: 8,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [196, 261, 262],
   },
- {
+  {
     id: 230,
     x: 22,
     y: 8,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [197, 263, 264],
   },
- {
+  {
     id: 231,
     x: 24,
     y: 8,
@@ -3094,24 +2945,24 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [198, 265],
   },
- {
+  {
     id: 232,
     x: 26,
     y: 8,
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [165, 200, 267],
   },
- {
+  {
     id: 233,
     x: 27,
     y: 8,
@@ -3119,12 +2970,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'atk', type: 'offense', value: 5~9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [200, 268],
   },
- {
+  {
     id: 234,
     x: 29,
     y: 8,
@@ -3133,23 +2984,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [202, 203, 235, 269],
   },
- {
+  {
     id: 235,
     x: 31,
     y: 8,
     points: 5,
     type: 'basic',
-    perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+    perks: [{ name: 'maxhp', type: 'defensiveStats', value: 200 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [203, 204, 234, 236],
   },
- {
+  {
     id: 236,
     x: 32,
     y: 8,
@@ -3161,11 +3010,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'ironwillDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [235],
   },
- {
+  {
     id: 237,
     x: 33,
     y: 8,
@@ -3177,11 +3026,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'giantDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [205, 206],
   },
- {
+  {
     id: 238,
     x: 34,
     y: 8,
@@ -3189,36 +3038,32 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [206, 273],
   },
- {
+  {
     id: 239,
     x: 35,
     y: 8,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'summonboost', type: 'offense', value: 0.04 },
-           ],
+    perks: [{ name: 'summonboost', type: 'offensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [207],
   },
- {
+  {
     id: 240,
     x: 37,
     y: 8,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'blockeffect', type: 'defense', value: 0.12 },
-           ],
+    perks: [{ name: 'blockeffect', type: 'defensiveStats', value: 0.12 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [209],
   },
- {
+  {
     id: 241,
     x: 38,
     y: 8,
@@ -3227,23 +3072,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'hpregen', type: 'special', value: 8 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [210, 275],
   },
- {
+  {
     id: 242,
     x: 39,
     y: 8,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'shieldsteal', type: 'defense', value: 0.0005 },
-           ],
+    perks: [{ name: 'shieldsteal', type: 'defensiveStats', value: 0.0005 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [211],
   },
- {
+  {
     id: 243,
     x: 41,
     y: 8,
@@ -3256,11 +3099,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [244, 276],
   },
- {
+  {
     id: 244,
     x: 42,
     y: 8,
@@ -3273,11 +3116,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [214, 243, 245],
   },
- {
+  {
     id: 245,
     x: 43,
     y: 8,
@@ -3290,11 +3133,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [178, 244, 246, 278],
   },
- {
+  {
     id: 246,
     x: 45,
     y: 8,
@@ -3307,24 +3150,24 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [215, 245, 281],
   },
- {
+  {
     id: 247,
     x: 47,
     y: 8,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'atkboost', type: 'offense', value: 0.02 },
-      { name: 'maxhpboost', type: 'defense', value: 0.02 },
-           ],
+      { name: 'atkboost', type: 'offensiveStats', value: 0.02 },
+      { name: 'maxhpboost', type: 'defensiveStats', value: 0.02 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [216],
   },
- {
+  {
     id: 248,
     x: 2,
     y: 9,
@@ -3333,11 +3176,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [218, 282],
   },
- {
+  {
     id: 249,
     x: 4,
     y: 9,
@@ -3346,11 +3189,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [185, 250],
   },
- {
+  {
     id: 250,
     x: 5,
     y: 9,
@@ -3358,12 +3201,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [186, 149, 284],
   },
- {
+  {
     id: 251,
     x: 7,
     y: 9,
@@ -3373,14 +3216,14 @@ export const NODES: NODESType = [
       {
         name: 'allStats',
         type: 'baseStats',
-        fullNameList: ['power', 'wisdom', 'luck', 'endurance', 'agility'],
+        fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [219, 252],
   },
- {
+  {
     id: 252,
     x: 8,
     y: 9,
@@ -3393,11 +3236,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [251],
   },
- {
+  {
     id: 253,
     x: 9,
     y: 9,
@@ -3406,11 +3249,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [220, 285],
   },
- {
+  {
     id: 254,
     x: 10,
     y: 9,
@@ -3423,24 +3266,24 @@ export const NODES: NODESType = [
         type: 'offensiveStats',
         value: 0.065,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [221],
   },
- {
+  {
     id: 255,
     x: 12,
     y: 9,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [222, 256, 286],
   },
- {
+  {
     id: 256,
     x: 13,
     y: 9,
@@ -3452,119 +3295,101 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'windriderDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [255],
   },
- {
+  {
     id: 257,
     x: 15,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [225, 258, 289],
   },
- {
+  {
     id: 258,
     x: 16,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [226, 257, 259],
   },
- {
+  {
     id: 259,
     x: 17,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [226, 227, 258, 290],
   },
- {
+  {
     id: 260,
     x: 19,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'agi', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [228, 291],
   },
- {
+  {
     id: 261,
     x: 20,
     y: 9,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'firedmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'firedmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [229, 292],
   },
- {
+  {
     id: 262,
     x: 21,
     y: 9,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'icedmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'icedmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [229],
   },
- {
+  {
     id: 263,
     x: 22,
     y: 9,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'lightdmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'lightdmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [230],
   },
- {
+  {
     id: 264,
     x: 23,
     y: 9,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'darkdmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'darkdmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [230],
   },
- {
+  {
     id: 265,
     x: 24,
     y: 9,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'lifesteal', type: 'defense', value: 0.0005 },
-           ],
+    perks: [{ name: 'lifesteal', type: 'defensiveStats', value: 0.0005 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [231],
   },
- {
+  {
     id: 266,
     x: 25,
     y: 9,
@@ -3572,12 +3397,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [199, 267, 295],
   },
- {
+  {
     id: 267,
     x: 26,
     y: 9,
@@ -3586,11 +3411,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [232, 266, 296, 297],
   },
- {
+  {
     id: 268,
     x: 28,
     y: 9,
@@ -3598,24 +3423,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [233, 298],
   },
- {
+  {
     id: 269,
     x: 29,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [234, 270, 299],
   },
- {
+  {
     id: 270,
     x: 31,
     y: 9,
@@ -3624,35 +3447,31 @@ export const NODES: NODESType = [
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [269, 271, 300],
   },
- {
+  {
     id: 271,
     x: 32,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [270, 272],
   },
- {
+  {
     id: 272,
     x: 33,
     y: 9,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [271, 301],
   },
- {
+  {
     id: 273,
     x: 34,
     y: 9,
@@ -3661,11 +3480,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [238, 274, 302],
   },
- {
+  {
     id: 274,
     x: 36,
     y: 9,
@@ -3674,11 +3493,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [208, 273, 302],
   },
- {
+  {
     id: 275,
     x: 38,
     y: 9,
@@ -3690,11 +3509,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'wailDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [241],
   },
- {
+  {
     id: 276,
     x: 40,
     y: 9,
@@ -3707,24 +3526,24 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [243, 305],
   },
- {
+  {
     id: 277,
     x: 42,
     y: 9,
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [278, 306],
   },
- {
+  {
     id: 278,
     x: 43,
     y: 9,
@@ -3737,11 +3556,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [245, 277, 279],
   },
- {
+  {
     id: 279,
     x: 44,
     y: 9,
@@ -3749,24 +3568,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [278, 280],
   },
- {
+  {
     id: 280,
     x: 45,
     y: 9,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'lifesteal', type: 'defense', value: 0.0005 },
-           ],
+    perks: [{ name: 'lifesteal', type: 'defensiveStats', value: 0.0005 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [279],
   },
- {
+  {
     id: 281,
     x: 46,
     y: 9,
@@ -3779,11 +3596,11 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [246, 308],
   },
- {
+  {
     id: 282,
     x: 2,
     y: 10,
@@ -3795,11 +3612,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'martialartistDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [248, 283],
   },
- {
+  {
     id: 283,
     x: 3,
     y: 10,
@@ -3812,24 +3629,24 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [218, 282, 284],
   },
- {
+  {
     id: 284,
     x: 5,
     y: 10,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [250, 283, 309],
   },
- {
+  {
     id: 285,
     x: 9,
     y: 10,
@@ -3842,24 +3659,24 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [253, 286],
   },
- {
+  {
     id: 286,
     x: 11,
     y: 10,
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 14 },
+      { name: 'maxhp', type: 'defensiveStats', value: 14 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [255, 285, 287],
   },
- {
+  {
     id: 287,
     x: 12,
     y: 10,
@@ -3868,11 +3685,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 2 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [286, 288, 310],
   },
- {
+  {
     id: 288,
     x: 14,
     y: 10,
@@ -3881,11 +3698,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 2 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [224, 287, 289],
   },
- {
+  {
     id: 289,
     x: 15,
     y: 10,
@@ -3893,12 +3710,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [257, 288, 311],
   },
- {
+  {
     id: 290,
     x: 18,
     y: 10,
@@ -3907,11 +3724,11 @@ export const NODES: NODESType = [
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
       { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [259, 291, 313],
   },
- {
+  {
     id: 291,
     x: 19,
     y: 10,
@@ -3919,25 +3736,25 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [260, 290],
   },
- {
+  {
     id: 292,
     x: 20,
     y: 10,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
       { name: 'shieldatstart', type: 'special', value: 215 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [261, 293, 314],
   },
- {
+  {
     id: 293,
     x: 21,
     y: 10,
@@ -3949,23 +3766,21 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'courageDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [292],
   },
- {
+  {
     id: 294,
     x: 24,
     y: 10,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'pdmg', type: 'offense', value: 0.08 },
-           ],
+    perks: [{ name: 'pdmg', type: 'offensiveStats', value: 0.08 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [295, 316],
   },
- {
+  {
     id: 295,
     x: 25,
     y: 10,
@@ -3974,36 +3789,34 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'hpregen', type: 'special', value: 8 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [266, 294, 317],
   },
- {
+  {
     id: 296,
     x: 26,
     y: 10,
     points: 2,
     type: 'notable',
     perks: [
-      { name: 'firedmg', type: 'offense', value: 0.04 },
-      { name: 'fireres', type: 'defense', value: 0.04 },
-           ],
+      { name: 'firedmg', type: 'offensiveStats', value: 0.04 },
+      { name: 'fireres', type: 'defensiveStats', value: 0.04 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [267],
   },
- {
+  {
     id: 297,
     x: 27,
     y: 10,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'maxhpboost', type: 'defense', value: 0.04 },
-           ],
+    perks: [{ name: 'maxhpboost', type: 'defensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [267],
   },
- {
+  {
     id: 298,
     x: 28,
     y: 10,
@@ -4015,11 +3828,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'boosterDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [268],
   },
- {
+  {
     id: 299,
     x: 29,
     y: 10,
@@ -4032,47 +3845,41 @@ export const NODES: NODESType = [
         fullNameList: ['pres', 'fireres', 'iceres', 'lightres', 'darkres'],
         value: 0.035,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [269, 320],
   },
- {
+  {
     id: 300,
     x: 31,
     y: 10,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'pres', type: 'defense', value: 0.05 },
-           ],
+    perks: [{ name: 'pres', type: 'defensiveStats', value: 0.05 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [270, 321, 322],
   },
- {
+  {
     id: 301,
     x: 33,
     y: 10,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'end', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'end', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [272, 301, 302],
   },
- {
+  {
     id: 302,
     x: 35,
     y: 10,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [273, 274, 301, 303],
   },
- {
+  {
     id: 303,
     x: 36,
     y: 10,
@@ -4080,12 +3887,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [302, 304, 326],
   },
- {
+  {
     id: 304,
     x: 38,
     y: 10,
@@ -4093,12 +3900,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [303, 305, 326],
   },
- {
+  {
     id: 305,
     x: 40,
     y: 10,
@@ -4106,24 +3913,22 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [276, 304, 306],
   },
- {
+  {
     id: 306,
     x: 42,
     y: 10,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'master', type: 'skilllvl', value: 4 },
-           ],
+    perks: [{ name: 'master', type: 'skillLvlStats', value: 4 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [277, 305],
   },
- {
+  {
     id: 307,
     x: 44,
     y: 10,
@@ -4135,11 +3940,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'unpenetrableDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [308],
   },
- {
+  {
     id: 308,
     x: 46,
     y: 10,
@@ -4152,23 +3957,21 @@ export const NODES: NODESType = [
         fullNameList: ['pow', 'wis', 'lck', 'end', 'agi'],
         value: 3,
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [281, 307],
   },
- {
+  {
     id: 309,
     x: 6,
     y: 11,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'advanced', type: 'skilllvl', value: 4 },
-           ],
+    perks: [{ name: 'advanced', type: 'skillLvlStats', value: 4 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [284],
   },
- {
+  {
     id: 310,
     x: 12,
     y: 11,
@@ -4180,36 +3983,34 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'doubleluckDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [287],
   },
- {
+  {
     id: 311,
     x: 15,
     y: 11,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
-      { name: 'maxhp', type: 'defense', value: 200 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [289, 312],
   },
- {
+  {
     id: 312,
     x: 16,
     y: 11,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'master', type: 'skilllvl', value: 4 },
-           ],
+    perks: [{ name: 'master', type: 'skillLvlStats', value: 4 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [311],
   },
- {
+  {
     id: 313,
     x: 18,
     y: 11,
@@ -4221,11 +4022,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'breathofwindDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [290],
   },
- {
+  {
     id: 314,
     x: 20,
     y: 11,
@@ -4234,23 +4035,21 @@ export const NODES: NODESType = [
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
       { name: 'agi', type: 'baseStats', value: 3 },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [292, 315],
   },
- {
+  {
     id: 315,
     x: 21,
     y: 11,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'dmgreduction', type: 'defense', value: 0.05 },
-           ],
+    perks: [{ name: 'dmgreduction', type: 'defensiveStats', value: 0.05 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [314],
   },
- {
+  {
     id: 316,
     x: 23,
     y: 11,
@@ -4262,11 +4061,11 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'kitingDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [294],
   },
- {
+  {
     id: 317,
     x: 24,
     y: 11,
@@ -4278,36 +4077,34 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'assassinationDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [295],
   },
- {
+  {
     id: 318,
     x: 26,
     y: 11,
     points: 2,
     type: 'notable',
-    perks: [
-      { name: 'armorboost', type: 'defense', value: 0.04 },
-           ],
+    perks: [{ name: 'armorboost', type: 'defensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [319],
   },
- {
+  {
     id: 319,
     x: 27,
     y: 11,
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'atk', type: 'offense', value: 5~9 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [318, 320],
   },
- {
+  {
     id: 320,
     x: 29,
     y: 11,
@@ -4315,12 +4112,12 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [299, 319],
   },
- {
+  {
     id: 321,
     x: 30,
     y: 11,
@@ -4332,49 +4129,47 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'mirrorimageDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [300],
   },
- {
+  {
     id: 322,
     x: 32,
     y: 11,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'maxhp', type: 'defense', value: 200 },
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-           ],
+      { name: 'maxhp', type: 'defensiveStats', value: 200 },
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [300, 323],
   },
- {
+  {
     id: 323,
     x: 33,
     y: 11,
     points: 1,
     type: 'notable',
-    perks: [
-      { name: 'dmgreduction', type: 'defense', value: 0.05 },
-           ],
+    perks: [{ name: 'dmgreduction', type: 'defensiveStats', value: 0.05 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [322, 324],
   },
- {
+  {
     id: 324,
     x: 34,
     y: 11,
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'summonstat', type: 'offense', value: 0.004 },
-      { name: 'armor', type: 'defense', value: 9 },
-           ],
+      { name: 'summon', type: 'offensiveStats', value: 0.004 },
+      { name: 'armor', type: 'defensiveStats', value: 9 },
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [323, 325],
   },
- {
+  {
     id: 325,
     x: 36,
     y: 11,
@@ -4386,19 +4181,17 @@ export const NODES: NODESType = [
         type: 'passive',
         description: 'grandsummonerDescription',
       },
-           ],
+    ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [324, 326],
   },
- {
+  {
     id: 326,
     x: 37,
     y: 11,
     points: 1,
     type: 'basic',
-    perks: [
-      { name: 'wis', type: 'baseStats', value: 3 },
-           ],
+    perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [303, 304, 325],
   },

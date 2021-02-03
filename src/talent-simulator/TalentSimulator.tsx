@@ -29,7 +29,7 @@ const buildSeparator = '-';
 const urlSeparator = '?';
 const defaultPoints = 3;
 
-type SummaryType = { [key: string]: { [key: string]: number | undefined } };
+type SummaryType = { [key: string]: { [key: string]: number | undefined | { [key: string]: number } } };
 
 export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageSize: string; t: any; i18n: any }) => {
   const [showAllTooltip, setShowAllTooltip] = useState(false);
@@ -41,6 +41,8 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const [showSidebar, setShowSidebar] = useState(false);
   const [reportBug, setReportBug] = useState(false);
   const [showCredit, setShowCredit] = useState(false);
+  const [currentX, setCurrentX] = useState(-1200);
+  // const [isMouseHold, setIsMouseHold] = useState(false);
 
   const isSmallPage = pageSize === 'small';
   const isChinese = i18n.language === 'cn';
@@ -54,14 +56,14 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
     }
   });
 
-  useEffect(() => {
-    if (pageSize === 'small') {
-      setShowAllTooltip(true);
-    }
-  }, [pageSize]);
+  // useEffect(() => {
+  //   if (pageSize === 'small') {
+  //     setShowAllTooltip(true);
+  //   }
+  // }, [pageSize]);
 
   const getSize = (maxValue: any) => {
-    const width = maxValue.x * 20 + 20;
+    const width = maxValue.x * 20 + 40;
     const height = maxValue.y * 20 + 20;
     return { width, height, viewBox: `-10 -5 ${width} ${height}` };
   };
@@ -75,7 +77,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
       id: NODE.id,
       selectedPoints: NODE.type === 'startPoint' ? 1 : 0,
       x: NODE.x * 20,
-      y: size.height - NODE.y * 20 - 20,
+      y: size.height - NODE.y * 20 - 15,
       points: NODE.points,
       type: NODE.type,
       perks: NODE.perks,
@@ -87,9 +89,9 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
 
   const [nodes, setNodes] = useState(initialNodes);
 
-  const updateSummary = ({ selectedPoints, perks }: NodeType, summary: any, isAdd: boolean) => {
+  const updateSummary = ({ perks }: NodeType, summary: any, isAdd: boolean, selectedPoints = 1) => {
     const _summary = { ...summary };
-    perks.forEach(({ name, fullNameList, type, value = 0 }: PerkType) => {
+    perks.forEach(({ name, fullNameList, type, value = 0, minValue = 0, maxValue = 0 }: PerkType) => {
       if (!_summary[type]) {
         _summary[type] = {};
       }
@@ -97,10 +99,18 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
       // perks with fullNameList are Base Stats
       if (!!fullNameList) {
         fullNameList.forEach(fullname => {
-          _summary[type][fullname] = (_summary[type][fullname] || 0) + (isAdd ? value : -value);
+          _summary[type][fullname] = (_summary[type][fullname] || 0) + (isAdd ? value : -value) * selectedPoints;
         });
       } else if (type.toLocaleLowerCase().includes('stats')) {
-        _summary[type][name] = (_summary[type][name] || 0) + (isAdd ? value : -value);
+        if (value) {
+          _summary[type][name] = (_summary[type][name] || 0) + (isAdd ? value : -value) * selectedPoints;
+        } else {
+          if (!_summary[type][name]) {
+            _summary[type][name] = {};
+          }
+          _summary[type][name].min = (_summary[type][name].min || 0) + (isAdd ? minValue : -minValue) * selectedPoints;
+          _summary[type][name].max = (_summary[type][name].max || 0) + (isAdd ? maxValue : -maxValue) * selectedPoints;
+        }
       } else {
         _summary[type][name] = isAdd;
       }
@@ -128,13 +138,15 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
     const _nodes = [...initialNodes];
     let _totalPoints = 0;
     let _summary: SummaryType = {};
-    (buildString || imporBuildString).split(buildSeparator).forEach(indexString => {
+    (buildString || imporBuildString).split(buildSeparator).forEach(indexStr => {
+      const [indexString, selectedPointsString] = indexStr.split('.');
       const index = parseInt(indexString);
       if (!isNaN(index) && index < _nodes.length) {
         const _node = _nodes[index];
-        _nodes.splice(index, 1, { ..._node, selectedPoints: _node.selectedPoints + 1 });
-        _totalPoints = _totalPoints + _node.selectedPoints;
-        _summary = updateSummary(_node, _summary, true);
+        const selectedPoints = parseInt(selectedPointsString) || _node.points;
+        _nodes.splice(index, 1, { ..._node, selectedPoints: selectedPoints });
+        _totalPoints = _totalPoints + selectedPoints;
+        _summary = updateSummary(_node, _summary, true, selectedPoints);
       }
     });
     setTotalPoints(_totalPoints);
@@ -146,8 +158,10 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const getBuild = () => {
     let buildString = '';
     nodes.forEach(node => {
-      if (node.selectedPoints && node.type !== 'startPoint') {
-        buildString += buildString ? `${buildSeparator}${node.id}` : node.id;
+      if (node.selectedPoints) {
+        buildString += buildString
+          ? `${buildSeparator}${node.id}${node.selectedPoints !== node.points ? `.${node.selectedPoints}` : ''}`
+          : node.id;
       }
     });
     return buildString;
@@ -171,12 +185,12 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           { name: 'levelText', start: [2, 3], end: [2, 3] },
           { name: 'level', start: [3, 3], end: [3, 3] },
         ]}>
-        <Button
+        {/* <Button
           gridArea="showAll"
           primary
           label={showAllTooltip ? t('hideAll') : t('showAll')}
           onClick={() => setShowAllTooltip(!showAllTooltip)}
-        />
+        /> */}
         <Button gridArea="resetAll" fill={false} primary label={t('resetBuild')} onClick={() => clearAll()} />
         <Box gridArea="importString">
           <TextInput
@@ -234,12 +248,12 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
         areas={[
           { name: 'offensiveStats', start: [0, 0], end: [0, 0] },
           { name: 'defensiveStats', start: [1, 0], end: [1, 0] },
-          { name: 'skills', start: [2, 0], end: [2, 0] },
+          { name: 'passive', start: [2, 0], end: [2, 0] },
           { name: 'baseStats', start: [0, 1], end: [0, 1] },
           { name: 'skillLvlStats', start: [1, 1], end: [1, 1] },
           { name: 'special', start: [2, 1], end: [2, 1] },
         ]}>
-        {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'skills', 'special'].map((type, index) => {
+        {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'passive', 'special'].map(type => {
           return (
             <Box gridArea={type} background="light-5" key={type}>
               <Heading size="small" margin="xsmall">
@@ -252,11 +266,22 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                     let string = '';
                     if (typeof value === 'boolean') {
                       string = value ? t(name) : '';
+                    } else if (typeof value === 'object') {
+                      const { min, max } = value;
+                      if (isChinese) {
+                        string = `${t(name)} +${min}~${max}`;
+                      } else {
+                        string = `+${min}~${max} ${t(name)}`;
+                      }
                     } else {
                       if (isChinese) {
-                        string = value ? `${t(name)} +${value > 1 ? value : `${Math.round(value * 100)}%`}` : '';
+                        string = value
+                          ? `${t(name)} +${value > 1 ? value : `${Math.round(value * 10000) / 100}%`}`
+                          : '';
                       } else {
-                        string = value ? `+${value > 1 ? value : `${Math.round(value * 100)}%`} ${t(name)}` : '';
+                        string = value
+                          ? `+${value > 1 ? value : `${Math.round(value * 10000) / 100}%`} ${t(name)}`
+                          : '';
                       }
                     }
 
@@ -277,6 +302,38 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   );
 
   const repoProvider = window.location.href.includes('github') ? 'github' : 'gitee';
+
+  // const listeners = {
+  //   onMouseMove: (e: any) => {
+  //     if (isMouseHold) {
+  //       // if (e.touches) { e = e.touches[0]; }
+  //       // return {
+  //       //   x: (e.clientX - CTM.e) / CTM.a,
+  //       //   y: (e.clientY - CTM.f) / CTM.d
+  //       // };
+  //       // console.log('#Yuyu ', e);
+  //       setCurrentX(currentX + 10);
+  //     }
+  //   },
+  //   onMouseDown: (e: any) => {
+  //     console.log('#Yuyu ', 'down');
+  //     setIsMouseHold(true);
+  //   },
+  //   onMouseUp: (e: any) => {
+  //     console.log('#Yuyu ', 'up');
+  //     setIsMouseHold(false);
+  //   },
+  //   onMouseLeave: (e: any) => {
+  //     console.log('#Yuyu ', 'leave');
+  //     setIsMouseHold(false);
+  //   },
+  // };
+
+  const moveStarMap = (isLeft: boolean) => {
+    if ((isLeft && currentX < 100) || (!isLeft && currentX > -2500)) {
+      setCurrentX(currentX + 200 * (isLeft ? 1 : -1));
+    }
+  };
 
   return (
     <>
@@ -345,22 +402,34 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           {!isSmallPage && statusPanel}
 
           <Box gridArea="starMap" background="light-2">
-            <svg width={'100%'} viewBox={size.viewBox}>
-              <rect x={-10} y={-5} width="100%" height="100%" fill="Cyan"></rect>
-
-              {nodes.map(node => (
-                <Node
-                  {...node}
-                  onAdd={() => onUpdate(node.id, true)}
-                  onRemove={() => onUpdate(node.id, false)}
-                  nodes={nodes}
-                  showTooltip={showAllTooltip}
-                  searchString={searchString}
-                  remindPoints={level ? level + 5 - totalPoints : 999}
-                  key={node.id}
-                  isChinese={isChinese}
-                />
-              ))}
+            <Grid
+              rows={['100%']}
+              columns={['50%', '50%']}
+              gap="small"
+              areas={[
+                { name: 'left', start: [0, 0], end: [0, 0] },
+                { name: 'right', start: [1, 0], end: [1, 0] },
+              ]}>
+              <Button gridArea="left" primary label="<" onClick={() => moveStarMap(true)} />
+              <Button gridArea="right" primary label=">" onClick={() => moveStarMap(false)} />
+            </Grid>
+            <svg width={'100%'} viewBox={'0 0 500 700'}>
+              <rect x={0} y={0} width="100%" height="100%" fill="Cyan" />
+              <svg x={currentX} width={'3000'} viewBox={size.viewBox}>
+                {nodes.map(node => (
+                  <Node
+                    {...node}
+                    onAdd={() => onUpdate(node.id, true)}
+                    onRemove={() => onUpdate(node.id, false)}
+                    nodes={nodes}
+                    showTooltip={showAllTooltip}
+                    searchString={searchString}
+                    remindPoints={level ? level + defaultPoints - totalPoints : 999}
+                    key={node.id}
+                    isChinese={isChinese}
+                  />
+                ))}
+              </svg>
             </svg>
           </Box>
         </Grid>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from 'grommet';
 import { withTranslation } from 'react-i18next';
 
@@ -22,30 +22,29 @@ const getTooltip = (
   t: any,
   isChinese: boolean,
   showTooltip?: boolean
-) => {
-  return (
-    <>
-      {perks.map(({ name, value, description }) => {
-        return (
-          <React.Fragment key={name}>
-            <Text>
-              {isChinese
-                ? `${t(name)}${value ? ` +${value >= 1 ? value : `${Math.round(value * 100)}%`}` : ''}`
-                : `${value ? `+${value >= 1 ? value : `${Math.round(value * 100)}%`}` : ''} ${t(name)}`}
-            </Text>
-            {!showTooltip &&
-              description &&
-              t(description)
-                .split('\n')
-                .map((desc: string) => (
-                  <React.Fragment key={`${name}-${desc}`}>{desc ? <Text>{desc}</Text> : <br />}</React.Fragment>
-                ))}
-          </React.Fragment>
-        );
-      })}
-    </>
-  );
-};
+) => (
+  <>
+    {perks.map(({ name, value, minValue, maxValue, description }) => {
+      const valueString = value
+        ? `+${value >= 1 ? value : `${Math.round(value * 100)}%`}`
+        : minValue
+        ? `+${minValue}~${maxValue}`
+        : '';
+      return (
+        <React.Fragment key={name}>
+          <Text>{isChinese ? `${t(name)} ${valueString}` : `${valueString} ${t(name)}`}</Text>
+          {!showTooltip &&
+            description &&
+            t(description)
+              .split('\n')
+              .map((desc: string) => (
+                <React.Fragment key={`${name}-${desc}`}>{desc ? <Text>{desc}</Text> : <br />}</React.Fragment>
+              ))}
+        </React.Fragment>
+      );
+    })}
+  </>
+);
 
 export const Node = withTranslation('translations')(
   ({
@@ -74,18 +73,14 @@ export const Node = withTranslation('translations')(
     let isOpen = false;
     let isFound = false;
 
-    const hasMorePoints = remindPoints >= points;
-
     if (selectedPoints === points) {
       isFullySelected = true;
     } else if (selectedPoints) {
       isPartiallySelected = true;
     } else {
       isOpen =
-        hasMorePoints &&
-        (id === 0 ||
-          linkedNodesIndexes.find(nodeIndex => nodes[nodeIndex].selectedPoints === nodes[nodeIndex].points) !==
-            undefined);
+        id <= 4 ||
+        linkedNodesIndexes.find(nodeIndex => nodes[nodeIndex].selectedPoints === nodes[nodeIndex].points) !== undefined;
     }
 
     // TODO: Search should be done with special search key word string
@@ -102,7 +97,7 @@ export const Node = withTranslation('translations')(
             fullNameList?.some(name => t(name).toLocaleLowerCase().includes(_searchString))
         ));
 
-    const isAddable = isPartiallySelected || isOpen;
+    const isAddable = remindPoints > 0 && (isPartiallySelected || isOpen);
 
     // const isConnectedToStartPoint = (prevNodeIndex: number, currentNodeIndex: number) => {
     //   if
@@ -112,10 +107,15 @@ export const Node = withTranslation('translations')(
     const isRemovable =
       isPartiallySelected ||
       (isFullySelected &&
-        linkedNodesIndexes.filter(nodeIndex => {
-          const linkedNode = nodes[nodeIndex];
-          return linkedNode.selectedPoints;
-        }).length < 2);
+        ((id > 4 &&
+          linkedNodesIndexes.filter(nodeIndex => {
+            const linkedNode = nodes[nodeIndex];
+            return linkedNode.selectedPoints;
+          }).length < 2) ||
+          linkedNodesIndexes.filter(nodeIndex => {
+            const linkedNode = nodes[nodeIndex];
+            return linkedNode.selectedPoints;
+          }).length < 1));
 
     const nodeColor = isFullySelected ? 'blue' : isPartiallySelected || isOpen ? 'green' : 'LightGrey';
 
@@ -143,7 +143,30 @@ export const Node = withTranslation('translations')(
                   key={`${id}-${nextNode.id}`}
                 />
               );
+            } else if (
+              (linkedNodesIndexes.some(
+                nodeIdx =>
+                  // if there was a connected node two block or more above
+                  (nodes[nodeIdx].x === x && nodes[nodeIdx].y <= y - 40) ||
+                  // if there was a connected node on the left, right next to current
+                  (nodes[nodeIdx].y === y && nodes[nodeIdx].x === x - 20 && nextNode.x < x)
+              ) ||
+                // if there was a non-connected node on the right, right next to current
+                (nodes[id + 1].y === y && nodes[id + 1].x === x + 20 && nextNode.x > x) ||
+                id === 35) &&
+              id !== 218 &&
+              id !== 186
+            ) {
+              // go top left/right with top first
+              return (
+                <React.Fragment key={`${id}-${nextNode.id}`}>
+                  <line x1={x} y1={y} z={100} x2={x} y2={nextNode.y} stroke={color} />
+                  <rect x={x - 0.5} y={nextNode.y - 0.5} width="1" height="1" fill={color} />
+                  <line x1={x} y1={nextNode.y} z={100} x2={nextNode.x} y2={nextNode.y} stroke={color} />
+                </React.Fragment>
+              );
             } else {
+              // go top left/right with left/right first
               return (
                 <React.Fragment key={`${id}-${nextNode.id}`}>
                   <line x1={x} y1={y} z={100} x2={nextNode.x} y2={y} stroke={color} />
