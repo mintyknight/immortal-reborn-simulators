@@ -118,13 +118,16 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
     return _summary;
   };
 
-  const onUpdate = (index: number, isAdd: boolean) => {
+  const onUpdate = (index: number, isAdd: boolean, selectedPoints: number = 1) => {
     const _node = nodes[index];
     const _nodes = [...nodes];
-    _nodes.splice(index, 1, { ..._node, selectedPoints: _node.selectedPoints + (isAdd ? 1 : -1) });
-    setTotalPoints(totalPoints + (isAdd ? 1 : -1));
+    _nodes.splice(index, 1, {
+      ..._node,
+      selectedPoints: _node.selectedPoints + (isAdd ? selectedPoints : -selectedPoints),
+    });
+    setTotalPoints(totalPoints + (isAdd ? selectedPoints : -selectedPoints));
     setNodes(_nodes);
-    const _summary = updateSummary(_node, summary, isAdd);
+    const _summary = updateSummary(_node, summary, isAdd, selectedPoints);
     setSummary(_summary);
   };
 
@@ -268,10 +271,14 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                       string = value ? t(name) : '';
                     } else if (typeof value === 'object') {
                       const { min, max } = value;
-                      if (isChinese) {
-                        string = `${t(name)} +${min}~${max}`;
+                      if (min || max) {
+                        if (isChinese) {
+                          string = `${t(name)} +${min}~${max}`;
+                        } else {
+                          string = `+${min}~${max} ${t(name)}`;
+                        }
                       } else {
-                        string = `+${min}~${max} ${t(name)}`;
+                        string = '';
                       }
                     } else {
                       if (isChinese) {
@@ -419,8 +426,8 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                 {nodes.map(node => (
                   <Node
                     {...node}
-                    onAdd={() => onUpdate(node.id, true)}
-                    onRemove={() => onUpdate(node.id, false)}
+                    onAdd={(selectedPoints?: number) => onUpdate(node.id, true, selectedPoints)}
+                    onRemove={(selectedPoints?: number) => onUpdate(node.id, false, selectedPoints)}
                     nodes={nodes}
                     showTooltip={showAllTooltip}
                     searchString={searchString}

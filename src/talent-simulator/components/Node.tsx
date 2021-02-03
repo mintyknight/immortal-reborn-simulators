@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text } from 'grommet';
 import { withTranslation } from 'react-i18next';
 
@@ -7,8 +7,8 @@ import { SvgTooltip } from './SvgTooltip';
 import { NodeType } from './types';
 
 export interface NodeProps extends NodeType {
-  onAdd: () => void;
-  onRemove: () => void;
+  onAdd: (selectedPoints?: number) => void;
+  onRemove: (selectedPoints?: number) => void;
   nodes: any;
   showTooltip?: boolean;
   searchString?: string;
@@ -26,7 +26,7 @@ const getTooltip = (
   <>
     {perks.map(({ name, value, minValue, maxValue, description }) => {
       const valueString = value
-        ? `+${value >= 1 ? value : `${Math.round(value * 100)}%`}`
+        ? `+${value >= 1 ? value : `${Math.round(value * 10000) / 100}%`}`
         : minValue
         ? `+${minValue}~${maxValue}`
         : '';
@@ -186,9 +186,37 @@ export const Node = withTranslation('translations')(
           viewBox={`0 0 ${sideLength + 5} ${sideLength + 5}`}>
           {isFound && <circle cx={circleRadius * 2} cy={circleRadius * 2} r={4} stroke={'red'} fillOpacity={0} />}
           {isRemovable && (
-            <rect x={9} y={0} width={4} height={2} fill="red" style={{ cursor: 'pointer' }} onClick={onRemove} />
+            <rect
+              x={9}
+              y={0}
+              width={4}
+              height={2}
+              fill="red"
+              style={{ cursor: 'pointer' }}
+              onClick={() => onRemove()}
+            />
           )}
-          <text x={7} y={12} fontSize={5} fill={nodeColor} style={{ cursor: 'default' }}>
+          <text
+            x={7}
+            y={12}
+            fontSize={5}
+            fill={nodeColor}
+            style={{
+              cursor: isAddable || isRemovable ? 'pointer' : 'default',
+              // prevent text selection highlight
+              WebkitTouchCallout: 'none', // iOS Safari
+              WebkitUserSelect: 'none', // Safari
+              MozUserSelect: 'none', // Old versions of Firefox
+              msUserSelect: 'none', // Internet Explorer/Edge
+              userSelect: 'none', // Non-prefixed version, currently supported by Chrome, Opera and Firefox
+            }}
+            onClick={
+              isAddable
+                ? () => onAdd(Math.min(points - selectedPoints, remindPoints))
+                : isRemovable
+                ? () => onRemove(selectedPoints)
+                : () => {}
+            }>
             {selectedPoints}/{points}
           </text>
           <SvgTooltip tooltip={getTooltip(nodes[id], t, isChinese, showTooltip) || ''} forceShow={showTooltip}>
@@ -196,7 +224,7 @@ export const Node = withTranslation('translations')(
               cx={circleRadius * 2}
               cy={circleRadius * 2}
               r={circleRadius}
-              onClick={isAddable ? onAdd : () => {}}
+              onClick={isAddable ? () => onAdd() : () => {}}
               style={isAddable ? { cursor: 'pointer' } : undefined}
               fill={nodeColor}
             />
