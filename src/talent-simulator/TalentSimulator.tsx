@@ -251,9 +251,9 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           { name: 'passive', start: [2, 0], end: [2, 0] },
           { name: 'baseStats', start: [0, 1], end: [0, 1] },
           { name: 'skillLvlStats', start: [1, 1], end: [1, 1] },
-          { name: 'special', start: [2, 1], end: [2, 1] },
+          { name: 'specialStats', start: [2, 1], end: [2, 1] },
         ]}>
-        {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'passive', 'special'].map(type => {
+        {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'passive', 'specialStats'].map(type => {
           return (
             <Box gridArea={type} background="light-5" key={type}>
               <Heading size="small" margin="xsmall">

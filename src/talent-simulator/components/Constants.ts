@@ -92,7 +92,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [1, 25],
@@ -400,7 +400,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [31, 65],
@@ -446,7 +446,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [12, 35, 37],
@@ -469,7 +469,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [12, 39, 71],
+    linkedNodesIndexes: [13, 39, 71],
   },
   {
     id: 39,
@@ -478,8 +478,8 @@ export const NODES: NODESType = [
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [38, 72],
@@ -543,8 +543,8 @@ export const NODES: NODESType = [
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [43, 45],
@@ -567,7 +567,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [15, 47, 80, 114],
@@ -597,7 +597,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [47, 81],
@@ -640,7 +640,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [50, 52],
@@ -677,7 +677,7 @@ export const NODES: NODESType = [
     y: 3,
     points: 1,
     type: 'notable',
-    perks: [{ name: 'cdr', type: 'special', value: 0.03 }],
+    perks: [{ name: 'cdr', type: 'specialStats', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [53],
   },
@@ -745,7 +745,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'agi', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [59, 92],
@@ -850,7 +850,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'armor', type: 'defensiveStats', value: 9 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [68, 103],
@@ -863,7 +863,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [37, 71, 104],
@@ -886,7 +886,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'summon', type: 'offensiveStats', value: 0.004 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [29, 73, 108],
@@ -1107,7 +1107,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [50, 85, 87, 122],
@@ -1138,7 +1138,7 @@ export const NODES: NODESType = [
     y: 4,
     points: 1,
     type: 'notable',
-    perks: [{ name: 'dmgboost', type: 'special', value: 0.05 }],
+    perks: [{ name: 'dmgboost', type: 'offensiveStats', value: 0.05 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [90],
   },
@@ -1221,7 +1221,7 @@ export const NODES: NODESType = [
     y: 4,
     points: 2,
     type: 'notable',
-    perks: [{ name: 'str', type: 'special', value: 0.25 }],
+    perks: [{ name: 'str', type: 'specialStats', value: 0.25 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [98],
   },
@@ -1255,8 +1255,8 @@ export const NODES: NODESType = [
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [101, 134],
@@ -1269,7 +1269,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [67, 100],
@@ -1615,7 +1615,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [95, 129, 163],
@@ -1660,8 +1660,8 @@ export const NODES: NODESType = [
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [131, 133, 166],
@@ -1687,7 +1687,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [100, 135, 168],
@@ -1749,7 +1749,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'maxhp', type: 'defensiveStats', value: 200 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [108, 174],
@@ -1762,7 +1762,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [109, 141],
@@ -1775,7 +1775,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'armor', type: 'defensiveStats', value: 9 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [140, 176],
@@ -1878,7 +1878,7 @@ export const NODES: NODESType = [
     type: 'notable',
     perks: [
       { name: 'atkboost', type: 'offensiveStats', value: 0.02 },
-      { name: 'cdr', type: 'special', value: 0.015 },
+      { name: 'cdr', type: 'specialStats', value: 0.015 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [147, 182],
@@ -1934,7 +1934,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [119, 188],
@@ -1960,7 +1960,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [121, 189],
@@ -1984,7 +1984,7 @@ export const NODES: NODESType = [
     y: 6,
     points: 1,
     type: 'notable',
-    perks: [{ name: 'cdr', type: 'special', value: 0.03 }],
+    perks: [{ name: 'cdr', type: 'specialStats', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [157],
   },
@@ -2125,7 +2125,7 @@ export const NODES: NODESType = [
     y: 6,
     points: 2,
     type: 'notable',
-    perks: [{ name: 'cdr', type: 'special', value: 0.03 }],
+    perks: [{ name: 'cdr', type: 'specialStats', value: 0.03 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [134],
   },
@@ -2151,7 +2151,7 @@ export const NODES: NODESType = [
     y: 6,
     points: 5,
     type: 'basic',
-    perks: [{ name: 'shieldatstart', type: 'special', value: 430 }],
+    perks: [{ name: 'shieldatstart', type: 'specialStats', value: 430 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [169, 171],
   },
@@ -2176,7 +2176,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [171, 173, 208],
@@ -2248,7 +2248,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'atk', type: 'offensiveStats', minValue: 5, maxValue: 9 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [142, 176],
@@ -2402,7 +2402,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [151, 188],
@@ -2585,7 +2585,7 @@ export const NODES: NODESType = [
     y: 7,
     points: 1,
     type: 'notable',
-    perks: [{ name: 'dmgboost', type: 'special', value: 0.05 }],
+    perks: [{ name: 'dmgboost', type: 'offensiveStats', value: 0.05 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [202, 234, 235],
   },
@@ -2597,7 +2597,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [205, 235],
@@ -2609,8 +2609,8 @@ export const NODES: NODESType = [
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [204, 206, 237],
@@ -2661,8 +2661,8 @@ export const NODES: NODESType = [
     points: 3,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [208, 210, 240],
@@ -2701,7 +2701,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'summon', type: 'offensiveStats', value: 0.004 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [175, 211],
@@ -2752,8 +2752,8 @@ export const NODES: NODESType = [
     points: 2,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [215, 247],
@@ -2918,7 +2918,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'maxhp', type: 'defensiveStats', value: 200 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [196, 261, 262],
@@ -2983,7 +2983,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'end', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [202, 203, 235, 269],
@@ -3070,8 +3070,8 @@ export const NODES: NODESType = [
     points: 5,
     type: 'basic',
     perks: [
-      { name: 'hpregen', type: 'special', value: 8 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [210, 275],
@@ -3175,7 +3175,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [218, 282],
@@ -3188,7 +3188,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [185, 250],
@@ -3248,7 +3248,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'lck', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [220, 285],
@@ -3278,7 +3278,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'summon', type: 'offensiveStats', value: 0.004 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [222, 256, 286],
@@ -3479,7 +3479,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [238, 274, 302],
@@ -3492,7 +3492,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'wis', type: 'baseStats', value: 3 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [208, 273, 302],
@@ -3671,7 +3671,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'maxhp', type: 'defensiveStats', value: 14 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [255, 285, 287],
@@ -3749,7 +3749,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'summon', type: 'offensiveStats', value: 0.004 },
-      { name: 'shieldatstart', type: 'special', value: 215 },
+      { name: 'shieldatstart', type: 'specialStats', value: 215 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [261, 293, 314],
@@ -3788,7 +3788,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [
       { name: 'pow', type: 'baseStats', value: 3 },
-      { name: 'hpregen', type: 'special', value: 8 },
+      { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [266, 294, 317],

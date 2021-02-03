@@ -27,7 +27,7 @@ export default {
     passive: '核心天赋',
     baseStats: '五围',
     skillLvlStats: '技能等级',
-    special: '特殊',
+    specialStats: '特殊',
     // 五围
     allStats: '全属性',
     lck: '运',

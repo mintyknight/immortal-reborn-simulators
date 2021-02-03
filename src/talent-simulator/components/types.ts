@@ -1,7 +1,13 @@
 // explained at https://rares.uk/typescript-unextend-interface/
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-export type NodeTypeType = 'baseStats' | 'offensiveStats' | 'defensiveStats' | 'skillLvlStats' | 'passive' | 'special';
+export type NodeTypeType =
+  | 'baseStats'
+  | 'offensiveStats'
+  | 'defensiveStats'
+  | 'skillLvlStats'
+  | 'passive'
+  | 'specialStats';
 
 export type PerkType = {
   name: string;

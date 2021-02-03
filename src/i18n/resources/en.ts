@@ -27,7 +27,7 @@ export default {
     passive: 'Keystones',
     baseStats: 'Base Stats',
     skillLvlStats: 'Skill Levels',
-    special: 'Others',
+    specialStats: 'Others',
     // Base Stats
     allStats: 'All Stats',
     lck: 'Lck',
