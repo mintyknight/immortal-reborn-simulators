@@ -2468,9 +2468,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'nomansland',
+        name: 'deadland',
         type: 'passive',
-        description: 'nomanslandDescription',
+        description: 'deadlandDescription',
       },
     ],
     additionalSearchKeywords: '',

@@ -124,9 +124,10 @@ export default {
     giantDescription: '战斗中不再能闪避攻击。将面板上的绝对闪避转化为角色的护甲提高。',
     minionmasterDescription: '角色承受伤害的12%，由所有随从共同承担',
     cloudripperDescription: '武器攻击距离固定为最大值。但伤害降低15%。',
-    wailofcompanionDescription: '任意随从死亡时，存活的随从发射火球，对敌方单位造成随从基础伤害120%的火属性伤害，冷却时间5秒。',
+    wailofcompanionDescription:
+      '任意随从死亡时，存活的随从发射火球，对敌方单位造成随从基础伤害120%的火属性伤害，冷却时间5秒。',
     alchemistDescription: '敌方的伤害降低15%，但敌方的每次攻击都会附带1层[燃烧][中毒][流血]。',
-    invulenrabilityDescription: '全属性抗性+5%。全属性抗性上限+2%',
+    invulnerabilityDescription: '全属性抗性+5%。全属性抗性上限+2%',
     leaderDescription: '友方每一个存活的随从，使友方随从伤害提高2.5%。',
     // 特殊
     cdr: '冷却恢复',

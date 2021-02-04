@@ -34,7 +34,8 @@ type SummaryType = { [key: string]: { [key: string]: number | undefined | { [key
 export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageSize: string; t: any; i18n: any }) => {
   const [initialNodes, setInitialNodes] = useState<NodeType[]>([]);
   const [nodes, setNodes] = useState(initialNodes);
-  const [showAllTooltip, setShowAllTooltip] = useState(false);
+  // const [showAllTooltip, setShowAllTooltip] = useState(false);
+  const [showAllTooltip] = useState(false);
   const [totalPoints, setTotalPoints] = useState(0);
   const [summary, setSummary] = useState({} as SummaryType);
   const [searchString, setsearchString] = useState('');
@@ -77,6 +78,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
       importBuild(buildString, nodes);
       window.history.pushState('some state', 'some title', pathParts[0]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // useEffect(() => {
