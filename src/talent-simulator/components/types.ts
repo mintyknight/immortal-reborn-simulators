@@ -1,13 +1,21 @@
 // explained at https://rares.uk/typescript-unextend-interface/
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-export type NodeTypeType = 'baseStats' | 'offensiveStats' | 'defensiveStats' | 'skillLvlStats' | 'skills' | 'special';
+export type NodeTypeType =
+  | 'baseStats'
+  | 'offensiveStats'
+  | 'defensiveStats'
+  | 'skillLvlStats'
+  | 'passive'
+  | 'specialStats';
 
 export type PerkType = {
   name: string;
   type: NodeTypeType;
   fullNameList?: string[];
   value?: number;
+  minValue?: number;
+  maxValue?: number;
   description?: string;
 };
 type PerksType = PerkType[];
@@ -17,23 +25,16 @@ export type NODEType = {
   x: number;
   y: number;
   points: 1 | 2 | 3 | 4 | 5;
+  type: 'basic' | 'notable' | 'keystone';
   /** Expended name for stats summary, use name if no fullNameList */
   perks: PerksType;
   /** Additional search keywords other than the name */
   additionalSearchKeywords?: string;
-  prevNodesIndexes: number[];
+  linkedNodesIndexes: number[];
 };
 
 export type NODESType = NODEType[];
 
-export type NodeType = {
-  id: number;
-  x: number;
-  y: number;
-  isSelected: boolean;
-  points: 1 | 2 | 3 | 4 | 5;
-  perks: PerksType;
-  additionalSearchKeywords?: string;
-  nextNodesIndexes: number[];
-  prevNodesIndexes: number[];
-};
+export interface NodeType extends NODEType {
+  selectedPoints: number;
+}

@@ -24,15 +24,15 @@ export const SvgTooltip = ({ children, tooltip, forceShow }: SvgTooltipProps) =>
     onFocus: () => {},
     onMouseLeave: () => {},
   };
-  if (!forceShow) {
-    const mouseOver = () => setShowTooltip(true);
-    const mouseLeave = () => setShowTooltip(false);
-    listeners = {
-      onMouseOver: mouseOver,
-      onFocus: mouseOver,
-      onMouseLeave: mouseLeave,
-    };
-  }
+  const mouseOver = () => setShowTooltip(!forceShow);
+  const mouseLeave = () => {
+    setShowTooltip(!!forceShow);
+  };
+  listeners = {
+    onMouseOver: mouseOver,
+    onFocus: mouseOver,
+    onMouseLeave: mouseLeave,
+  };
 
   let { x = 0, y = 0, width = 0, height = 0, cx, cy, r } = children.props;
 
@@ -50,9 +50,13 @@ export const SvgTooltip = ({ children, tooltip, forceShow }: SvgTooltipProps) =>
     setTargetReady(true);
   }, [target]);
 
+  useEffect(() => {
+    setShowTooltip(!!forceShow);
+  }, [forceShow]);
+
   return (
     <>
-      <svg x={x} y={y} width={width} height={height} viewBox={`${x} ${y} ${width} ${height}`} {...listeners}>
+      <svg x={x} y={y} width={width} height={height} viewBox={`${x} ${y} ${width} ${height}`}>
         <foreignObject x={x} y={y} width={width} height={height}>
           {/* since tooltip could not pin to svg elements, using a invisible div here to provide a placeholder for tooltip to pin to */}
           <div ref={target} style={{ width: '100%', height: '100%', visibility: 'hidden' }} />
@@ -60,14 +64,16 @@ export const SvgTooltip = ({ children, tooltip, forceShow }: SvgTooltipProps) =>
           {/* 1. not wrapped within an AppContainer or  */}
           {/* 2. somehow top level AppContainer is rendered after some grommet component; */}
           {/* therefore, adding a local AppContainer to workaround this potential issue */}
-          {targetReady && (showTooltip || forceShow) && target.current && (
-            <Drop align={{ top: 'bottom' }} target={target.current} onMouseEnter={listeners.onMouseLeave}>
+          {targetReady && showTooltip && target.current && (
+            <Drop align={{ top: 'bottom' }} target={target.current}>
               {tooltip}
             </Drop>
           )}
         </foreignObject>
         {/* target svg component needs to be at end so it would not be covered by the placeholder div */}
-        {children}
+        <svg x={x} y={y} width={width} height={height} viewBox={`${x} ${y} ${width} ${height}`} {...listeners}>
+          {children}
+        </svg>
       </svg>
     </>
   );
