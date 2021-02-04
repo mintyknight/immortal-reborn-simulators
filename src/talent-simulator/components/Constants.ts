@@ -993,9 +993,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'lostsoul',
+        name: 'souldouse',
         type: 'passive',
-        description: 'lostsoulDescription',
+        description: 'souldouseDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -1417,9 +1417,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'leadership',
+        name: 'leader',
         type: 'passive',
-        description: 'leadershipDescription',
+        description: 'leaderDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -1523,9 +1523,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'luckycharm',
+        name: 'luckyblessing',
         type: 'passive',
-        description: 'luckycharmDescription',
+        description: 'luckyblessingDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -1733,9 +1733,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'skywardstrike',
+        name: 'cloudripper',
         type: 'passive',
-        description: 'skywardstrikeDescription',
+        description: 'cloudripperDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -2075,9 +2075,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'accuracy',
+        name: 'guranteedhit',
         type: 'passive',
-        description: 'accuracyDescription',
+        description: 'guranteedhitDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -2137,9 +2137,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'fortress',
+        name: 'bastion',
         type: 'passive',
-        description: 'fortressDescription',
+        description: 'bastionDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -2369,9 +2369,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'bravery',
+        name: 'opposingheaven',
         type: 'passive',
-        description: 'braveryDescription',
+        description: 'opposingheavenDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -3006,9 +3006,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'ironwill',
+        name: 'rampart',
         type: 'passive',
-        description: 'ironwillDescription',
+        description: 'rampartDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -3291,9 +3291,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'windrider',
+        name: 'knightofwind',
         type: 'passive',
-        description: 'windriderDescription',
+        description: 'knightofwindDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -3505,9 +3505,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'wail',
+        name: 'wailofcompanion',
         type: 'passive',
-        description: 'wailDescription',
+        description: 'wailofcompanionDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -3608,9 +3608,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'martialartist',
+        name: 'pugilist',
         type: 'passive',
-        description: 'martialartistDescription',
+        description: 'pugilistDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -3762,9 +3762,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'courage',
+        name: 'moraleboost',
         type: 'passive',
-        description: 'courageDescription',
+        description: 'moraleboostDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -3936,9 +3936,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'unpenetrable',
+        name: 'invulnerability',
         type: 'passive',
-        description: 'unpenetrableDescription',
+        description: 'invulnerabilityDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -4057,9 +4057,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'kiting',
+        name: 'kite',
         type: 'passive',
-        description: 'kitingDescription',
+        description: 'kiteDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -4073,9 +4073,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'assassination',
+        name: 'impale',
         type: 'passive',
-        description: 'assassinationDescription',
+        description: 'impaleDescription',
       },
     ],
     additionalSearchKeywords: '',
@@ -4177,9 +4177,9 @@ export const NODES: NODESType = [
     type: 'keystone',
     perks: [
       {
-        name: 'grandsummoner',
+        name: 'minionmaster',
         type: 'passive',
-        description: 'grandsummonerDescription',
+        description: 'minionmasterDescription',
       },
     ],
     additionalSearchKeywords: '',
