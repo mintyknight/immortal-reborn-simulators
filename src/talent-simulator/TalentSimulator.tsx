@@ -32,6 +32,8 @@ const defaultPoints = 3;
 type SummaryType = { [key: string]: { [key: string]: number | undefined | { [key: string]: number } } };
 
 export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageSize: string; t: any; i18n: any }) => {
+  const [initialNodes, setInitialNodes] = useState<NodeType[]>([]);
+  const [nodes, setNodes] = useState(initialNodes);
   const [showAllTooltip, setShowAllTooltip] = useState(false);
   const [totalPoints, setTotalPoints] = useState(0);
   const [summary, setSummary] = useState({} as SummaryType);
@@ -48,13 +50,34 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const isChinese = i18n.language === 'cn';
 
   useEffect(() => {
+    const nodes = NODES.map(NODE => {
+      NODE.linkedNodesIndexes.forEach(index => {
+        if (!NODES[index].linkedNodesIndexes.includes(NODE.id)) {
+          console.error(`#Error: missing link from node ${index} to node ${NODE.id}`);
+        }
+      });
+      return {
+        id: NODE.id,
+        selectedPoints: 0,
+        x: NODE.x * 20,
+        y: size.height - NODE.y * 20 - 15,
+        points: NODE.points,
+        type: NODE.type,
+        perks: NODE.perks,
+        additionalSearchKeywords: NODE.additionalSearchKeywords,
+        linkedNodesIndexes: NODE.linkedNodesIndexes,
+      };
+    });
+    setInitialNodes(nodes);
+    setNodes(nodes);
+
     const pathParts = window.location.href.split(urlSeparator);
     const buildString = pathParts[1];
     if (buildString) {
-      importBuild(buildString);
+      importBuild(buildString, nodes);
       window.history.pushState('some state', 'some title', pathParts[0]);
     }
-  });
+  }, []);
 
   // useEffect(() => {
   //   if (pageSize === 'small') {
@@ -69,25 +92,6 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   };
 
   const size = getSize(MAX_VALUE);
-
-  const initialNodes: NodeType[] = [];
-
-  NODES.forEach(NODE => {
-    const node: NodeType = {
-      id: NODE.id,
-      selectedPoints: NODE.type === 'startPoint' ? 1 : 0,
-      x: NODE.x * 20,
-      y: size.height - NODE.y * 20 - 15,
-      points: NODE.points,
-      type: NODE.type,
-      perks: NODE.perks,
-      additionalSearchKeywords: NODE.additionalSearchKeywords,
-      linkedNodesIndexes: NODE.linkedNodesIndexes,
-    };
-    initialNodes.push(node);
-  });
-
-  const [nodes, setNodes] = useState(initialNodes);
 
   const updateSummary = ({ perks }: NodeType, summary: any, isAdd: boolean, selectedPoints = 1) => {
     const _summary = { ...summary };
@@ -137,8 +141,8 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
     setSummary({});
   };
 
-  const importBuild = (buildString?: string) => {
-    const _nodes = [...initialNodes];
+  const importBuild = (buildString?: string, nodes?: NodeType[]) => {
+    const _nodes = initialNodes.length ? [...initialNodes] : nodes || [];
     let _totalPoints = 0;
     let _summary: SummaryType = {};
     (buildString || imporBuildString).split(buildSeparator).forEach(indexStr => {

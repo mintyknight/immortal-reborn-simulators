@@ -99,11 +99,6 @@ export const Node = withTranslation('translations')(
 
     const isAddable = remindPoints > 0 && (isPartiallySelected || isOpen);
 
-    // const isConnectedToStartPoint = (prevNodeIndex: number, currentNodeIndex: number) => {
-    //   if
-    //   nodes[currentNodeIndex].linkedNodesIndexes.
-    // };
-
     const isRemovable =
       isPartiallySelected ||
       (isFullySelected &&

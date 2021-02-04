@@ -25,7 +25,7 @@ export type NODEType = {
   x: number;
   y: number;
   points: 1 | 2 | 3 | 4 | 5;
-  type: 'basic' | 'notable' | 'keystone' | 'startPoint';
+  type: 'basic' | 'notable' | 'keystone';
   /** Expended name for stats summary, use name if no fullNameList */
   perks: PerksType;
   /** Additional search keywords other than the name */

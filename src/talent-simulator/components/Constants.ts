@@ -814,7 +814,7 @@ export const NODES: NODESType = [
     type: 'notable',
     perks: [{ name: 'reflect', type: 'defensiveStats', value: 0.25 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [33, 67, 133],
+    linkedNodesIndexes: [33, 65, 67, 133],
   },
   {
     id: 67,
@@ -889,7 +889,7 @@ export const NODES: NODESType = [
       { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [29, 73, 108],
+    linkedNodesIndexes: [39, 73, 108],
   },
   {
     id: 73,
@@ -1050,7 +1050,7 @@ export const NODES: NODESType = [
       },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [17, 81, 83, 116, 117],
+    linkedNodesIndexes: [17, 49, 81, 83, 116, 117],
   },
   {
     id: 83,
@@ -2094,7 +2094,7 @@ export const NODES: NODESType = [
       { name: 'armor', type: 'defensiveStats', value: 9 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [131, 166, 232],
+    linkedNodesIndexes: [131, 166, 200, 232],
   },
   {
     id: 166,
@@ -2209,7 +2209,7 @@ export const NODES: NODESType = [
       },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [139, 211],
+    linkedNodesIndexes: [139, 173, 211],
   },
   {
     id: 175,
@@ -2691,7 +2691,7 @@ export const NODES: NODESType = [
       { name: 'lck', type: 'baseStats', value: 3 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [171, 210, 212, 242],
+    linkedNodesIndexes: [174, 210, 212, 242],
   },
   {
     id: 212,
@@ -2908,7 +2908,7 @@ export const NODES: NODESType = [
       { name: 'wis', type: 'baseStats', value: 3 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [160, 194, 195, 227, 260],
+    linkedNodesIndexes: [194, 195, 227, 260],
   },
   {
     id: 229,
@@ -3204,7 +3204,7 @@ export const NODES: NODESType = [
       { name: 'summon', type: 'offensiveStats', value: 0.004 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [186, 149, 284],
+    linkedNodesIndexes: [186, 249, 284],
   },
   {
     id: 251,
