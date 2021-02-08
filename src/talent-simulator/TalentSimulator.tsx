@@ -427,7 +427,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
               <Button gridArea="right" primary label=">" onClick={() => moveStarMap(false)} />
             </Grid>
             <svg width={'100%'} viewBox={'0 0 500 700'}>
-              <rect x={0} y={0} width="100%" height="100%" fill="Cyan" />
+              <rect x={0} y={0} width="100%" height="100%" fill="Gray" />
               <svg x={currentX} width={'3000'} viewBox={size.viewBox}>
                 {nodes.map(node => (
                   <Node
