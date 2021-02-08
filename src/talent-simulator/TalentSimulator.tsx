@@ -42,6 +42,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const [imporBuildString, setImportBuildString] = useState('');
   const [level, setLevel] = useState<number>();
   const [currentX, setCurrentX] = useState(-1200);
+  const [currentZoom, setCurrentZoom] = useState(1);
   // const [isMouseHold, setIsMouseHold] = useState(false);
 
   const isSmallPage = pageSize === 'small';
@@ -341,7 +342,13 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
 
   const moveStarMap = (isLeft: boolean) => {
     if ((isLeft && currentX < 100) || (!isLeft && currentX > -2500)) {
-      setCurrentX(currentX + 200 * (isLeft ? 1 : -1));
+      setCurrentX(currentX + 200 * currentZoom * (isLeft ? 1 : -1));
+    }
+  };
+
+  const zoomStarMap = (isZoomIn: boolean) => {
+    if ((isZoomIn && currentZoom < 2) || (!isZoomIn && currentZoom > 0.4)) {
+      setCurrentZoom(currentZoom + (isZoomIn ? 0.1 : -0.1));
     }
   };
 
@@ -395,7 +402,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
         <Grid
           fill={true}
           rows={['200%']}
-          columns={isSmallPage ? ['100%'] : ['50%', '50%']}
+          columns={isSmallPage ? ['99%'] : ['49.5%', '49.5%']}
           gap="small"
           areas={
             isSmallPage
@@ -410,16 +417,19 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           <Box gridArea="starMap" background="light-2">
             <Grid
               rows={['100%']}
-              columns={['50%', '50%']}
-              gap="small"
+              columns={['22%', '4%', '22%', '4%', '22%', '4%', '22%']}
               areas={[
                 { name: 'left', start: [0, 0], end: [0, 0] },
-                { name: 'right', start: [1, 0], end: [1, 0] },
+                { name: 'midLeft', start: [2, 0], end: [2, 0] },
+                { name: 'midRight', start: [4, 0], end: [4, 0] },
+                { name: 'right', start: [6, 0], end: [6, 0] },
               ]}>
               <Button gridArea="left" primary label="<" onClick={() => moveStarMap(true)} />
               <Button gridArea="right" primary label=">" onClick={() => moveStarMap(false)} />
+              <Button gridArea="midLeft" primary label="+" onClick={() => zoomStarMap(true)} />
+              <Button gridArea="midRight" primary label="-" onClick={() => zoomStarMap(false)} />
             </Grid>
-            <svg width={'100%'} viewBox={'0 0 500 700'}>
+            <svg width={'100%'} viewBox={`0 0 ${500 / currentZoom} ${700 * (currentZoom > 1 ? 1 : currentZoom)}`}>
               <rect x={0} y={0} width="100%" height="100%" fill="Gray" />
               <svg x={currentX} width={'3000'} viewBox={size.viewBox}>
                 {nodes.map(node => (
