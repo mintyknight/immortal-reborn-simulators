@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Button, Text, Grid, Box, TextInput, DropButton } from 'grommet';
 import { withTranslation } from 'react-i18next';
-import { Configure, Bug } from 'grommet-icons';
+import { Configure } from 'grommet-icons';
 
 import { MAX_VALUE, NODES } from './components/Constants';
 
@@ -41,9 +41,6 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const [searchString, setsearchString] = useState('');
   const [imporBuildString, setImportBuildString] = useState('');
   const [level, setLevel] = useState<number>();
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [reportBug, setReportBug] = useState(false);
-  const [showCredit, setShowCredit] = useState(false);
   const [currentX, setCurrentX] = useState(-1200);
   // const [isMouseHold, setIsMouseHold] = useState(false);
 
@@ -355,38 +352,34 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           {t('title')}
         </Heading>
         <Box direction="row">
-          <Button label={t('language')} plain={true} onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')} />
+          <Button label={t('language')} onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')} />
           <DropButton
-            icon={<Bug />}
-            open={reportBug}
-            onOpen={() => setReportBug(true)}
-            onClose={() => setReportBug(false)}
+            label={t('askForUpdate')}
             dropContent={
-              <Button
-                label={t('bugReport', { repoProvider })}
-                onClick={() =>
-                  window.open(`https://${repoProvider}.com/mintyknight/immortal-reborn-simulators/issues`, '_blank')
-                }
-              />
+              <>
+                <Button
+                  label={t('forum')}
+                  onClick={() => window.open(`https://www.taptap.com/topic/15451647`, '_blank')}
+                />
+                <Button
+                  label={t('bugReport', { repoProvider })}
+                  onClick={() =>
+                    window.open(`https://${repoProvider}.com/mintyknight/immortal-reborn-simulators/issues`, '_blank')
+                  }
+                />
+              </>
             }
             dropProps={{ align: { top: 'bottom', right: 'right' } }}
           />
           {isSmallPage && (
             <DropButton
               icon={<Configure />}
-              open={showSidebar}
-              onOpen={() => setShowSidebar(true)}
-              onClose={() => setShowSidebar(false)}
               dropContent={statusPanel}
               dropProps={{ align: { top: 'bottom', right: 'right' } }}
             />
           )}
           <DropButton
             label={t('credit')}
-            plain={true}
-            open={showCredit}
-            onOpen={() => setShowCredit(true)}
-            onClose={() => setShowCredit(false)}
             dropContent={
               <>
                 {credits.map(credit => (
