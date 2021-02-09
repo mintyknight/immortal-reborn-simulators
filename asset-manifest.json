@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/immortal-reborn-simulators/static/js/main.c9ac45dc.chunk.js",
-    "main.js.map": "/immortal-reborn-simulators/static/js/main.c9ac45dc.chunk.js.map",
+    "main.js": "/immortal-reborn-simulators/static/js/main.c31693d7.chunk.js",
+    "main.js.map": "/immortal-reborn-simulators/static/js/main.c31693d7.chunk.js.map",
     "runtime-main.js": "/immortal-reborn-simulators/static/js/runtime-main.d0d2eb45.js",
     "runtime-main.js.map": "/immortal-reborn-simulators/static/js/runtime-main.d0d2eb45.js.map",
-    "static/js/2.354635bf.chunk.js": "/immortal-reborn-simulators/static/js/2.354635bf.chunk.js",
-    "static/js/2.354635bf.chunk.js.map": "/immortal-reborn-simulators/static/js/2.354635bf.chunk.js.map",
+    "static/js/2.0d08bddb.chunk.js": "/immortal-reborn-simulators/static/js/2.0d08bddb.chunk.js",
+    "static/js/2.0d08bddb.chunk.js.map": "/immortal-reborn-simulators/static/js/2.0d08bddb.chunk.js.map",
     "index.html": "/immortal-reborn-simulators/index.html",
-    "precache-manifest.221f384a9cfe1f106e1d733a651cafc9.js": "/immortal-reborn-simulators/precache-manifest.221f384a9cfe1f106e1d733a651cafc9.js",
+    "precache-manifest.8d29c90bbbcf90945120d1f0a467bbd3.js": "/immortal-reborn-simulators/precache-manifest.8d29c90bbbcf90945120d1f0a467bbd3.js",
     "service-worker.js": "/immortal-reborn-simulators/service-worker.js",
-    "static/js/2.354635bf.chunk.js.LICENSE.txt": "/immortal-reborn-simulators/static/js/2.354635bf.chunk.js.LICENSE.txt"
+    "static/js/2.0d08bddb.chunk.js.LICENSE.txt": "/immortal-reborn-simulators/static/js/2.0d08bddb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d0d2eb45.js",
-    "static/js/2.354635bf.chunk.js",
-    "static/js/main.c9ac45dc.chunk.js"
+    "static/js/2.0d08bddb.chunk.js",
+    "static/js/main.c31693d7.chunk.js"
   ]
 }
