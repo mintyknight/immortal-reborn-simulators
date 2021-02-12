@@ -46,12 +46,37 @@ const getTooltip = (
   </>
 );
 
+const PureNode = (props: any) => (
+  <>
+    <circle {...props} />
+    {props.type === 'notable' && (
+      <polygon
+        points={`0,0 ${props.r * 4},${props.r * 4}`}
+        style={{ fill: 'lime', stroke: 'purple', strokeWidth: 1 }}
+      />
+    )}
+    {props.type === 'keystone' && (
+      <>
+        <polygon
+          points={`0,0 ${props.r * 4},${props.r * 4}`}
+          style={{ fill: 'lime', stroke: 'purple', strokeWidth: 1 }}
+        />
+        <polygon
+          points={`0,${props.r * 4} ${props.r * 4},0`}
+          style={{ fill: 'lime', stroke: 'purple', strokeWidth: 1 }}
+        />
+      </>
+    )}
+  </>
+);
+
 export const Node = withTranslation('translations')(
   ({
     x,
     y,
     id,
     points,
+    type,
     perks,
     additionalSearchKeywords,
     selectedPoints,
@@ -215,10 +240,11 @@ export const Node = withTranslation('translations')(
             {selectedPoints}/{points}
           </text>
           <SvgTooltip tooltip={getTooltip(nodes[id], t, isChinese, showTooltip) || ''} forceShow={showTooltip}>
-            <circle
+            <PureNode
               cx={circleRadius * 2}
               cy={circleRadius * 2}
               r={circleRadius}
+              type={type}
               onClick={isAddable ? () => onAdd() : () => {}}
               style={isAddable ? { cursor: 'pointer' } : undefined}
               fill={nodeColor}

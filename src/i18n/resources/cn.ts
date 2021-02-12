@@ -21,7 +21,7 @@ export default {
     currentLevel: '等级',
     remainPoints: '剩余：{{points}}星点',
     reqiredPoints: '需要：{{totalPoints}}星点，{{Levels}}级',
-    buildCopied: '链接已复制到剪贴板，请粘贴使用\n{{link}}',
+    buildCopied: '以下链接已复制到剪贴板，请粘贴使用\n\n{{link}}',
     points: '{{points}}点',
     // 属性类别
     offensiveStats: '进攻属性',

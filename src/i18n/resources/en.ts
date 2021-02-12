@@ -21,7 +21,7 @@ export default {
     currentLevel: 'Level',
     remainPoints: 'Remain: {{points}} Points',
     reqiredPoints: 'Require：{{totalPoints}} Points，Level {{Levels}}',
-    buildCopied: 'Link has been copied to clipboard, please start using it by pasting.\n{{link}}',
+    buildCopied: 'Following link had been copied to the clipboard, please start using it by pasting.\n\n{{link}}',
     points: '{{points}} Points',
     // Stats categories
     offensiveStats: 'Offensive Stats',
