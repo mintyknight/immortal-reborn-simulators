@@ -104,6 +104,7 @@ export default {
     alchemist: 'Alchemist',
     invulnerability: 'Invulnerability',
     leader: 'Leader',
+    musclememory: 'Muscle Memory',
     // Keystone Description
     souldouseDescription: '+0.1% allies Lifesteal & Shieldsteal. Allies cannot recieve [Heal].',
     pugilistDescription:
@@ -132,6 +133,7 @@ export default {
     alchemistDescription: 'Enemies attacks deal -15% DMG, but inflict [Lvl.1 Poison, Bleed, Burn]',
     invulnerabilityDescription: '+5% All RES, +2% Max All RES',
     leaderDescription: 'Minions have +2.5% DMG per minion alive.',
+    musclememoryDescription: 'When an ally blocks, [Heal] it based on 0.4% of its Max HP. This [Heal] is affected by Block%',
     // Others
     cdr: 'CDR',
     shieldatstart: '[Shield] at start',
