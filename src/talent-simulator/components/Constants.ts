@@ -233,7 +233,7 @@ export const NODES: NODESType = [
     type: 'notable',
     perks: [{ name: 'blockchance', type: 'defensiveStats', value: 0.035 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [19],
+    linkedNodesIndexes: [19, 327],
   },
   {
     id: 19,
@@ -4194,5 +4194,21 @@ export const NODES: NODESType = [
     perks: [{ name: 'wis', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [303, 304, 325],
+  },
+  {
+    id: 327,
+    x: 9,
+    y: 3,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'musclememory',
+        type: 'passive',
+        description: 'musclememoryDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [18],
   },
 ];
