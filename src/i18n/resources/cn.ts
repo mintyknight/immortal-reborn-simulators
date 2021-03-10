@@ -104,6 +104,7 @@ export default {
     alchemist: '炼金术师',
     invulnerability: '刀枪不入',
     leader: '领袖',
+    musclememory: '肌肉记忆',
     // 核心天赋说明
     souldouseDescription: '生命吸取和护盾吸取分别增加0.1%，但友方无法在通过任何治疗方式恢复生命。',
     pugilistDescription: '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低15%。',
@@ -131,6 +132,7 @@ export default {
     alchemistDescription: '敌方的伤害降低15%，但敌方的每次攻击都会附带1层[燃烧][中毒][流血]。',
     invulnerabilityDescription: '全属性抗性+5%。全属性抗性上限+2%',
     leaderDescription: '友方每一个存活的随从，使友方随从伤害提高2.5%。',
+    musclememoryDescription: '战斗中友方单位格挡时，回复0.4%的生命，该恢复效果受格挡效果影响。',
     // 特殊
     cdr: '冷却恢复',
     shieldatstart: '开场获得护盾',
