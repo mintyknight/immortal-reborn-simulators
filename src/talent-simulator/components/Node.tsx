@@ -219,9 +219,9 @@ export const Node = withTranslation('translations')(
           <text
             x={7}
             y={12}
-            fontSize={5}
             fill={nodeColor}
             style={{
+              fontSize: '5px',
               cursor: isAddable || isRemovable ? 'pointer' : 'default',
               // prevent text selection highlight
               WebkitTouchCallout: 'none', // iOS Safari
