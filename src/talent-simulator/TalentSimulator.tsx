@@ -45,8 +45,11 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   const [currentZoom, setCurrentZoom] = useState(1);
   // const [isMouseHold, setIsMouseHold] = useState(false);
 
-  const isSmallPage = pageSize === 'small';
   const isChinese = i18n.language === 'cn';
+
+  useEffect(() => {
+    setCurrentZoom(pageSize === 'small' ? 1 : 0.6);
+  }, [pageSize]);
 
   useEffect(() => {
     const nodes = NODES.map(NODE => {
@@ -175,7 +178,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   };
 
   const statusPanel = (
-    <Box gridArea="stats" pad={'10px'}>
+    <Box pad={'10px'}>
       <Grid
         fill="horizontal"
         rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
@@ -359,6 +362,11 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           {t('title')}
         </Heading>
         <Box direction="row">
+          <DropButton
+            icon={<Configure />}
+            dropContent={statusPanel}
+            dropProps={{ align: { top: 'bottom', right: 'right' } }}
+          />
           <Button label={t('language')} onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')} />
           <DropButton
             label={t('askForUpdate')}
@@ -378,13 +386,6 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
             }
             dropProps={{ align: { top: 'bottom', right: 'right' } }}
           />
-          {isSmallPage && (
-            <DropButton
-              icon={<Configure />}
-              dropContent={statusPanel}
-              dropProps={{ align: { top: 'bottom', right: 'right' } }}
-            />
-          )}
           <DropButton
             label={t('credit')}
             dropContent={
@@ -402,18 +403,9 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
         <Grid
           fill={true}
           rows={['200%']}
-          columns={isSmallPage ? ['99%'] : ['49.5%', '49.5%']}
+          columns={['99%']}
           gap="small"
-          areas={
-            isSmallPage
-              ? [{ name: 'starMap', start: [0, 0], end: [0, 0] }]
-              : [
-                  { name: 'stats', start: [0, 0], end: [0, 0] },
-                  { name: 'starMap', start: [1, 0], end: [1, 0] },
-                ]
-          }>
-          {!isSmallPage && statusPanel}
-
+          areas={[{ name: 'starMap', start: [0, 0], end: [0, 0] }]}>
           <Box gridArea="starMap" background="light-2">
             <Grid
               rows={['100%']}
