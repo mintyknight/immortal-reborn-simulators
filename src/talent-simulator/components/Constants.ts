@@ -812,7 +812,7 @@ export const NODES: NODESType = [
     y: 3,
     points: 1,
     type: 'notable',
-    perks: [{ name: 'reflect', type: 'defensiveStats', value: 0.25 }],
+    perks: [{ name: 'reflect', type: 'defensiveStats', value: 1.00 }],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [33, 65, 67, 133],
   },
