@@ -46,10 +46,12 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   // const [isMouseHold, setIsMouseHold] = useState(false);
 
   const isChinese = i18n.language === 'cn';
+  const isSmall = pageSize === 'small';
+  const isLarge = pageSize === 'large';
 
   useEffect(() => {
-    setCurrentZoom(pageSize === 'small' ? 1 : 0.6);
-  }, [pageSize]);
+    setCurrentZoom(isSmall ? 1 : 0.6);
+  }, [isSmall]);
 
   useEffect(() => {
     const nodes = NODES.map(NODE => {
@@ -178,7 +180,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   };
 
   const statusPanel = (
-    <Box pad={'10px'}>
+    <Box width="5000px" pad={'10px'}>
       <Grid
         fill="horizontal"
         rows={['xxsmall', 'xxsmall', 'xxsmall', 'xxsmall']}
@@ -191,7 +193,6 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           { name: 'importButton', start: [3, 1], end: [3, 1] },
           { name: 'currentBuild', start: [0, 2], end: [2, 2] },
           { name: 'exportButton', start: [3, 2], end: [3, 2] },
-          { name: 'searchBar', start: [0, 3], end: [1, 3] },
           { name: 'levelText', start: [2, 3], end: [2, 3] },
           { name: 'level', start: [3, 3], end: [3, 3] },
         ]}>
@@ -225,13 +226,6 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
             navigator.clipboard.writeText(link).then(() => alert(t('buildCopied', { link })));
           }}
         />
-        <Box gridArea="searchBar">
-          <TextInput
-            placeholder={t('search4Perk')}
-            value={searchString}
-            onChange={event => setsearchString(event.target.value)}
-          />
-        </Box>
         <Box gridArea="levelText" alignContent="end" justify="center">
           <Text size="large">{t('level')}</Text>
         </Box>
@@ -252,17 +246,28 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
       </Heading>
       <Grid
         fill="vertical"
-        rows={['medium', 'small']}
-        columns={['32%', '32%', '32%']}
+        rows={isLarge ? ['large'] : ['medium', 'small']}
+        columns={isLarge ? ['16%', '16%', '16%', '16%', '16%', '16%'] : ['32%', '32%', '32%']}
         gap="small"
-        areas={[
-          { name: 'offensiveStats', start: [0, 0], end: [0, 0] },
-          { name: 'defensiveStats', start: [1, 0], end: [1, 0] },
-          { name: 'passive', start: [2, 0], end: [2, 0] },
-          { name: 'baseStats', start: [0, 1], end: [0, 1] },
-          { name: 'skillLvlStats', start: [1, 1], end: [1, 1] },
-          { name: 'specialStats', start: [2, 1], end: [2, 1] },
-        ]}>
+        areas={
+          isLarge
+            ? [
+                { name: 'offensiveStats', start: [0, 0], end: [0, 0] },
+                { name: 'defensiveStats', start: [1, 0], end: [1, 0] },
+                { name: 'passive', start: [2, 0], end: [2, 0] },
+                { name: 'baseStats', start: [3, 0], end: [3, 0] },
+                { name: 'skillLvlStats', start: [4, 0], end: [4, 0] },
+                { name: 'specialStats', start: [5, 0], end: [5, 0] },
+              ]
+            : [
+                { name: 'offensiveStats', start: [0, 0], end: [0, 0] },
+                { name: 'defensiveStats', start: [1, 0], end: [1, 0] },
+                { name: 'passive', start: [2, 0], end: [2, 0] },
+                { name: 'baseStats', start: [0, 1], end: [0, 1] },
+                { name: 'skillLvlStats', start: [1, 1], end: [1, 1] },
+                { name: 'specialStats', start: [2, 1], end: [2, 1] },
+              ]
+        }>
         {['offensiveStats', 'defensiveStats', 'baseStats', 'skillLvlStats', 'passive', 'specialStats'].map(type => {
           return (
             <Box gridArea={type} background="light-5" key={type}>
@@ -274,37 +279,33 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                   {Object.keys(summary[type]).map(name => {
                     const value = summary[type][name];
                     let string = '';
+                    const nameString = t(name);
                     if (typeof value === 'boolean') {
-                      string = value ? t(name) : '';
+                      string = value ? nameString : '';
                     } else if (typeof value === 'object') {
                       const { min, max } = value;
+                      const valueString = `+${min}~${max}`;
                       if (min || max) {
                         if (isChinese) {
-                          string = `${t(name)} +${min}~${max}`;
+                          string = `${nameString} ${valueString}`;
                         } else {
-                          string = `+${min}~${max} ${t(name)}`;
+                          string = `${valueString} ${nameString}`;
                         }
                       } else {
                         string = '';
                       }
-                    } else {
+                    } else if (value) {
+                      const valueString = value > 1 ? value : `${Math.round(value * 10000) / 100}%`;
                       if (isChinese) {
-                        string = value
-                          ? `${t(name)} +${value > 1 ? value : `${Math.round(value * 10000) / 100}%`}`
-                          : '';
+                        string = `${nameString} +${valueString}`;
                       } else {
-                        string = value
-                          ? `+${value > 1 ? value : `${Math.round(value * 10000) / 100}%`} ${t(name)}`
-                          : '';
+                        string = `+${valueString} ${nameString}`;
                       }
+                    } else {
+                      string = '';
                     }
 
-                    return (
-                      string !== '' && (
-                        // <Box key={key}>
-                        <Text key={name}>{string}</Text>
-                      )
-                    );
+                    return string !== '' && <Text key={name}>{string}</Text>;
                   })}
                 </Box>
               )}
@@ -325,20 +326,16 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
   //       //   x: (e.clientX - CTM.e) / CTM.a,
   //       //   y: (e.clientY - CTM.f) / CTM.d
   //       // };
-  //       // console.log('#Yuyu ', e);
   //       setCurrentX(currentX + 10);
   //     }
   //   },
   //   onMouseDown: (e: any) => {
-  //     console.log('#Yuyu ', 'down');
   //     setIsMouseHold(true);
   //   },
   //   onMouseUp: (e: any) => {
-  //     console.log('#Yuyu ', 'up');
   //     setIsMouseHold(false);
   //   },
   //   onMouseLeave: (e: any) => {
-  //     console.log('#Yuyu ', 'leave');
   //     setIsMouseHold(false);
   //   },
   // };
@@ -409,15 +406,23 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           <Box gridArea="starMap" background="light-2">
             <Grid
               rows={['100%']}
-              columns={['22%', '4%', '22%', '4%', '22%', '4%', '22%']}
+              columns={['14%', '4%', '14%', '4%', '28%', '4%', '14%', '4%', '14%']}
               areas={[
                 { name: 'left', start: [0, 0], end: [0, 0] },
                 { name: 'midLeft', start: [2, 0], end: [2, 0] },
-                { name: 'midRight', start: [4, 0], end: [4, 0] },
-                { name: 'right', start: [6, 0], end: [6, 0] },
+                { name: 'middle', start: [4, 0], end: [4, 0] },
+                { name: 'midRight', start: [6, 0], end: [6, 0] },
+                { name: 'right', start: [8, 0], end: [8, 0] },
               ]}>
               <Button gridArea="left" primary label="<" onClick={() => moveStarMap(true)} />
               <Button gridArea="right" primary label=">" onClick={() => moveStarMap(false)} />
+              <Box gridArea="middle">
+                <TextInput
+                  placeholder={t('search4Perk')}
+                  value={searchString}
+                  onChange={event => setsearchString(event.target.value)}
+                />
+              </Box>
               <Button gridArea="midLeft" primary label="+" onClick={() => zoomStarMap(true)} />
               <Button gridArea="midRight" primary label="-" onClick={() => zoomStarMap(false)} />
             </Grid>
