@@ -78,7 +78,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
     const pathParts = window.location.href.split(urlSeparator);
     const buildString = pathParts[1];
     if (buildString) {
-      importBuild(buildString, nodes);
+      importBuild(buildString, [...nodes]);
       window.history.pushState('some state', 'some title', pathParts[0]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
