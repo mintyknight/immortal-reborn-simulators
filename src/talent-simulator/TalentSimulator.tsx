@@ -311,12 +311,23 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                       string &&
                       (description ? (
                         <Tip
+                          plain
                           content={
-                            <Box pad="small" gap="small" width={{ max: 'small' }}>
-                              <Text size="small">{t(description)}</Text>
+                            <Box direction="row" align="center" pad="none">
+                              <Box
+                                background="white"
+                                direction="row"
+                                pad="small"
+                                round="xsmall"
+                                width={{ max: 'small' }}>
+                                <Text size="small">{t(description)}</Text>
+                              </Box>
+                              <svg viewBox="0 0 22 22" version="1.1" width="22px" height="22px">
+                                <polygon fill="white" points="0 2 12 12 0 22" />
+                              </svg>
                             </Box>
                           }
-                          dropProps={{ align: { right: 'left' }, background: { color: 'light-1' } }}
+                          dropProps={{ align: { right: 'left' } }}
                           key={name}>
                           <Text>{string}</Text>
                         </Tip>
