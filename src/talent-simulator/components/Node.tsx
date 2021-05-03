@@ -6,6 +6,8 @@ import { SvgTooltip } from './SvgTooltip';
 
 import { NodeType } from './types';
 
+import { SHOW_PERCENTAGE } from './Constants';
+
 export interface NodeProps extends NodeType {
   onAdd: (selectedPoints?: number) => void;
   onRemove: (selectedPoints?: number) => void;
@@ -25,14 +27,15 @@ const getTooltip = (
 ) => (
   <>
     {perks.map(({ name, value, minValue, maxValue, description }) => {
+      const nameString = t(name);
       const valueString = value
-        ? `+${value >= 1 ? value : `${Math.round(value * 10000) / 100}%`}`
+        ? `+${SHOW_PERCENTAGE[name] ? `${Math.round(value * 10000) / 100}%` : value}`
         : minValue
         ? `+${minValue}~${maxValue}`
         : '';
       return (
         <React.Fragment key={name}>
-          <Text>{isChinese ? `${t(name)} ${valueString}` : `${valueString} ${t(name)}`}</Text>
+          <Text>{isChinese ? `${nameString} ${valueString}` : `${valueString} ${nameString}`}</Text>
           {!showTooltip &&
             description &&
             t(description)

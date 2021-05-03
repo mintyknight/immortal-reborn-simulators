@@ -3,7 +3,7 @@ import { Heading, Button, Text, Grid, Box, TextInput, DropButton } from 'grommet
 import { withTranslation } from 'react-i18next';
 import { Configure } from 'grommet-icons';
 
-import { MAX_VALUE, NODES } from './components/Constants';
+import { MAX_VALUE, NODES, SHOW_PERCENTAGE } from './components/Constants';
 
 import { Node, NodeType, PerkType } from './components';
 
@@ -295,7 +295,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                         string = '';
                       }
                     } else if (value) {
-                      const valueString = value > 1 ? value : `${Math.round(value * 10000) / 100}%`;
+                      const valueString = SHOW_PERCENTAGE[name] ? `${Math.round(value * 10000) / 100}%` : value;
                       if (isChinese) {
                         string = `${nameString} +${valueString}`;
                       } else {
