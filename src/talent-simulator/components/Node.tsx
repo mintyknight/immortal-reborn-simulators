@@ -116,7 +116,9 @@ export const Node = withTranslation('translations')(
     const _searchString = searchString?.toLocaleLowerCase();
     isFound =
       !!_searchString &&
-      (t(additionalSearchKeywords)?.toLocaleLowerCase().includes(_searchString) ||
+      (additionalSearchKeywords
+        ?.split(' ')
+        .some(searchKeyword => searchKeyword && t(searchKeyword)?.toLocaleLowerCase().includes(_searchString)) ||
         perks.some(
           ({ name, type, fullNameList, description }) =>
             t(name).toLocaleLowerCase().includes(_searchString) ||
