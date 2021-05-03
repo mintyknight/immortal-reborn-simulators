@@ -11,7 +11,7 @@
     "@types/node": "^12.12.62",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
-    "grommet": "^2.15.0",
+    "grommet": "^2.17.0",
     "grommet-icons": "^4.5.0",
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",

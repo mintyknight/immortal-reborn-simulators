@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Button, Text, Grid, Box, TextInput, DropButton } from 'grommet';
+import { Heading, Button, Text, Grid, Box, TextInput, DropButton, Tip } from 'grommet';
 import { withTranslation } from 'react-i18next';
 import { Configure } from 'grommet-icons';
 
@@ -100,7 +100,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
 
   const updateSummary = ({ perks }: NodeType, summary: any, isAdd: boolean, selectedPoints = 1) => {
     const _summary = { ...summary };
-    perks.forEach(({ name, fullNameList, type, value = 0, minValue = 0, maxValue = 0 }: PerkType) => {
+    perks.forEach(({ name, fullNameList, type, value = 0, minValue = 0, maxValue = 0, description }: PerkType) => {
       if (!_summary[type]) {
         _summary[type] = {};
       }
@@ -121,7 +121,7 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           _summary[type][name].max = (_summary[type][name].max || 0) + (isAdd ? maxValue : -maxValue) * selectedPoints;
         }
       } else {
-        _summary[type][name] = isAdd;
+        _summary[type][name] = isAdd ? description : '';
       }
     });
     return _summary;
@@ -280,8 +280,10 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                     const value = summary[type][name];
                     let string = '';
                     const nameString = t(name);
-                    if (typeof value === 'boolean') {
-                      string = value ? nameString : '';
+                    let description = '';
+                    if (typeof value === 'string' && value) {
+                      string = nameString;
+                      description = value;
                     } else if (typeof value === 'object') {
                       const { min, max } = value;
                       const valueString = `+${min}~${max}`;
@@ -305,7 +307,23 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                       string = '';
                     }
 
-                    return string !== '' && <Text key={name}>{string}</Text>;
+                    return (
+                      string &&
+                      (description ? (
+                        <Tip
+                          content={
+                            <Box pad="small" gap="small" width={{ max: 'small' }}>
+                              <Text size="small">{t(description)}</Text>
+                            </Box>
+                          }
+                          dropProps={{ align: { right: 'left' }, background: { color: 'light-1' } }}
+                          key={name}>
+                          <Text>{string}</Text>
+                        </Tip>
+                      ) : (
+                        <Text key={name}>{string}</Text>
+                      ))
+                    );
                   })}
                 </Box>
               )}
@@ -362,13 +380,13 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
           <DropButton
             icon={<Configure />}
             dropContent={statusPanel}
-            dropProps={{ align: { top: 'bottom', right: 'right' } }}
+            dropProps={{ align: { top: 'bottom', right: 'right' }, background: 'light-1' }}
           />
           <Button label={t('language')} onClick={() => i18n.changeLanguage(isChinese ? 'en' : 'cn')} />
           <DropButton
             label={t('askForUpdate')}
             dropContent={
-              <>
+              <Box>
                 <Button
                   label={t('forum')}
                   onClick={() => window.open(`https://www.taptap.com/topic/15451647`, '_blank')}
@@ -379,20 +397,20 @@ export const TalentSimulator = withTranslation()(({ pageSize, t, i18n }: { pageS
                     window.open(`https://${repoProvider}.com/mintyknight/immortal-reborn-simulators/issues`, '_blank')
                   }
                 />
-              </>
+              </Box>
             }
-            dropProps={{ align: { top: 'bottom', right: 'right' } }}
+            dropProps={{ align: { top: 'bottom', right: 'right' }, background: 'light-1' }}
           />
           <DropButton
             label={t('credit')}
             dropContent={
-              <>
+              <Box>
                 {credits.map(credit => (
                   <Text key={credit}>{t(credit)}</Text>
                 ))}
-              </>
+              </Box>
             }
-            dropProps={{ align: { top: 'bottom', right: 'right' } }}
+            dropProps={{ align: { top: 'bottom', right: 'right' }, background: 'light-1' }}
           />
         </Box>
       </AppBar>
