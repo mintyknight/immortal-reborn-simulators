@@ -269,7 +269,7 @@ export const NODES: NODESType = [
     type: 'notable',
     perks: [{ name: 'blockchance', type: 'defensiveStats', value: 0.035 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [19, 327],
+    linkedNodesIndexes: [19, 327, 328],
   },
   {
     id: 19,
@@ -328,7 +328,7 @@ export const NODES: NODESType = [
     type: 'notable',
     perks: [{ name: 'atkspd', type: 'offensiveStats', value: 0.06 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [22, 24, 55],
+    linkedNodesIndexes: [22, 24, 55, 329],
   },
   {
     id: 24,
@@ -4246,5 +4246,37 @@ export const NODES: NODESType = [
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [18],
+  },
+  {
+    id: 328,
+    x: 8,
+    y: 2,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'stress',
+        type: 'passive',
+        description: 'stressDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [18],
+  },
+  {
+    id: 329,
+    x: 15,
+    y: 1,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'shade',
+        type: 'passive',
+        description: 'shadeDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [23],
   },
 ];
