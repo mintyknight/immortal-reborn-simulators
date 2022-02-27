@@ -107,6 +107,7 @@ export default {
     alchemist: 'Alchemist',
     invulnerability: 'Invulnerability',
     leader: 'Leader',
+    spiritmaster: 'Spirit Master',
     // Keystone Description
     souldouseDescription: '+0.1% allies Lifesteal & Shieldsteal. Allies cannot recieve [Heal].',
     pugilistDescription:
@@ -139,6 +140,7 @@ export default {
     alchemistDescription: 'Enemies attacks deal -15% DMG, but inflict [Lvl.1 Poison, Bleed, Burn].',
     invulnerabilityDescription: '+5% All RES, +2% Max All RES',
     leaderDescription: 'Minions have +2.5% DMG per minion alive. Allies have +8% DMG Reduction per minion alive',
+    spiritmasterDescription: '+8% Minion ATK SPD, +4% Summon Boost',
     // Others
     cdr: 'CDR',
     shieldatstart: '[Shield] at start',
