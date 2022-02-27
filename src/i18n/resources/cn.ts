@@ -107,6 +107,7 @@ export default {
     alchemist: '炼金术师',
     invulnerability: '刀枪不入',
     leader: '领袖',
+    spiritmaster: '御魂师',
     // 核心天赋说明
     souldouseDescription: '生命吸取和护盾吸取分别增加0.1%，但己方无法再通过任何治疗方式恢复生命。',
     pugilistDescription: '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低6%。',
@@ -137,6 +138,7 @@ export default {
     alchemistDescription: '敌方的伤害降低15%，但敌方的每次攻击都会附带1层[燃烧][中毒][流血]。',
     invulnerabilityDescription: '全属性抗性+5%。全属性抗性上限+2%',
     leaderDescription: '己方每一个存活的随从，使己方随从伤害提高2.5%、己方全体受到的伤害降低8%。',
+    spiritmasterDescription: '随从攻速+8%，召唤增幅+4%',
     // 特殊
     cdr: '冷却恢复',
     shieldatstart: '开场获得护盾',
