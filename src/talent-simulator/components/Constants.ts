@@ -593,7 +593,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [{ name: 'summonboost', type: 'offensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [44],
+    linkedNodesIndexes: [44, 330],
   },
   {
     id: 46,
@@ -4278,5 +4278,21 @@ export const NODES: NODESType = [
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [23],
+  },
+  {
+    id: 330,
+    x: 49,
+    y: 1,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'spiritmaster',
+        type: 'passive',
+        description: 'spiritmasterDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [45],
   },
 ];
