@@ -108,6 +108,7 @@ export default {
     invulnerability: 'Invulnerability',
     leader: 'Leader',
     spiritmaster: 'Spirit Master',
+    kipup: 'Kip Up',
     // Keystone Description
     souldouseDescription: '+0.1% allies Lifesteal & Shieldsteal. Allies cannot recieve [Heal].',
     pugilistDescription:
@@ -141,6 +142,7 @@ export default {
     invulnerabilityDescription: '+5% All RES, +2% Max All RES',
     leaderDescription: 'Minions have +2.5% DMG per minion alive. Allies have +8% DMG Reduction per minion alive',
     spiritmasterDescription: '+8% Minion ATK SPD, +4% Summon Boost',
+    kipupDescription: 'You have -5% Summon Boost. Minions have +4% ATK & +8% ATK SPD',
     // Others
     cdr: 'CDR',
     shieldatstart: '[Shield] at start',
