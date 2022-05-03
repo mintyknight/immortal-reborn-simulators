@@ -108,6 +108,7 @@ export default {
     invulnerability: '刀枪不入',
     leader: '领袖',
     spiritmaster: '御魂师',
+    kipup: '奋起',
     // 核心天赋说明
     souldouseDescription: '生命吸取和护盾吸取分别增加0.1%，但己方无法再通过任何治疗方式恢复生命。',
     pugilistDescription: '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低6%。',
@@ -139,6 +140,7 @@ export default {
     invulnerabilityDescription: '全属性抗性+5%。全属性抗性上限+2%',
     leaderDescription: '己方每一个存活的随从，使己方随从伤害提高2.5%、己方全体受到的伤害降低8%。',
     spiritmasterDescription: '随从攻速+8%，召唤增幅+4%',
+    kipupDescription: '召唤增幅-5%，但随从攻击+4%，随从攻速+8%',
     // 特殊
     cdr: '冷却恢复',
     shieldatstart: '开场获得护盾',
