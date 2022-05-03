@@ -1904,7 +1904,7 @@ export const NODES: NODESType = [
       { name: 'armor', type: 'defensiveStats', value: 9 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [79, 148, 182],
+    linkedNodesIndexes: [79, 148, 182, 331],
   },
   {
     id: 148,
@@ -4294,5 +4294,21 @@ export const NODES: NODESType = [
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [45],
+  },
+  {
+    id: 331,
+    x: 0,
+    y: 7,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'kipup',
+        type: 'passive',
+        description: 'kipupDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [147],
   },
 ];
