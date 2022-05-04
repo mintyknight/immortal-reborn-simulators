@@ -593,7 +593,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [{ name: 'summonboost', type: 'offensiveStats', value: 0.04 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [44],
+    linkedNodesIndexes: [44, 330],
   },
   {
     id: 46,
@@ -1904,7 +1904,7 @@ export const NODES: NODESType = [
       { name: 'armor', type: 'defensiveStats', value: 9 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [79, 148, 182],
+    linkedNodesIndexes: [79, 148, 182, 331],
   },
   {
     id: 148,
@@ -4278,5 +4278,37 @@ export const NODES: NODESType = [
     ],
     additionalSearchKeywords: '',
     linkedNodesIndexes: [23],
+  },
+  {
+    id: 330,
+    x: 49,
+    y: 1,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'spiritmaster',
+        type: 'passive',
+        description: 'spiritmasterDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [45],
+  },
+  {
+    id: 331,
+    x: 0,
+    y: 7,
+    points: 1,
+    type: 'keystone',
+    perks: [
+      {
+        name: 'kipup',
+        type: 'passive',
+        description: 'kipupDescription',
+      },
+    ],
+    additionalSearchKeywords: '',
+    linkedNodesIndexes: [147],
   },
 ];
