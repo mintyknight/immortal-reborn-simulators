@@ -1308,7 +1308,7 @@ export const NODES: NODESType = [
       { name: 'hpregen', type: 'specialStats', value: 8 },
     ],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [67, 100],
+    linkedNodesIndexes: [67, 100, 102],
   },
   {
     id: 102,
@@ -1318,7 +1318,7 @@ export const NODES: NODESType = [
     type: 'basic',
     perks: [{ name: 'lck', type: 'baseStats', value: 3 }],
     additionalSearchKeywords: '',
-    linkedNodesIndexes: [103],
+    linkedNodesIndexes: [101, 103],
   },
   {
     id: 103,
