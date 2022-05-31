@@ -112,7 +112,7 @@ export default {
     // Keystone Description
     souldouseDescription: '+0.1% allies Lifesteal & Shieldsteal. Allies cannot recieve [Heal].',
     pugilistDescription:
-      'If Main Hand Weapon target ≤3, You have +1 Normal Attack target. You have -6% Normal Up.',
+      'If Main Hand Weapon target ≤3, You have +1 Normal Attack target. You have -4% Normal Up.',
     opposingheavenDescription: 'When allies have ≥25% HP, DMG taken reduce HP instead of [Shield].',
     stressDescription: 'When an ally blocks, [Heal] it based on 0.6% of its Max HP. This [Heal] is affected by Block%',
     luckyblessingDescription: '[Heal] can Crit. [Heal] Crit is always 150%.',

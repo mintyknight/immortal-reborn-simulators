@@ -111,7 +111,7 @@ export default {
     kipup: '奋起',
     // 核心天赋说明
     souldouseDescription: '生命吸取和护盾吸取分别增加0.1%，但己方无法再通过任何治疗方式恢复生命。',
-    pugilistDescription: '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低6%。',
+    pugilistDescription: '战斗中，若主武器的攻击范围≤3，则攻击范围+1，武器普攻伤害降低4%。',
     opposingheavenDescription: '当己方单位生命≥25%时，该单位所受到的所有伤害优先扣除生命再扣除护盾。',
     stressDescription: '战斗中己方单位格挡时，恢复0.6%的生命，该效果受格挡效果影响;与[肌肉记忆]互斥。',
     luckyblessingDescription: '治疗效果可以产生暴击，且治疗暴击时效果固定为150%。',
